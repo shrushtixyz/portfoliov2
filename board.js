@@ -17,13 +17,14 @@
   }
 
   var BOARD_SCALE = 0.72;
-  var CX = 1420;
-  var CY = 950;
-  var FIT_WIDTH = 2500;
-  var FIT_HEIGHT = 1850;
-  var SCALE_MIN = 0.5;
-  var SCALE_MAX = 1.25;
-  var ZOOM_BOOST = 1.02;
+  var CX = 1320;
+  var CY = 760;
+  var FIT_WIDTH = 2000;
+  var FIT_HEIGHT = 1500;
+  var VIEWPORT_FILL = 1;
+  var SCALE_MIN = 0.28;
+  var SCALE_MAX = 1;
+  var ZOOM_BOOST = 1.44;
 
   var position = { x: 0, y: 0 };
   var draggingCanvas = false;
@@ -31,6 +32,8 @@
 
   var draggingSticky = null;
   var stickyState = { mouseX: 0, mouseY: 0, left: 0, top: 0 };
+  var stickyDragMoved = false;
+  var DRAG_CLICK_THRESHOLD = 8;
 
   function viewportSize() {
     var r = viewport.getBoundingClientRect();
@@ -41,11 +44,14 @@
   }
 
   function computeBoardScale(width, height) {
-    var availW = Math.max(120, width);
-    var availH = Math.max(120, height);
-    var scaleW = availW / FIT_WIDTH;
-    var scaleH = availH / FIT_HEIGHT;
-    var scale = Math.max(scaleW, scaleH) * ZOOM_BOOST;
+    var pad = 48;
+    var availW = Math.max(120, width - pad);
+    var availH = Math.max(120, height - pad);
+    var targetW = availW * VIEWPORT_FILL;
+    var targetH = availH * VIEWPORT_FILL;
+    var scaleW = targetW / FIT_WIDTH;
+    var scaleH = targetH / FIT_HEIGHT;
+    var scale = Math.min(scaleW, scaleH) * ZOOM_BOOST;
     return Math.max(SCALE_MIN, Math.min(SCALE_MAX, scale));
   }
 
@@ -78,6 +84,7 @@
       e.preventDefault();
       setSelected(dragPiece);
       draggingSticky = dragPiece;
+      stickyDragMoved = false;
       dragPiece.classList.add("sticky-note--dragging");
       stickyState.mouseX = e.clientX;
       stickyState.mouseY = e.clientY;
@@ -96,8 +103,16 @@
 
   window.addEventListener("mousemove", function (e) {
     if (draggingSticky) {
-      var dx = (e.clientX - stickyState.mouseX) / BOARD_SCALE;
-      var dy = (e.clientY - stickyState.mouseY) / BOARD_SCALE;
+      var screenDx = e.clientX - stickyState.mouseX;
+      var screenDy = e.clientY - stickyState.mouseY;
+      if (
+        screenDx * screenDx + screenDy * screenDy >
+        DRAG_CLICK_THRESHOLD * DRAG_CLICK_THRESHOLD
+      ) {
+        stickyDragMoved = true;
+      }
+      var dx = screenDx / BOARD_SCALE;
+      var dy = screenDy / BOARD_SCALE;
       draggingSticky.style.left = stickyState.left + dx + "px";
       draggingSticky.style.top = stickyState.top + dy + "px";
       return;
@@ -110,6 +125,10 @@
 
   function endDrag() {
     if (draggingSticky) {
+      var href = draggingSticky.getAttribute("data-href");
+      if (href && !stickyDragMoved) {
+        window.location.href = href;
+      }
       draggingSticky.classList.remove("sticky-note--dragging");
       draggingSticky = null;
     }
@@ -136,6 +155,7 @@
         e.preventDefault();
         setSelected(dragPiece);
         draggingSticky = dragPiece;
+        stickyDragMoved = false;
         dragPiece.classList.add("sticky-note--dragging");
         stickyState.mouseX = t.clientX;
         stickyState.mouseY = t.clientY;
@@ -162,8 +182,16 @@
 
       if (draggingSticky) {
         e.preventDefault();
-        var dx = (t.clientX - stickyState.mouseX) / BOARD_SCALE;
-        var dy = (t.clientY - stickyState.mouseY) / BOARD_SCALE;
+        var touchDx = t.clientX - stickyState.mouseX;
+        var touchDy = t.clientY - stickyState.mouseY;
+        if (
+          touchDx * touchDx + touchDy * touchDy >
+          DRAG_CLICK_THRESHOLD * DRAG_CLICK_THRESHOLD
+        ) {
+          stickyDragMoved = true;
+        }
+        var dx = touchDx / BOARD_SCALE;
+        var dy = touchDy / BOARD_SCALE;
         draggingSticky.style.left = stickyState.left + dx + "px";
         draggingSticky.style.top = stickyState.top + dy + "px";
         return;
@@ -291,6 +319,16 @@
 
   if (!reduceMotion) {
     window.setInterval(showNextGalleryImage, 3200);
+  }
+
+  var galleryLink = canvas.querySelector(".board-gallery--link");
+  if (galleryLink) {
+    galleryLink.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault();
+      var href = galleryLink.getAttribute("data-href");
+      if (href) window.location.href = href;
+    });
   }
 
   var musicWidget = canvas.querySelector(".board-music");

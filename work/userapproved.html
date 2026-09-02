@@ -10,93 +10,256 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../case-study.css?v=14" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../case-study.css?v=42" />
   </head>
-  <body class="cs-theme-light">
+  <body class="cs-theme-light cs-font-satoshi cs-case-userapproved">
     <div class="cs-page">
       <aside class="cs-sidebar" aria-label="Case study navigation">
         <a class="cs-sidebar__back" href="../index.html#work">← Back</a>
         <nav class="cs-sidebar__nav" aria-label="Sections">
-          <a class="is-active" href="#overview" aria-current="true">Overview</a>
+          <a class="is-active" href="#impact" aria-current="true">Impact</a>
+          <a href="#overview">Overview</a>
           <a href="#problem">Problem</a>
-          <a href="#research">Research</a>
-          <a href="#designing">Designing</a>
+          <a href="#exploration">Exploring</a>
+          <a href="#defining">Defining</a>
+          <a href="#design">Design</a>
           <a href="#iterating">Iterating</a>
+          <a href="#solution">Solution</a>
         </nav>
+        <div class="cs-sidebar__details">
+          <dl class="cs-sidebar__meta">
+            <div>
+              <dt>Role:</dt>
+              <dd>Product Design Intern</dd>
+            </div>
+            <div>
+              <dt>Timeline:</dt>
+              <dd>3 months</dd>
+            </div>
+            <div>
+              <dt>Team:</dt>
+              <dd class="cs-team-links">
+                <a href="https://www.linkedin.com/in/reynoldwu/" target="_blank" rel="noopener noreferrer">Reynold Wu</a>,
+                <a href="https://www.linkedin.com/in/jonastirona/" target="_blank" rel="noopener noreferrer">Jonas Tirona</a>,
+                <a href="https://www.linkedin.com/in/wesley-chen-building/" target="_blank" rel="noopener noreferrer">Wesley Chen</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
       </aside>
 
       <main class="cs-main">
         <div class="cs-content">
-          <div class="cs-hero cs-hero--placeholder" role="img" aria-label="User Approved cover placeholder">
-            User Approved
+          <div class="cs-hero">
+            <img src="../assets/case%20studies/herouserapproved.png" alt="User Approved project cover" />
           </div>
 
-          <dl class="cs-meta">
+          <div class="cs-body">
+          <dl class="cs-meta cs-meta--mobile">
             <div class="cs-meta__item">
               <dt class="cs-meta__label">Role:</dt>
-              <dd class="cs-meta__value"> Role</dd>
+              <dd class="cs-meta__value"> Product Design Intern</dd>
             </div>
             <div class="cs-meta__item">
               <dt class="cs-meta__label">Timeline:</dt>
-              <dd class="cs-meta__value"> Year · Location</dd>
+              <dd class="cs-meta__value"> 3 months</dd>
             </div>
             <div class="cs-meta__item">
               <dt class="cs-meta__label">Team:</dt>
-              <dd class="cs-meta__value"> Placeholder — add team</dd>
+              <dd class="cs-meta__value cs-team-links">
+                <a href="https://www.linkedin.com/in/reynoldwu/" target="_blank" rel="noopener noreferrer">Reynold Wu</a>,
+                <a href="https://www.linkedin.com/in/jonastirona/" target="_blank" rel="noopener noreferrer">Jonas Tirona</a>,
+                <a href="https://www.linkedin.com/in/wesley-chen-building/" target="_blank" rel="noopener noreferrer">Wesley Chen</a>
+              </dd>
             </div>
           </dl>
 
           <header class="cs-intro">
             <h1 class="cs-intro__title">
-              Placeholder intro for User Approved — swap this headline when the write-up
-              is ready
+              Designing an AI product to create and manage synthetic users for ecommerce companies
             </h1>
           </header>
 
+          <section class="cs-section" id="impact">
+            <p class="cs-section__label">Impact</p>
+            <ul class="cs-section__list">
+              <li>
+                Shipped over 5 core product features including redesigning onboarding and activation flows, increasing completion rates and improving first-time user activation by 40%.
+              </li>
+              <li>
+                Built and scaled a design system adopted across the entire product, cutting design-to-development handoff.
+              </li>
+              <li>
+                Collaborated directly with over 15 early users and senior product managers for feedback, interviews, usability tests, and UX audits that informed redesigns and simplified key workflows, implemented solutions in Figma.
+              </li>
+              <li>
+                Worked with a team of 4 to accelerate changes and ship quickly, directly coding frontend changes (React, TypeScript) to accelerate release cycles and reduce QA bottlenecks.
+              </li>
+            </ul>
+          </section>
+
+          <figure class="cs-media cs-media--spaced">
+            <img
+              src="../assets/case%20studies/explain.svg"
+              alt="User Approved product experience map 1"
+              loading="lazy"
+            />
+          </figure>
+
           <section class="cs-section" id="overview">
             <p class="cs-section__label">Overview</p>
-            <h2 class="cs-section__heading">User Approved case study overview</h2>
+            <h2 class="cs-section__heading">
+              An AI tool for simulating users and testing product iterations
+            </h2>
             <p class="cs-section__body">
-              Placeholder overview. Replace with project context, goals, and ownership.
+              Over three months at a fast-moving AI startup, I wore multiple hats as a product design intern, designing, prototyping, coding, and testing across the product. I worked directly with engineers and early users to iterate quickly, shipping 5+ core features, building a design system, and leading key UX redesigns.
             </p>
-            <div class="cs-slot cs-slot--tall" aria-hidden="true">Walk through</div>
+            <p class="cs-section__body">
+              Userapproved is a UX research and product iteration tool simulating users to gain insights and test product iteration.
+            </p>
+            <p class="cs-section__body">
+              The goal was building an easy, customizable tool that teams could quickly adapt their workflows and use to improve products efficiently.
+            </p>
           </section>
 
           <section class="cs-section" id="problem">
             <p class="cs-section__label">Problem</p>
-            <h2 class="cs-section__heading">Define the core problem</h2>
+            <h2 class="cs-section__heading">
+              Broken onboarding and cluttered UX made it hard to see value
+            </h2>
             <p class="cs-section__body">
-              Placeholder for the problem statement and why it mattered.
+              When I joined, three core problems were holding the product back:
             </p>
-            <div class="cs-slot" aria-hidden="true">Problem visuals</div>
+            <ul class="cs-section__list">
+              <li>
+                Onboarding and activation flows were fragmented and confusing, with limited activation for new users and an unclear first experience.
+              </li>
+              <li>
+                The core product experience was cluttered — dashboards, reports, and navigation structures were overwhelming and workflows weren’t optimized for efficiency.
+              </li>
+              <li>
+                The product had no consistent design system, which slowed collaboration between design and engineering and introduced inconsistencies into the UI.
+              </li>
+            </ul>
           </section>
 
-          <section class="cs-section" id="research">
-            <p class="cs-section__label">Research</p>
-            <h2 class="cs-section__heading">What we learned</h2>
+          <section class="cs-section" id="exploration">
+            <p class="cs-section__label">Exploring</p>
+            <h2 class="cs-section__heading">
+              Mapping the product experience
+            </h2>
             <p class="cs-section__body">
-              Placeholder for research methods and insights.
+              Initially, I had to create audits to analyze the existing product. Through audits I got an idea of where there might be friction points in the user experience, and what to start to build on when interviewing users. Then I conducted market research, understanding the product space and competitor products.
             </p>
-            <div class="cs-slot" aria-hidden="true">Research artifacts</div>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/explain2.svg"
+                alt="User Approved product experience map 2"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/u1.png"
+                alt="User Approved exploration"
+                loading="lazy"
+              />
+            </figure>
           </section>
 
-          <section class="cs-section" id="designing">
-            <p class="cs-section__label">Designing</p>
-            <h2 class="cs-section__heading">Key design directions</h2>
+          <section class="cs-section" id="defining">
+            <p class="cs-section__label">Defining</p>
+            <h2 class="cs-section__heading">
+              Understanding what users needed through interviews
+            </h2>
+            <p class="cs-section__subheading">Research: Interviews</p>
             <p class="cs-section__body">
-              Placeholder for flows, screens, and design decisions.
+              I conducted a total of 10 interviews across QA Testers, Product Managers, and Product Designers. This was the most exciting and rewarding part of conducting research because I really understood what users wanted! Especially being on such a small team, being able to hear pain points directly from experienced users and relevant customers was really helpful.
             </p>
-            <div class="cs-slot cs-slot--tall" aria-hidden="true">Design explorations</div>
+            <p class="cs-section__body">Some key insights learned were:</p>
+            <ul class="cs-section__list">
+              <li>Insight 1: Onboarding is confusing, users need clearer guidance and personalization</li>
+              <li>Insight 2: The report is overwhelming, users need summaries, fast synthesis, clear communication.</li>
+              <li>Insight 3: The interface is confusing, users need a unified design system and structure.</li>
+            </ul>
+            <p class="cs-section__callout">
+              "I'd rather have that step by step. This is me. This is what I'm looking for, and then you give me what I want."
+            </p>
+            <p class="cs-section__callout">
+              "If I click projects, is this the main page I see right away?"
+            </p>
+            <p class="cs-section__callout">
+              "The first page to be, like, super complex. Like, over all the, you know, cognitive overload."
+            </p>
+            <p class="cs-section__callout">
+              "I just want a quick snapshot of that. Of, like, percentages, maybe some graphs, make it look pretty. I don't want all the text."
+            </p>
+            <p class="cs-section__callout">
+              "Having a good way to organize it, having a good way to maintain all of it without having to go to each and every single test case… that's also very important."
+            </p>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/u2.png"
+                alt="User Approved research synthesis"
+                loading="lazy"
+              />
+            </figure>
+          </section>
+
+          <section class="cs-section" id="design">
+            <p class="cs-section__label">Design</p>
+            <h2 class="cs-section__heading">
+              Designing activation flows for new users
+            </h2>
+            <p class="cs-section__body">
+              After getting the green light on the proposals, I was able to start designing! I started with creating iterations of activations for new users, first mapping it out in a user flow and then creating suggested changes to show the team.
+            </p>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/u3.png"
+                alt="User Approved design explorations"
+                loading="lazy"
+              />
+            </figure>
           </section>
 
           <section class="cs-section" id="iterating">
             <p class="cs-section__label">Iterating</p>
-            <h2 class="cs-section__heading">What changed after feedback</h2>
-            <p class="cs-section__body">
-              Placeholder for iteration loops and outcomes.
-            </p>
-            <div class="cs-slot" aria-hidden="true">Iterations & outcomes</div>
+            <h2 class="cs-section__heading">
+              Prioritizing onboarding, navigation, and clearer reporting
+            </h2>
+            <p class="cs-section__body">I prioritized working on:</p>
+            <ol class="cs-section__list">
+              <li>Simplified onboarding and dashboard flow for clearer user value</li>
+              <li>Better information architecture especially for navigation and project creation</li>
+              <li>Decluttering report/Communicating impact more effectively</li>
+            </ol>
           </section>
+
+          <section class="cs-section" id="solution">
+            <p class="cs-section__label">Solution</p>
+            <h2 class="cs-section__heading">
+              Foundational design structuring the product experience and design system
+            </h2>
+            <p class="cs-section__body">
+              I learned so much and shipped over 5 core product features including redesigning onboarding and activation flows, increasing completion rates and improving first-time user activation by 40%. I worked through several ideas implementing what was important to the user especially with improving the sitemap, organizing different features, and shaping the report pages. I built and scaled a design system adopted across the entire product, cutting design-to-development handoff.
+            </p>
+            <p class="cs-section__body">
+              I learned how to move fast, make confident design calls, and back up my reasoning even when things were uncertain. Beyond design skills, I picked up skills that school could never teach me: shipping real features, collaborating deeply with engineers, and building systems that scale.
+            </p>
+          </section>
+
+          <p class="cs-section__note">
+            This work is under NDA.
+            <a href="https://www.linkedin.com/in/shrushtichavan" target="_blank" rel="noopener noreferrer">Contact me</a>
+            to dive deeper, or visit
+            <a href="https://www.userapproved.ai/" target="_blank" rel="noopener noreferrer">UserApproved.ai</a>.
+          </p>
+          </div>
         </div>
       </main>
     </div>

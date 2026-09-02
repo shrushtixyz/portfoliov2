@@ -14,18 +14,19 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../case-study.css?v=14" />
+    <link rel="stylesheet" href="../case-study.css?v=39" />
   </head>
-  <body class="cs-theme-dark cs-font-satoshi">
+  <body class="cs-theme-dark cs-font-satoshi cs-case-seatgeek">
     <div class="cs-page">
       <aside class="cs-sidebar" aria-label="Case study navigation">
         <a class="cs-sidebar__back" href="../index.html#work">← Back</a>
         <nav class="cs-sidebar__nav" aria-label="Sections">
-          <a class="is-active" href="#overview" aria-current="true">Overview</a>
+          <a class="is-active" href="#impact" aria-current="true">Impact</a>
+          <a href="#overview">Overview</a>
           <a href="#problem">Problem</a>
-          <a href="#research">Research</a>
-          <a href="#designing">Designing</a>
-          <a href="#iterating">Iterating</a>
+          <a href="#exploration">Exploring</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#solution">Solution</a>
         </nav>
         <div class="cs-sidebar__details">
           <dl class="cs-sidebar__meta">
@@ -40,10 +41,10 @@
             <div>
               <dt>Team:</dt>
               <dd class="cs-team-links">
-                <a href="https://www.linkedin.com/in/harsheshsayani/" target="_blank" rel="noopener">Harshesh Sayani</a>,
-                <a href="https://www.linkedin.com/in/edison-bo-chen/" target="_blank" rel="noopener">Edison Chen</a>,
-                <a href="https://www.linkedin.com/in/reem-alsaihati/" target="_blank" rel="noopener">Reem AlSaihati</a>,
-                <a href="https://www.linkedin.com/in/sergederby/" target="_blank" rel="noopener">Serge Derby</a>
+                <a href="https://www.linkedin.com/in/harsheshsayani/" target="_blank" rel="noopener noreferrer">Harshesh Sayani</a>,
+                <a href="https://www.linkedin.com/in/edison-bo-chen/" target="_blank" rel="noopener noreferrer">Edison Chen</a>,
+                <a href="https://www.linkedin.com/in/reem-alsaihati/" target="_blank" rel="noopener noreferrer">Reem AlSaihati</a>,
+                <a href="https://www.linkedin.com/in/sergederby/" target="_blank" rel="noopener noreferrer">Serge Derby</a>
               </dd>
             </div>
           </dl>
@@ -53,9 +54,10 @@
       <main class="cs-main">
         <div class="cs-content">
           <div class="cs-hero">
-            <img src="../assets/sgcasestudy.gif" alt="SeatGeek project cover" />
+            <img src="../assets/case%20studies/sgcasestudy.gif" alt="SeatGeek project cover" />
           </div>
 
+          <div class="cs-body">
           <dl class="cs-meta cs-meta--mobile">
             <div class="cs-meta__item">
               <dt class="cs-meta__label">Role:</dt>
@@ -68,86 +70,184 @@
             <div class="cs-meta__item">
               <dt class="cs-meta__label">Team:</dt>
               <dd class="cs-meta__value cs-team-links">
-                <a href="https://www.linkedin.com/in/harsheshsayani/" target="_blank" rel="noopener">Harshesh Sayani</a>,
-                <a href="https://www.linkedin.com/in/edison-bo-chen/" target="_blank" rel="noopener">Edison Chen</a>,
-                <a href="https://www.linkedin.com/in/reem-alsaihati/" target="_blank" rel="noopener">Reem AlSaihati</a>,
-                <a href="https://www.linkedin.com/in/sergederby/" target="_blank" rel="noopener">Serge Derby</a>
+                <a href="https://www.linkedin.com/in/harsheshsayani/" target="_blank" rel="noopener noreferrer">Harshesh Sayani</a>,
+                <a href="https://www.linkedin.com/in/edison-bo-chen/" target="_blank" rel="noopener noreferrer">Edison Chen</a>,
+                <a href="https://www.linkedin.com/in/reem-alsaihati/" target="_blank" rel="noopener noreferrer">Reem AlSaihati</a>,
+                <a href="https://www.linkedin.com/in/sergederby/" target="_blank" rel="noopener noreferrer">Serge Derby</a>
               </dd>
             </div>
           </dl>
 
           <header class="cs-intro">
             <h1 class="cs-intro__title">
-              I designed a more intuitive experience for users listing tickets and adopting Smart Pricing to <em>increase</em> sell through rate
+              Redesigning How SeatGeek Sellers Price and Sell Tickets
             </h1>
           </header>
+
+          <section class="cs-section" id="impact">
+            <p class="cs-section__label">Impact</p>
+            <ul class="cs-section__list">
+              <li>
+                Designed and shipped a pricing growth experiment targeting the 62% of manual sellers pricing outside SeatGeek’s recommended range.
+              </li>
+              <li>
+                Redesigned 3 seller-side experiences across Manual Pricing, Smart Pricing, and Pricing Insights, translating complex marketplace data into simpler, more actionable pricing decisions.
+              </li>
+              <li>
+                Conducted and moderated research with 5 SeatGeek sellers.
+              </li>
+              <li>
+                Defined the end-to-end experiment logic and handoff across pricing states, edge cases, and fallbacks, partnering with Product, Engineering, UX Research, Data Analytics, and Legal to prepare the experience for deployment.
+              </li>
+            </ul>
+          </section>
 
           <section class="cs-section" id="overview">
             <p class="cs-section__label">Overview</p>
             <h2 class="cs-section__heading">
-              Helping sellers list, price, and manage inventory with confidence
+              Turning market complexity into an actionable pricing decision
             </h2>
             <p class="cs-section__body">
-              At SeatGeek I designed for the seller team, focusing on Smart Pricing —
-              improving adoption and conversion so sellers can price tickets better and
-              move inventory at scale. This case study walks through the problem space,
-              research, design process, and iterations that shaped the experience.
+              When sellers list tickets on SeatGeek, they need to make a decision quickly based on multiple factors.
             </p>
-            <div class="cs-slot cs-slot--tall" aria-hidden="true">Walk through</div>
+            <p class="cs-section__body">
+              I worked with the Seller team to rethink how pricing recommendations and market insights could help sellers make that decision with more confidence and visibility.
+            </p>
           </section>
 
           <section class="cs-section" id="problem">
             <p class="cs-section__label">Problem</p>
             <h2 class="cs-section__heading">
-              Sellers needed clearer guidance to price with confidence
+              Sellers had information, but weren't making confident pricing decisions
             </h2>
             <p class="cs-section__body">
-              Pricing tickets is high-stakes and often opaque. Sellers struggled to trust
-              recommendations, understand how Smart Pricing worked, and adopt it in their
-              listing workflow. Placeholder: expand with the specific friction points and
-              business goals that framed this project.
+              Through an initial audit and conversations with PMs, designers, engineers, and the broader seller team, I identified three core problems:
             </p>
-            <div class="cs-slot" aria-hidden="true">Problem visuals</div>
+            <ul class="cs-section__list">
+              <li>Sellers were pricing tickets too high.</li>
+              <li>Sellers weren't understanding why they should trust our recommendations.</li>
+              <li>Sellers weren't consistently adopting Smart Pricing.</li>
+            </ul>
+
+            <figure class="cs-stat-panel">
+              <div class="cs-stat-panel__copy">
+                <img
+                  class="cs-stat-panel__value"
+                  src="../assets/case%20studies/62%25.png"
+                  alt="62%"
+                  width="280"
+                  height="120"
+                />
+                <img
+                  class="cs-stat-panel__caption"
+                  src="../assets/case%20studies/sellers%20price%20outside%20of%20our%20recommended%20range.png"
+                  alt="sellers price outside of our recommended range"
+                  width="320"
+                  height="80"
+                />
+              </div>
+              <div class="cs-stat-panel__visual" aria-hidden="true">
+                <img
+                  src="../assets/case%20studies/Frame%202134283731.png"
+                  alt=""
+                  width="640"
+                  height="420"
+                />
+              </div>
+            </figure>
           </section>
 
-          <section class="cs-section" id="research">
-            <p class="cs-section__label">Research</p>
+          <section class="cs-section" id="exploration">
+            <p class="cs-section__label">Exploring Pricing Insights</p>
             <h2 class="cs-section__heading">
-              Understanding how sellers decide what a ticket is worth
+              What if we gave sellers more context?
             </h2>
-            <p class="cs-section__body">
-              Placeholder for user interviews, competitive audits, analytics, and insights
-              that informed the opportunity. Capture what sellers cared about when listing
-              and pricing, and where Smart Pricing fell short of their mental models.
+            <p class="cs-section__subheading">My initial hypothesis was:</p>
+            <p class="cs-section__callout">
+              Users will price better if we give them more data they can trust.
             </p>
-            <div class="cs-slot" aria-hidden="true">Research artifacts</div>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/Similar%20listings%2010.svg"
+                alt="Similar listings pricing insights"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="cs-media">
+              <video
+                src="../assets/case%20studies/pricing-insights.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                disablepictureinpicture
+                preload="metadata"
+                aria-label="Pricing insights iteration"
+              ></video>
+            </figure>
           </section>
 
-          <section class="cs-section" id="designing">
-            <p class="cs-section__label">Designing</p>
+          <section class="cs-section" id="roadmap">
+            <p class="cs-section__label">Redefining Roadmap</p>
             <h2 class="cs-section__heading">
-              Designing flows that make Smart Pricing feel trustworthy
+              Design and product direction changed several times
             </h2>
             <p class="cs-section__body">
-              Placeholder for key screens, flows, and design decisions — from listing entry
-              points to pricing recommendations and confirmation. Highlight how the UI
-              communicates value, control, and expected outcomes.
+              Recent Sales added significant complexity to the experience and increased the amount of information sellers had to interpret.
             </p>
-            <div class="cs-slot cs-slot--tall" aria-hidden="true">Design explorations</div>
+            <p class="cs-section__body">
+              More importantly, historical analysis showed that recent sale prices were above SeatGeek's recommendation roughly 60–66% of the time.
+            </p>
+            <p class="cs-section__body">
+              There were several problems with shipping this growth experiment and after aligning with product and engineering we decided the first issue to tackle would be influencing the pricing decision. A lower lift experiment with higher impact needed to be shipped.
+            </p>
+            <p class="cs-section__subheading">Instead of:</p>
+            <p class="cs-section__callout">
+              "How can we give sellers more data to help them price better?"
+            </p>
+            <p class="cs-section__subheading">I asked:</p>
+            <p class="cs-section__callout">
+              "How might we design an experiment that moves the needle and enforces behavior change in sellers?"
+            </p>
           </section>
 
-          <section class="cs-section" id="iterating">
-            <p class="cs-section__label">Iterating</p>
+          <section class="cs-section" id="solution">
+            <p class="cs-section__label">Solution</p>
             <h2 class="cs-section__heading">
-              Shipping, measuring, and refining for adoption
+              Making the recommendation easier to understand and act on
             </h2>
             <p class="cs-section__body">
-              Placeholder for experimentation, feedback loops, and outcomes — including how
-              design changes moved Smart Pricing adoption and sell-through metrics for the
-              seller team.
+              I explored how pricing insights could help sellers understand:
             </p>
-            <div class="cs-slot" aria-hidden="true">Iterations & outcomes</div>
+            <p class="cs-section__flow">
+              Where the market is → Where they're priced → Where they should be
+            </p>
+            <p class="cs-section__body">
+              Rather than overwhelming sellers with more information, the final direction focused on making the recommendation itself more actionable.
+            </p>
+            <figure class="cs-media cs-media--compact">
+              <img
+                src="../assets/case%20studies/fromthisx.png"
+                alt="Solution design"
+                loading="lazy"
+              />
+            </figure>
           </section>
+
+          <p class="cs-section__note">
+            Want to learn more?
+            <a href="https://www.linkedin.com/in/shrushtichavan" target="_blank" rel="noopener noreferrer">Contact me</a>
+            — this work is under NDA.
+          </p>
+
+          <figure class="cs-media cs-media--footer">
+            <img
+              src="../assets/case%20studies/pics.png"
+              alt="Additional solution screens"
+              loading="lazy"
+            />
+          </figure>
+          </div>
         </div>
       </main>
     </div>

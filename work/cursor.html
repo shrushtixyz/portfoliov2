@@ -10,92 +10,263 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../case-study.css?v=14" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../case-study.css?v=43" />
   </head>
-  <body class="cs-theme-dark">
+  <body class="cs-theme-dark cs-font-satoshi cs-case-cursor">
     <div class="cs-page">
       <aside class="cs-sidebar" aria-label="Case study navigation">
         <a class="cs-sidebar__back" href="../index.html#work">← Back</a>
         <nav class="cs-sidebar__nav" aria-label="Sections">
-          <a class="is-active" href="#overview" aria-current="true">Overview</a>
+          <a class="is-active" href="#impact" aria-current="true">Impact</a>
+          <a href="#overview">Overview</a>
           <a href="#problem">Problem</a>
           <a href="#research">Research</a>
-          <a href="#designing">Designing</a>
-          <a href="#iterating">Iterating</a>
+          <a href="#unmoderated">Unmoderated</a>
+          <a href="#moderated">Moderated</a>
+          <a href="#solution">Solution</a>
+          <a href="#conclusion">Outcomes</a>
         </nav>
+        <div class="cs-sidebar__details">
+          <dl class="cs-sidebar__meta">
+            <div>
+              <dt>Role:</dt>
+              <dd>UX Research &amp; Design</dd>
+            </div>
+            <div>
+              <dt>Timeline:</dt>
+              <dd>March – May 2025</dd>
+            </div>
+            <div>
+              <dt>Team:</dt>
+              <dd class="cs-team-links">
+                <a href="https://www.linkedin.com/in/angelhagen/" target="_blank" rel="noopener noreferrer">Angel Hagen</a>,
+                <a href="https://www.linkedin.com/in/tiffany-chau-227759283/" target="_blank" rel="noopener noreferrer">Tiffany Chau</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
       </aside>
 
       <main class="cs-main">
         <div class="cs-content">
-          <div class="cs-hero cs-hero--placeholder" role="img" aria-label="Cursor cover placeholder">
-            Cursor
+          <div class="cs-hero">
+            <img src="../assets/main%20viewport%20fig/cursorgif1.gif" alt="Cursor project cover" />
           </div>
 
-          <dl class="cs-meta">
+          <div class="cs-body">
+          <dl class="cs-meta cs-meta--mobile">
             <div class="cs-meta__item">
               <dt class="cs-meta__label">Role:</dt>
-              <dd class="cs-meta__value"> Role</dd>
+              <dd class="cs-meta__value"> UX Research &amp; Design</dd>
             </div>
             <div class="cs-meta__item">
               <dt class="cs-meta__label">Timeline:</dt>
-              <dd class="cs-meta__value"> Year · Location</dd>
+              <dd class="cs-meta__value"> March – May 2025</dd>
             </div>
             <div class="cs-meta__item">
               <dt class="cs-meta__label">Team:</dt>
-              <dd class="cs-meta__value"> Placeholder — add team</dd>
+              <dd class="cs-meta__value cs-team-links">
+                <a href="https://www.linkedin.com/in/angelhagen/" target="_blank" rel="noopener noreferrer">Angel Hagen</a>,
+                <a href="https://www.linkedin.com/in/tiffany-chau-227759283/" target="_blank" rel="noopener noreferrer">Tiffany Chau</a>
+              </dd>
             </div>
           </dl>
 
           <header class="cs-intro">
             <h1 class="cs-intro__title">
-              Placeholder intro for Cursor — swap this headline when the write-up is ready
+              Redesigning Cursor’s onboarding for developers at every level
             </h1>
           </header>
 
+          <section class="cs-section" id="impact">
+            <p class="cs-section__label">Impact</p>
+            <ul class="cs-section__list">
+              <li>
+                Led research interviews, identifying key user pain points and improving onboarding and accessibility, resulting in a more intuitive user experience for both beginners and experienced developers.
+              </li>
+              <li>
+                Led wireframing and early design iterations, addressing navigation issues and confusing terminology, resulting in a streamlined onboarding experience for users at all skill levels.
+              </li>
+              <li>
+                Created and presented design decks, clearly communicating user insights and design decisions, which helped align the team and stakeholders on key product directions.
+              </li>
+            </ul>
+          </section>
+
           <section class="cs-section" id="overview">
             <p class="cs-section__label">Overview</p>
-            <h2 class="cs-section__heading">Cursor case study overview</h2>
+            <h2 class="cs-section__heading">
+              Testing whether Cursor works for novice and experienced developers
+            </h2>
             <p class="cs-section__body">
-              Placeholder overview. Replace with project context, goals, and ownership.
+              Cursor is an AI-powered code editor designed to help developers in writing, debugging, and optimizing code.
             </p>
-            <div class="cs-slot cs-slot--tall" aria-hidden="true">Walk through</div>
+            <p class="cs-section__body">
+              Declaring that it was made for both novice and experienced developers, we wanted to test how well it actually works for different types of users. In our analysis, we tested getting started with Cursor, how helpful AI suggestions are, and whether it is an intuitive experience.
+            </p>
           </section>
 
           <section class="cs-section" id="problem">
             <p class="cs-section__label">Problem</p>
-            <h2 class="cs-section__heading">Define the core problem</h2>
+            <h2 class="cs-section__heading">
+              The problem space
+            </h2>
             <p class="cs-section__body">
-              Placeholder for the problem statement and why it mattered.
+              While using Cursor, we found that many users struggled with onboarding, understanding the interface and starting a new project.
             </p>
-            <div class="cs-slot" aria-hidden="true">Problem visuals</div>
+            <ul class="cs-section__list">
+              <li>Onboarding is hard to understand</li>
+              <li>Interface includes hidden features and unfamiliar terminology</li>
+              <li>Starting a new project takes too long</li>
+            </ul>
+            <p class="cs-section__subheading">Our goals</p>
+            <ol class="cs-section__list">
+              <li>Make it easier for new users to understand the onboarding</li>
+              <li>Fewer usability errors and hesitations</li>
+              <li>Make it faster and much simpler to create a new project</li>
+            </ol>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/cursor/audit.png"
+                alt="Cursor product audit"
+                loading="lazy"
+              />
+            </figure>
           </section>
 
           <section class="cs-section" id="research">
-            <p class="cs-section__label">Research</p>
-            <h2 class="cs-section__heading">What we learned</h2>
+            <p class="cs-section__label">Evaluative research</p>
+            <h2 class="cs-section__heading">
+              Competitive audit and early design exploration
+            </h2>
+            <p class="cs-section__subheading">Competitive audit</p>
             <p class="cs-section__body">
-              Placeholder for research methods and insights.
+              We began with a competitive audit to understand how other AI-powered editors and developer tools approach onboarding, first-run experiences, and surfacing AI features.
             </p>
-            <div class="cs-slot" aria-hidden="true">Research artifacts</div>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/cursor/competitibveaudit.png"
+                alt="Cursor competitive audit"
+                loading="lazy"
+              />
+            </figure>
+            <p class="cs-section__subheading">How might we</p>
+            <p class="cs-section__callout">
+              How might we streamline Cursor’s onboarding and redesign the first-time experience to feel intuitive and efficient for developers?
+            </p>
+            <p class="cs-section__subheading">Design version 1</p>
+            <p class="cs-section__body">
+              Based on our audit and early synthesis, we explored a first design direction focused on clearer entry points, simplified navigation, and a more guided first-run experience.
+            </p>
           </section>
 
-          <section class="cs-section" id="designing">
-            <p class="cs-section__label">Designing</p>
-            <h2 class="cs-section__heading">Key design directions</h2>
+          <section class="cs-section" id="unmoderated">
+            <p class="cs-section__label">Unmoderated testing</p>
+            <h2 class="cs-section__heading">
+              Testing download, setup, and first use
+            </h2>
+            <p class="cs-section__subheading">Using usertesting.com and Dovetail</p>
             <p class="cs-section__body">
-              Placeholder for flows, screens, and design decisions.
+              We conducted 3 unmoderated interviews. Using usertesting.com, we screened and recruited experienced developers to conduct a task flow downloading and using Cursor, then using our prototype.
             </p>
-            <div class="cs-slot cs-slot--tall" aria-hidden="true">Design explorations</div>
+            <p class="cs-section__subheading">Our tasks for unmoderated testers</p>
+            <ol class="cs-section__list">
+              <li>Download Cursor</li>
+              <li>Start a new project</li>
+              <li>Use our prototype and compare</li>
+            </ol>
+            <p class="cs-section__subheading">Pain points</p>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/cursor/painponts.png"
+                alt="User pain points from unmoderated testing"
+                loading="lazy"
+              />
+            </figure>
+            <p class="cs-section__subheading">Insights</p>
+            <p class="cs-section__body">
+              Based on the interviews, we identified what worked well across onboarding, AI interaction, and the beginner experience:
+            </p>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/cursor/cursor-insights.png"
+                alt="Research insights: some users knew how to upload or open existing projects; the agent’s code suggestions were easy to trigger; and new options provided clear starting points for beginners"
+                loading="lazy"
+              />
+            </figure>
           </section>
 
-          <section class="cs-section" id="iterating">
-            <p class="cs-section__label">Iterating</p>
-            <h2 class="cs-section__heading">What changed after feedback</h2>
+          <section class="cs-section" id="moderated">
+            <p class="cs-section__label">Moderated testing</p>
+            <h2 class="cs-section__heading">
+              Prototype walkthroughs and live feedback
+            </h2>
+            <p class="cs-section__subheading">Using Figma and Dovetail</p>
             <p class="cs-section__body">
-              Placeholder for iteration loops and outcomes.
+              Similarly, recruiting participants, we conducted 3 moderated interviews on Zoom.
             </p>
-            <div class="cs-slot" aria-hidden="true">Iterations & outcomes</div>
+            <p class="cs-section__body">
+              Our participants were experienced developers, two familiar with Cursor, and one new to Cursor.
+            </p>
+            <p class="cs-section__subheading">Our tasks for moderated testers</p>
+            <ol class="cs-section__list">
+              <li>Navigate our prototype</li>
+              <li>Engage with feedback</li>
+            </ol>
+            <p class="cs-section__subheading">Quotes</p>
+            <p class="cs-section__callout">
+              “It’s hard to read. But you know what will help? Let’s say I click on it and then this search window. If it pops right on top of this one. Then I know like you click on it and there’s another screen opens where you search.”
+            </p>
+            <p class="cs-section__callout">
+              “I would have liked if before I signed up, if there was just something telling me what Cursor was a little bit more.”
+            </p>
+            <p class="cs-section__callout">
+              “Yeah, I definitely think adding these three buttons will benefit like beginners or people who are not very familiar with VS code who just want to start live coding.”
+            </p>
+            <p class="cs-section__subheading">Insights</p>
+            <p class="cs-section__body">
+              Based on the interviews, our identified user pain points:
+            </p>
+            <ul class="cs-section__list">
+              <li>Search and discovery patterns are unclear — users need stronger visual affordances when one action opens another layer of the interface.</li>
+              <li>Pre-signup education is too thin — new users want a clearer explanation of what Cursor is before committing to download or create an account.</li>
+              <li>Beginners need explicit starting paths — guided entry points help users who are less familiar with VS Code get into live coding faster.</li>
+            </ul>
           </section>
+
+          <section class="cs-section" id="solution">
+            <p class="cs-section__label">Solution</p>
+            <h2 class="cs-section__heading">
+              A more guided first-run experience for every skill level
+            </h2>
+            <p class="cs-section__body">
+              Our proposed redesign focused on making Cursor’s value clearer before signup, simplifying how users start a new project, and giving beginners obvious entry points without hiding power-user workflows.
+            </p>
+            <p class="cs-section__body">
+              Design version 1 introduced clearer onboarding language, more visible navigation for core actions, and beginner-friendly starting options informed by both unmoderated and moderated testing.
+            </p>
+          </section>
+
+          <section class="cs-section" id="conclusion">
+            <p class="cs-section__label">Outcomes and reflections</p>
+            <h2 class="cs-section__heading">
+              What we learned and where we’d go next
+            </h2>
+            <p class="cs-section__body">
+              We learned how important it is to design onboarding especially more intuitively, with clarity, and with different experience levels and accessibility in mind.
+            </p>
+            <p class="cs-section__body">
+              We realized that even small changes like instruction or clearer buttons can ease hesitation for users.
+            </p>
+            <p class="cs-section__body">
+              If we had more time, we would’ve tested with an even wider range of users, including complete beginners, and incorporated accessibility needs earlier in the design. Moving forward, we plan to explore more personalized onboarding options, stronger support features like FAQs, and long-term testing to see how the experience holds up over time.
+            </p>
+          </section>
+          </div>
         </div>
       </main>
     </div>

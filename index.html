@@ -14,7 +14,7 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=183" />
+    <link rel="stylesheet" href="styles.css?v=235" />
   </head>
   <body>
     <div class="page">
@@ -36,7 +36,7 @@
             <ul>
               <li><a href="#home">Home</a></li>
               <li><a href="#work">All Work</a></li>
-              <li><a href="#about">About</a></li>
+              <li><a href="about.html">About</a></li>
               <li><a href="assets/resume.pdf">Resume</a></li>
             </ul>
           </nav>
@@ -44,10 +44,11 @@
           <nav class="nav-group" aria-label="Find me">
             <p class="nav-group__label">Find me</p>
             <ul>
-              <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
-              <li><a href="https://linkedin.com" target="_blank" rel="noopener">Linkedin</a></li>
-              <li><a href="https://dribbble.com" target="_blank" rel="noopener">Dribbble</a></li>
-              <li><a href="https://x.com" target="_blank" rel="noopener">X</a></li>
+              <li><a href="https://www.instagram.com/designedtodev" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://www.linkedin.com/in/shrushtichavan" target="_blank" rel="noopener noreferrer">Linkedin</a></li>
+              <li><a href="https://dribbble.com/designedtodev" target="_blank" rel="noopener noreferrer">Dribbble</a></li>
+              <li><a href="https://x.com/designedtodev" target="_blank" rel="noopener noreferrer">X</a></li>
+              <li><a href="https://shrushtichavan.substack.com/" target="_blank" rel="noopener noreferrer">Substack</a></li>
             </ul>
           </nav>
         </div>
@@ -65,30 +66,59 @@
         <section class="hero-board" aria-label="Interactive design board">
           <div id="figma-viewport" class="figma-viewport">
             <div id="whiteboard-canvas" class="whiteboard-canvas">
-              <div class="board-hint board-draggable" style="left: 872px; top: 400px">
+              <!-- Center: name -->
+              <div
+                class="board-media board-media--headline board-draggable"
+                style="left: 1010px; top: 660px"
+              >
                 <img
-                  class="board-hint__icon"
-                  src="assets/clicktodrag.png"
-                  alt=""
-                  width="22"
-                  height="22"
+                  src="assets/main%20viewport%20fig/shrushti.svg"
+                  alt="I’m Shrushti, a product designer that executes"
                   draggable="false"
                 />
-                <span>CLICK TO DRAG</span>
               </div>
 
+              <!-- Above -->
+              <div class="board-media board-media--video-wide board-media--sm board-draggable" style="left: 1090px; top: 340px">
+                <video
+                  src="assets/main%20viewport%20fig/recentsales.mp4?v=2"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  disablepictureinpicture
+                  preload="metadata"
+                  aria-label="Recent sales pricing animation"
+                ></video>
+              </div>
+
+              <div class="board-hint board-draggable" style="left: 1120px; top: calc(240px + 4.8vh)">
+                <img
+                  class="board-hint__icon"
+                  src="assets/main%20viewport%20fig/clicktodrag.png"
+                  alt=""
+                  width="19"
+                  height="19"
+                  draggable="false"
+                />
+                <span>CLICK TO MOVE AROUND</span>
+              </div>
+
+              <!-- Left -->
               <div
-                class="board-gallery board-draggable"
-                style="left: 872.176px; top: 473.888px"
-                role="img"
-                aria-label="Rotating travel photo gallery"
+                class="board-gallery board-gallery--link board-draggable"
+                data-href="photos.html"
+                style="left: 538px; top: 220px"
+                role="link"
+                aria-label="View all photos"
+                tabindex="0"
               >
-                <img class="board-gallery__image is-active" src="assets/p1.png" alt="" draggable="false" />
-                <img class="board-gallery__image" src="assets/p2.png" alt="" draggable="false" />
-                <img class="board-gallery__image" src="assets/p3.png" alt="" draggable="false" />
+                <img class="board-gallery__image is-active" src="assets/main%20viewport%20fig/p1.png" alt="" draggable="false" />
+                <img class="board-gallery__image" src="assets/main%20viewport%20fig/p2.png" alt="" draggable="false" />
+                <img class="board-gallery__image" src="assets/main%20viewport%20fig/p3.png" alt="" draggable="false" />
                 <img
                   class="board-gallery__icon"
-                  src="assets/photos.png"
+                  src="assets/main%20viewport%20fig/photos.png"
                   alt=""
                   width="58"
                   height="58"
@@ -96,17 +126,40 @@
                 />
               </div>
 
-              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 136.352px; top: 639.27px">
-                <img src="assets/figjam2.gif" alt="Animated product prototype" draggable="false" />
+              <div class="board-media board-media--figjam board-media--sm board-media--figjam2 board-draggable" style="left: 340px; top: 700px">
+                <img src="assets/main%20viewport%20fig/figjam2.gif" alt="Animated product prototype" draggable="false" />
               </div>
 
-              <div class="board-media board-media--video-phone board-draggable" style="left: 126.96px; top: 1123.41px">
-                <img src="assets/pfinaljam1.gif" alt="Portfolio FigJam prototype" draggable="false" />
+              <div class="board-media board-media--video-phone board-draggable" style="left: 579px; top: 960px">
+                <img src="assets/main%20viewport%20fig/pfinaljam1.gif" alt="Portfolio FigJam prototype" draggable="false" />
               </div>
 
-              <div class="board-media board-media--video-phone board-media--hero board-draggable" style="left: 670.774px; top: 1220.89px">
+              <!-- Right -->
+              <div
+                class="board-music board-draggable"
+                style="left: 1654px; top: 240px"
+                aria-label="Now playing Paradise by Sade"
+              >
+                <img
+                  class="board-music__cover"
+                  src="assets/main%20viewport%20fig/sade.png"
+                  alt=""
+                  draggable="false"
+                />
+                <div class="board-music__details">
+                  <span class="board-music__title">Paradise</span>
+                  <span class="board-music__artist">Sade</span>
+                </div>
+              </div>
+
+              <div class="board-media board-media--figjam board-draggable" style="left: 1720px; top: 826px">
+                <img src="assets/main%20viewport%20fig/cursorgif1.gif" alt="Cursor product prototype" draggable="false" />
+              </div>
+
+              <!-- Below -->
+              <div class="board-media board-media--video-phone board-media--hero board-draggable" style="left: 1120px; top: 907px">
                 <video
-                  src="assets/mobile.mp4"
+                  src="assets/main%20viewport%20fig/mobile.mp4"
                   autoplay
                   muted
                   loop
@@ -118,61 +171,8 @@
               </div>
 
               <div
-                class="board-media board-media--headline board-draggable"
-                style="left: 808.947px; top: 915.751px"
-              >
-                <img
-                  src="assets/shrushti.svg"
-                  alt="I’m Shrushti, a product designer that executes"
-                  draggable="false"
-                />
-              </div>
-
-              <div class="board-media board-media--figjam board-media--md board-draggable" style="left: 1194.02px; top: 1399.94px">
-                <img
-                  src="assets/Userapprovedfinal.gif"
-                  alt="User Approved product prototype"
-                  draggable="false"
-                />
-              </div>
-
-              <div class="board-media board-media--video-wide board-media--sm board-draggable" style="left: 1304.54px; top: 433.246px">
-                <video
-                  src="assets/recentsales.mp4?v=2"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  disablepictureinpicture
-                  preload="metadata"
-                  aria-label="Recent sales pricing animation"
-                ></video>
-              </div>
-
-              <div
-                class="board-music board-draggable"
-                style="left: 1560px; top: 48px"
-                aria-label="Now playing Paradise by Sade"
-              >
-                <img
-                  class="board-music__cover"
-                  src="assets/sade.png"
-                  alt=""
-                  draggable="false"
-                />
-                <div class="board-music__details">
-                  <span class="board-music__title">Paradise</span>
-                  <span class="board-music__artist">Sade</span>
-                </div>
-              </div>
-
-              <div class="board-media board-media--figjam board-draggable" style="left: 1698.53px; top: 918.595px">
-                <img src="assets/cursorgif1.gif" alt="Cursor product prototype" draggable="false" />
-              </div>
-
-              <div
                 class="board-clock board-draggable"
-                style="left: 1195.59px; top: 1227.33px"
+                style="left: 1780px; top: 1197px"
                 role="timer"
                 aria-live="off"
               >
@@ -187,6 +187,67 @@
                 </span>
                 It’s <span id="sf-clock-time">--:--</span> in San Francisco
               </div>
+
+              <!-- Scattered — drag the board to explore -->
+              <!-- North row -->
+              <div class="board-media board-media--sticky board-draggable" style="left: 1120px; top: 32px">
+                <img src="assets/figjamside/sticky1.png" alt="" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 2320px; top: 47px">
+                <img src="assets/figjamside/userapproved2.gif" alt="User Approved prototype" draggable="false" />
+              </div>
+
+              <!-- East column -->
+              <div class="board-media board-media--figjam board-draggable" style="left: 1760px; top: 367px">
+                <img src="assets/main%20viewport%20fig/Userapprovedfinal.gif" alt="User Approved product" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 2410px; top: 1170px">
+                <img src="assets/figjamside/fdly.png" alt="Fdly project" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--compose board-media--figma-edu board-draggable" style="left: 2418px; top: 1560px">
+                <img src="assets/figma.png" alt="Figma for Edu" draggable="false" />
+              </div>
+
+              <!-- West column -->
+              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 40px; top: 1469px">
+                <img src="assets/figjamside/userapproved1.gif" alt="User Approved exploration" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 44px; top: 2410px">
+                <img src="assets/case%20studies/seatgeek.svg" alt="SeatGeek" draggable="false" />
+              </div>
+
+              <!-- South row -->
+              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 525px; top: 1498px">
+                <img src="assets/figjamside/riviera.svg" alt="Riviera project" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--sticky board-draggable" style="left: 980px; top: 1886px">
+                <img src="assets/figjamside/rolesticky.png" alt="" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--figjam board-media--sm board-media--totalis board-draggable" style="left: 1725px; top: 1564px">
+                <img src="assets/figjamside/totalisgif.gif" alt="Design work in progress" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--sticky board-draggable" style="left: 2100px; top: 120px">
+                <img src="assets/figjamside/nextup.png" alt="Nextup" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 780px; top: 1220px">
+                <img src="assets/figjamside/riv1.gif" alt="Riviera exploration" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--mouse board-draggable" style="left: 280px; top: 920px">
+                <img src="assets/figjamside/mouse.png" alt="" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 120px; top: 2180px">
+                <img src="assets/figjamside/vero.png" alt="Vero project" draggable="false" />
+              </div>
             </div>
           </div>
         </section>
@@ -197,77 +258,62 @@
 
           <nav class="work-dots" aria-label="Case studies" hidden>
             <a class="work-dots__dot is-active" href="#work-seatgeek" data-work-target="work-seatgeek" aria-label="Seatgeek" aria-current="true"></a>
-            <a class="work-dots__dot" href="#work-riviera" data-work-target="work-riviera" aria-label="Riviera"></a>
             <a class="work-dots__dot" href="#work-userapproved" data-work-target="work-userapproved" aria-label="User Approved"></a>
             <a class="work-dots__dot" href="#work-cursor" data-work-target="work-cursor" aria-label="Cursor"></a>
+            <a class="work-dots__dot" href="#work-kinvest" data-work-target="work-kinvest" aria-label="Kinvest"></a>
           </nav>
 
           <div class="work-list">
             <article class="work-item" id="work-seatgeek">
-              <a class="work-item__media" href="work/seatgeek.html">
-                <img src="assets/seatgeek.svg" alt="Seatgeek project cover" />
+              <a class="work-item__media work-item__media--preview work-item__media--seatgeek" href="work/seatgeek.html">
+                <span class="work-item__visual-shell">
+                  <img
+                    class="work-item__visual"
+                    src="assets/hi.gif"
+                    alt="Seatgeek project preview"
+                  />
+                </span>
               </a>
               <div class="work-item__copy">
                 <h3 class="work-item__title"><a href="work/seatgeek.html">Seatgeek</a></h3>
                 <p class="work-item__role">Product Design Intern</p>
-                <p class="work-item__date">Summer 2026 NYC</p>
+                <p class="work-item__date">June 2026 – August 2026</p>
                 <p class="work-item__body">
                   I designed for the seller team moving metrics to help users price their
-                  tickets better specifically owning Smart Pricing improving adoption and
+                  tickets better specifically owning pricing insights improving adoption and
                   conversion.
                 </p>
                 <ul class="work-item__tags">
-                  <li>Product thinking</li>
-                  <li>UX design</li>
-                  <li>Scalable design</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="work-item" id="work-riviera">
-              <a
-                class="work-item__media"
-                href="https://www.runriviera.com/"
-                target="_blank"
-                rel="noopener"
-              >
-                <img src="assets/riviera.svg" alt="Riviera project cover" />
-              </a>
-              <div class="work-item__copy">
-                <h3 class="work-item__title">
-                  <a href="https://www.runriviera.com/" target="_blank" rel="noopener">Riviera</a>
-                </h3>
-                <p class="work-item__role">Product Design Intern</p>
-                <p class="work-item__date">Summer 2026 NYC</p>
-                <p class="work-item__body">
-                  I designed for the seller team moving metrics through experimentation
-                  and design. Focusing on complex workflows that help sellers list, price,
-                  and manage inventory at scale.
-                </p>
-                <ul class="work-item__tags">
-                  <li>Product thinking</li>
-                  <li>UX design</li>
-                  <li>Scalable design</li>
+                  <li>Experimentation</li>
+                  <li>Seller experience</li>
+                  <li>User research</li>
                 </ul>
               </div>
             </article>
 
             <article class="work-item" id="work-userapproved">
-              <a class="work-item__media" href="work/userapproved.html">
-                <img src="assets/userapproved.png" alt="User Approved project cover" />
+              <a class="work-item__media work-item__media--preview work-item__media--userapproved" href="work/userapproved.html">
+                <span class="work-item__visual-shell">
+                  <img
+                    class="work-item__visual"
+                    src="assets/main%20viewport%20fig/Userapprovedfinal.gif"
+                    alt="User Approved project preview"
+                  />
+                </span>
               </a>
               <div class="work-item__copy">
                 <h3 class="work-item__title"><a href="work/userapproved.html">User Approved</a></h3>
-                <p class="work-item__role">Role</p>
-                <p class="work-item__date">Year · Location</p>
+                <p class="work-item__role">Product Design Intern</p>
+                <p class="work-item__date">May 2025 – September 2025</p>
                 <p class="work-item__body">
-                  Placeholder for the User Approved case study. Swap this copy when
-                  the project write-up is ready.
+                  I worked as a founding product designer defining site navigation,
+                  onboarding, and several product features including end to end user
+                  experience.
                 </p>
                 <ul class="work-item__tags">
-                  <li>Product thinking</li>
-                  <li>UX design</li>
-                  <li>Scalable design</li>
+                  <li>Founding design</li>
+                  <li>Onboarding</li>
+                  <li>Design systems</li>
                 </ul>
               </div>
             </article>
@@ -278,16 +324,38 @@
               </a>
               <div class="work-item__copy">
                 <h3 class="work-item__title"><a href="work/cursor.html">Cursor</a></h3>
-                <p class="work-item__role">Role</p>
-                <p class="work-item__date">Year · Location</p>
+                <p class="work-item__role">UX Research &amp; Design</p>
+                <p class="work-item__date">March – May 2025</p>
                 <p class="work-item__body">
-                  Placeholder for the Cursor case study. Swap this copy when
-                  the project write-up is ready.
+                  Redesigned Cursor’s onboarding and first-run experience through
+                  competitive research, unmoderated and moderated testing, and
+                  early interface iterations for developers at every skill level.
                 </p>
                 <ul class="work-item__tags">
-                  <li>Product thinking</li>
-                  <li>UX design</li>
-                  <li>Scalable design</li>
+                  <li>UX research</li>
+                  <li>Usability testing</li>
+                  <li>Onboarding</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="work-item" id="work-kinvest">
+              <a class="work-item__media" href="work/kinvest.html">
+                <img src="assets/kinvestcaseimg1.png" alt="Kinvest project cover" />
+              </a>
+              <div class="work-item__copy">
+                <h3 class="work-item__title"><a href="work/kinvest.html">Kinvest</a></h3>
+                <p class="work-item__role">Design and Product</p>
+                <p class="work-item__date">June 2024 – August 2024</p>
+                <p class="work-item__body">
+                  Designed a financial literacy app for kids that combines debit,
+                  credit, stocks, and banking education with interactive learning
+                  and parental oversight.
+                </p>
+                <ul class="work-item__tags">
+                  <li>UX research</li>
+                  <li>Wireframing</li>
+                  <li>Financial literacy</li>
                 </ul>
               </div>
             </article>
@@ -301,7 +369,7 @@
       </main>
     </div>
 
-    <script src="board.js?v=19"></script>
+    <script src="board.js?v=31"></script>
     <script src="work-nav.js"></script>
   </body>
 </html>

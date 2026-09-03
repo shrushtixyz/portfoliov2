@@ -3,35 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About — Shrushti Chavan</title>
+    <title>About | Shrushti Chavan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=229" />
+    <link rel="stylesheet" href="styles.css?v=259" />
   </head>
   <body>
     <div class="page">
       <aside class="sidebar">
         <div class="sidebar__top">
-          <a class="brand" href="index.html#home">
-            <img
-              class="brand__avatar"
-              src="assets/shrushtiheadshot.png"
-              alt="Shrushti Chavan"
-              width="32"
-              height="32"
-            />
-            <span class="brand__name">Shrushti Chavan</span>
-          </a>
+          <div class="sidebar__bar">
+            <a class="brand" href="index.html#home">
+              <img
+                class="brand__avatar"
+                src="assets/shrushtiheadshot.png"
+                alt="Shrushti Chavan"
+                width="32"
+                height="32"
+              />
+              <span class="brand__name">Shrushti Chavan</span>
+            </a>
+            <button
+              class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
 
           <nav class="nav-group" aria-label="Favorites">
             <p class="nav-group__label">Favorites</p>
             <ul>
               <li><a href="index.html#home">Home</a></li>
-              <li><a href="index.html#work">All Work</a></li>
+              <li><a href="work.html">All Work</a></li>
               <li><a class="is-active" href="about.html" aria-current="page">About</a></li>
               <li><a href="https://drive.google.com/file/d/1JwE2XkeLxlE3JCx48LhzopkKhQ4pc3vu/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
             </ul>
@@ -184,5 +196,6 @@
         </footer>
       </main>
     </div>
+    <script src="nav.js"></script>
   </body>
 </html>

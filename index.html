@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shrushti Chavan — Product Designer</title>
+    <title>Shrushti Chavan | Product Designer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,28 +14,40 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=235" />
+    <link rel="stylesheet" href="styles.css?v=259" />
   </head>
   <body>
     <div class="page">
       <aside class="sidebar">
         <div class="sidebar__top">
-          <a class="brand" href="#home">
-            <img
-              class="brand__avatar"
-              src="assets/shrushtiheadshot.png"
-              alt="Shrushti Chavan"
-              width="32"
-              height="32"
-            />
-            <span class="brand__name">Shrushti Chavan</span>
-          </a>
+          <div class="sidebar__bar">
+            <a class="brand" href="#home">
+              <img
+                class="brand__avatar"
+                src="assets/shrushtiheadshot.png"
+                alt="Shrushti Chavan"
+                width="32"
+                height="32"
+              />
+              <span class="brand__name">Shrushti Chavan</span>
+            </a>
+            <button
+              class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
 
           <nav class="nav-group" aria-label="Favorites">
             <p class="nav-group__label">Favorites</p>
             <ul>
               <li><a href="#home">Home</a></li>
-              <li><a href="#work">All Work</a></li>
+              <li><a href="work.html">All Work</a></li>
               <li><a href="about.html">About</a></li>
               <li><a href="https://drive.google.com/file/d/1JwE2XkeLxlE3JCx48LhzopkKhQ4pc3vu/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
             </ul>
@@ -126,6 +138,17 @@
                 />
               </div>
 
+              <div
+                class="board-media board-media--figjam board-media--sm board-media--sweetcut board-draggable"
+                data-href="https://www.thesweetcut.com/"
+                style="left: 516px; top: -193px"
+                role="link"
+                aria-label="Open The Sweet Cut website"
+                tabindex="0"
+              >
+                <img src="assets/figjamside/sweetcut.png" alt="The Sweet Cut" draggable="false" />
+              </div>
+
               <div class="board-media board-media--figjam board-media--sm board-media--figjam2 board-draggable" style="left: 340px; top: 700px">
                 <img src="assets/main%20viewport%20fig/figjam2.gif" alt="Animated product prototype" draggable="false" />
               </div>
@@ -188,64 +211,96 @@
                 It’s <span id="sf-clock-time">--:--</span> in San Francisco
               </div>
 
-              <!-- Scattered — drag the board to explore -->
-              <!-- North row -->
-              <div class="board-media board-media--sticky board-draggable" style="left: 1120px; top: 32px">
-                <img src="assets/figjamside/sticky1.png" alt="" draggable="false" />
-              </div>
-
-              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 2320px; top: 47px">
-                <img src="assets/figjamside/userapproved2.gif" alt="User Approved prototype" draggable="false" />
-              </div>
-
-              <!-- East column -->
+              <!-- East: User Approved final (main viewport) -->
               <div class="board-media board-media--figjam board-draggable" style="left: 1760px; top: 367px">
                 <img src="assets/main%20viewport%20fig/Userapprovedfinal.gif" alt="User Approved product" draggable="false" />
               </div>
 
-              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 2410px; top: 1170px">
-                <img src="assets/figjamside/fdly.png" alt="Fdly project" draggable="false" />
+              <!-- Scattered: pan to explore, kept outside the first view -->
+              <!-- North -->
+              <div class="board-media board-media--sticky board-draggable" style="left: 1120px; top: -280px">
+                <img src="assets/figjamside/sticky1.png" alt="" draggable="false" />
               </div>
 
-              <div class="board-media board-media--compose board-media--figma-edu board-draggable" style="left: 2418px; top: 1560px">
-                <img src="assets/figma.png" alt="Figma for Edu" draggable="false" />
+              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 2480px; top: -260px">
+                <img src="assets/figjamside/userapproved2.gif" alt="User Approved prototype" draggable="false" />
               </div>
 
-              <!-- West column -->
-              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 40px; top: 1469px">
-                <img src="assets/figjamside/userapproved1.gif" alt="User Approved exploration" draggable="false" />
-              </div>
-
-              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 44px; top: 2410px">
-                <img src="assets/case%20studies/seatgeek.svg" alt="SeatGeek" draggable="false" />
-              </div>
-
-              <!-- South row -->
-              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 525px; top: 1498px">
-                <img src="assets/figjamside/riviera.svg" alt="Riviera project" draggable="false" />
-              </div>
-
-              <div class="board-media board-media--sticky board-draggable" style="left: 980px; top: 1886px">
-                <img src="assets/figjamside/rolesticky.png" alt="" draggable="false" />
-              </div>
-
-              <div class="board-media board-media--figjam board-media--sm board-media--totalis board-draggable" style="left: 1725px; top: 1564px">
-                <img src="assets/figjamside/totalisgif.gif" alt="Design work in progress" draggable="false" />
-              </div>
-
-              <div class="board-media board-media--sticky board-draggable" style="left: 2100px; top: 120px">
+              <div
+                class="board-media board-media--sticky board-media--nextup board-draggable"
+                data-href="https://www.figma.com/deck/pCgrwYNZWrv3mvmel3zD2Z"
+                style="left: 1806px; top: -200px"
+                role="link"
+                aria-label="Open Nextup Figma deck"
+                tabindex="0"
+              >
                 <img src="assets/figjamside/nextup.png" alt="Nextup" draggable="false" />
               </div>
 
-              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 780px; top: 1220px">
-                <img src="assets/figjamside/riv1.gif" alt="Riviera exploration" draggable="false" />
+              <!-- East -->
+              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 2680px; top: 1180px">
+                <img src="assets/figjamside/fdly.png" alt="Fdly project" draggable="false" />
               </div>
 
-              <div class="board-media board-media--mouse board-draggable" style="left: 280px; top: 920px">
+              <div class="board-media board-media--compose board-media--figma-edu board-draggable" style="left: 2700px; top: 1680px">
+                <img src="assets/figma.png" alt="Figma for Edu" draggable="false" />
+              </div>
+
+              <!-- West -->
+              <div
+                class="board-media board-media--mouse board-draggable"
+                data-href="https://www.notion.so/The-Mouse-Project-12a28bb3f7b1805e836cc46ff18bb4b2?source=copy_link"
+                style="left: -220px; top: 880px"
+                role="link"
+                aria-label="Open The Mouse Project"
+                tabindex="0"
+              >
                 <img src="assets/figjamside/mouse.png" alt="" draggable="false" />
               </div>
 
-              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 120px; top: 2180px">
+              <div class="board-media board-media--figjam board-media--sm board-media--side-scale board-media--ua1 board-draggable" style="left: -280px; top: 1260px">
+                <img src="assets/figjamside/userapproved1.gif" alt="User Approved exploration" draggable="false" />
+              </div>
+
+              <!-- South -->
+              <div
+                class="board-media board-media--figjam board-media--sm board-media--side-scale board-draggable"
+                data-href="https://www.runriviera.com/"
+                style="left: 780px; top: 1980px"
+                role="link"
+                aria-label="Open Riviera website"
+                tabindex="0"
+              >
+                <img src="assets/figjamside/riv1.gif" alt="Riviera exploration" draggable="false" />
+              </div>
+
+              <div
+                class="board-media board-media--figjam board-media--sm board-media--side-scale board-media--riviera board-draggable"
+                data-href="https://www.runriviera.com/"
+                style="left: 200px; top: 1657px"
+                role="link"
+                aria-label="Open Riviera website"
+                tabindex="0"
+              >
+                <img src="assets/figjamside/riviera.svg" alt="Riviera project" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--sticky board-media--side-scale board-draggable" style="left: 980px; top: 2280px">
+                <img src="assets/figjamside/rolesticky.png" alt="" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--figjam board-media--sm board-media--totalis board-draggable" style="left: 1725px; top: 1428px">
+                <img src="assets/figjamside/totalisgif.gif" alt="Design work in progress" draggable="false" />
+              </div>
+
+              <div
+                class="board-media board-media--figjam board-media--sm board-media--side-scale board-media--vero board-draggable"
+                data-href="https://tryvero.ai/"
+                style="left: 80px; top: 2275px"
+                role="link"
+                aria-label="Open Vero website"
+                tabindex="0"
+              >
                 <img src="assets/figjamside/vero.png" alt="Vero project" draggable="false" />
               </div>
             </div>
@@ -369,7 +424,8 @@
       </main>
     </div>
 
-    <script src="board.js?v=31"></script>
+    <script src="board.js?v=35"></script>
     <script src="work-nav.js"></script>
+    <script src="nav.js"></script>
   </body>
 </html>

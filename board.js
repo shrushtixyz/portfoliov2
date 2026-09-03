@@ -123,11 +123,20 @@
     applyTransform();
   });
 
+  function navigateHref(href) {
+    if (!href) return;
+    if (/^https?:\/\//i.test(href)) {
+      window.open(href, "_blank", "noopener,noreferrer");
+      return;
+    }
+    window.location.href = href;
+  }
+
   function endDrag() {
     if (draggingSticky) {
       var href = draggingSticky.getAttribute("data-href");
       if (href && !stickyDragMoved) {
-        window.location.href = href;
+        navigateHref(href);
       }
       draggingSticky.classList.remove("sticky-note--dragging");
       draggingSticky = null;
@@ -321,13 +330,12 @@
     window.setInterval(showNextGalleryImage, 3200);
   }
 
-  var galleryLink = canvas.querySelector(".board-gallery--link");
-  if (galleryLink) {
-    galleryLink.addEventListener("keydown", function (e) {
+  var linkedPieces = canvas.querySelectorAll("[data-href][tabindex]");
+  for (var li = 0; li < linkedPieces.length; li++) {
+    linkedPieces[li].addEventListener("keydown", function (e) {
       if (e.key !== "Enter" && e.key !== " ") return;
       e.preventDefault();
-      var href = galleryLink.getAttribute("data-href");
-      if (href) window.location.href = href;
+      navigateHref(e.currentTarget.getAttribute("data-href"));
     });
   }
 
@@ -336,12 +344,12 @@
   var musicTitle = canvas.querySelector(".board-music__title");
   var musicArtist = canvas.querySelector(".board-music__artist");
   var musicTracks = [
-    { title: "Paradise", artist: "Sade", cover: "assets/sade.png" },
-    { title: "RAIN", artist: "Fisher", cover: "assets/fisher.png" },
+    { title: "Paradise", artist: "Sade", cover: "assets/main%20viewport%20fig/sade.png" },
+    { title: "RAIN", artist: "Fisher", cover: "assets/main%20viewport%20fig/fisher.png" },
     {
       title: "Delilah (pull me out of this)",
       artist: "Fred again..",
-      cover: "assets/fredgain.png",
+      cover: "assets/main%20viewport%20fig/fredgain.png",
     },
   ];
   var musicIndex = 0;

@@ -992,7 +992,7 @@ img {
 }
 
 .about-page {
-  padding: clamp(80px, 12vh, 140px) clamp(72px, 22vw, 360px) 0;
+  padding: clamp(80px, 12vh, 140px) 0 0;
   background: var(--surface);
   font-family: var(--font-sans);
 }
@@ -1119,12 +1119,6 @@ img {
 .about-talk__line a:hover {
   opacity: 1;
   color: #474747;
-}
-
-.about-page .about-page__footer {
-  margin: 0 96px;
-  padding-left: 0;
-  padding-right: 0;
 }
 
 .about-experience__heading {
@@ -1457,9 +1451,13 @@ a.work-stack__card:hover {
   }
 
   .selected-work,
-  .about-page,
   .photos-page,
   .work-index {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .about-page__container {
     padding-left: 30px;
     padding-right: 30px;
   }

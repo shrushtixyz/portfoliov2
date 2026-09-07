@@ -25,6 +25,11 @@
   var SCALE_MIN = 0.28;
   var SCALE_MAX = 1;
   var ZOOM_BOOST = 1.44;
+  var MOBILE_MAX = 900;
+  var MOBILE_FIT_WIDTH = 1280;
+  var MOBILE_FIT_HEIGHT = 1100;
+  var MOBILE_ZOOM_BOOST = 2.05;
+  var MOBILE_SCALE_MAX = 1.25;
 
   var position = { x: 0, y: 0 };
   var draggingCanvas = false;
@@ -35,6 +40,10 @@
   var stickyDragMoved = false;
   var DRAG_CLICK_THRESHOLD = 8;
 
+  function isMobileBoard() {
+    return window.matchMedia("(max-width: " + MOBILE_MAX + "px)").matches;
+  }
+
   function viewportSize() {
     var r = viewport.getBoundingClientRect();
     if (r.width >= 4 && r.height >= 4) {
@@ -44,15 +53,20 @@
   }
 
   function computeBoardScale(width, height) {
-    var pad = 48;
+    var mobile = isMobileBoard();
+    var pad = mobile ? 20 : 48;
+    var fitW = mobile ? MOBILE_FIT_WIDTH : FIT_WIDTH;
+    var fitH = mobile ? MOBILE_FIT_HEIGHT : FIT_HEIGHT;
+    var boost = mobile ? MOBILE_ZOOM_BOOST : ZOOM_BOOST;
+    var scaleMax = mobile ? MOBILE_SCALE_MAX : SCALE_MAX;
     var availW = Math.max(120, width - pad);
     var availH = Math.max(120, height - pad);
     var targetW = availW * VIEWPORT_FILL;
     var targetH = availH * VIEWPORT_FILL;
-    var scaleW = targetW / FIT_WIDTH;
-    var scaleH = targetH / FIT_HEIGHT;
-    var scale = Math.min(scaleW, scaleH) * ZOOM_BOOST;
-    return Math.max(SCALE_MIN, Math.min(SCALE_MAX, scale));
+    var scaleW = targetW / fitW;
+    var scaleH = targetH / fitH;
+    var scale = Math.min(scaleW, scaleH) * boost;
+    return Math.max(SCALE_MIN, Math.min(scaleMax, scale));
   }
 
   function applyTransform() {

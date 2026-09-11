@@ -1220,28 +1220,43 @@ img {
   gap: 48px;
   align-items: center;
   scroll-margin-top: 48px;
-  padding: 61px 40px;
+  padding: 61px 48px;
   background: var(--surface);
   border: 1px solid var(--panel-stroke);
   border-radius: var(--panel-radius);
   transform: scale(1);
   transform-origin: center center;
+  filter: blur(0);
+  opacity: 1;
   transition:
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, filter, opacity;
+}
+
+.work-list.has-focus .work-item:not(.is-active) {
+  transform: scale(0.98);
+  filter: blur(2px);
+  opacity: 0.62;
 }
 
 .work-item.is-active {
   z-index: 1;
   transform: scale(1.025);
+  filter: blur(0);
+  opacity: 1;
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.08);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .work-item,
+  .work-list.has-focus .work-item:not(.is-active),
   .work-item.is-active {
     transform: none;
+    filter: none;
+    opacity: 1;
     transition: none;
     box-shadow: none;
   }
@@ -1938,6 +1953,25 @@ a.work-stack__card:hover {
     height: 72vh;
     min-height: 480px;
     border-radius: var(--panel-radius);
+    transition:
+      filter 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .figma-viewport.is-case-blurred {
+    filter: blur(5px);
+    opacity: 0.62;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .figma-viewport,
+    .figma-viewport.is-case-blurred {
+      filter: none;
+      opacity: 1;
+      transition: none;
+      pointer-events: auto;
+    }
   }
 
   .board-chrome__playground {
@@ -1980,8 +2014,8 @@ a.work-stack__card:hover {
   }
 
   .board-media--headline {
-    width: 440px;
-    max-width: 440px;
+    width: max-content;
+    max-width: max-content;
     left: 1100px !important;
     text-align: center;
   }
@@ -1989,10 +2023,9 @@ a.work-stack__card:hover {
   .board-intro {
     font-size: 18px;
     line-height: 1.5;
-    width: auto;
-    max-width: 440px;
-    margin-left: auto;
-    margin-right: auto;
+    width: max-content;
+    max-width: none;
+    margin: 0;
     text-align: center;
   }
 
@@ -2133,8 +2166,20 @@ a.work-stack__card:hover {
   .work-item {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 47px 20px;
+    padding: 47px 28px;
     border-radius: var(--panel-radius);
+  }
+
+  .work-item__title {
+    font-size: 18px;
+  }
+
+  .work-item__role,
+  .work-item__date,
+  .work-item__body,
+  .work-item__tags li,
+  .work-item__tag {
+    font-size: 14px;
   }
 
   .work-item__media {

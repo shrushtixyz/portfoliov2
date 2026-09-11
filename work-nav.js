@@ -1,6 +1,8 @@
 (function () {
   var section = document.getElementById("work");
   var dotsNav = document.querySelector(".work-dots");
+  var workList = document.querySelector(".work-list");
+  var figjam = document.querySelector(".figma-viewport");
   var items = Array.prototype.slice.call(document.querySelectorAll(".work-item[id]"));
   var dots = Array.prototype.slice.call(document.querySelectorAll(".work-dots__dot"));
 
@@ -10,6 +12,14 @@
 
   function setActive(id) {
     activeId = id || null;
+
+    if (workList) {
+      workList.classList.toggle("has-focus", !!activeId);
+    }
+
+    if (figjam) {
+      figjam.classList.toggle("is-case-blurred", activeId === "work-seatgeek");
+    }
 
     for (var i = 0; i < dots.length; i++) {
       var dot = dots[i];

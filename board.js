@@ -28,24 +28,40 @@
   var MOBILE_MAX = 900;
   var MOBILE_FIT_WIDTH = 720;
   var MOBILE_FIT_HEIGHT = 780;
-  var MOBILE_ZOOM_BOOST = 1.86;
-  var MOBILE_SCALE_MAX = 1.23;
+  var MOBILE_ZOOM_BOOST = 1.59;
+  var MOBILE_SCALE_MAX = 1.052;
   var MOBILE_CX = 1320;
   var MOBILE_CY = 820;
   var MOBILE_WIDGET_PULL = 0.28;
   var MOBILE_KINVEST_LEFT = 907;
   var MOBILE_STICKY_BIO_LEFT = 1304;
+  var MOBILE_KINVEST_DOODLE_LEFT = 1189;
+  var MOBILE_KINVEST_DOODLE_TOP = 1004;
+  var MOBILE_CURSOR_LEFT = 1329;
+  var MOBILE_GALLERY_LEFT = 931;
+  var MOBILE_GALLERY_TOP = 196;
+  var MOBILE_ANGEL_LEFT = 1606;
+  var MOBILE_ANGEL_TOP = 300;
+  var MOBILE_CURSOR_DOODLE_LEFT = 1426;
+  var MOBILE_CURSOR_DOODLE_TOP = 546;
+  var MOBILE_FIGJAM2_LEFT = 2012;
+  var MOBILE_SEATGEEK_LEFT = 515;
+  var MOBILE_HARSHESH_LEFT = 815;
   var MOBILE_WIDGET_SEL =
     ".board-gallery, .board-media, .board-comment-pin, .board-hint, .board-card, .board-doodle";
 
   var position = { x: 0, y: 0 };
   var draggingCanvas = false;
   var canvasStart = { x: 0, y: 0 };
+  var userAdjustedView = false;
+  var resizeTimer = null;
+  var panMoved = false;
 
   var draggingSticky = null;
   var stickyState = { mouseX: 0, mouseY: 0, left: 0, top: 0 };
   var stickyDragMoved = false;
   var DRAG_CLICK_THRESHOLD = 8;
+  var mediaSuspended = false;
 
   function isMobileBoard() {
     return window.matchMedia("(max-width: " + MOBILE_MAX + "px)").matches;
@@ -78,7 +94,13 @@
 
   function applyTransform() {
     canvas.style.transform =
-      "translate(" + position.x + "px, " + position.y + "px) scale(" + BOARD_SCALE + ")";
+      "translate3d(" +
+      position.x +
+      "px, " +
+      position.y +
+      "px, 0) scale(" +
+      BOARD_SCALE +
+      ")";
   }
 
   function parsePx(el, prop) {
@@ -111,6 +133,7 @@
     position.y = cy - (cy - position.y) * ratio;
     BOARD_SCALE = next;
     applyTransform();
+    userAdjustedView = true;
   }
 
   viewport.addEventListener("click", function (e) {
@@ -147,6 +170,8 @@
 
     setSelected(null);
     draggingCanvas = true;
+    panMoved = false;
+    suspendBoardMedia();
     canvasStart.x = e.clientX - position.x;
     canvasStart.y = e.clientY - position.y;
     viewport.classList.add("is-dragging");
@@ -169,10 +194,79 @@
       return;
     }
     if (!draggingCanvas) return;
+    panMoved = true;
+    userAdjustedView = true;
     position.x = e.clientX - canvasStart.x;
     position.y = e.clientY - canvasStart.y;
     applyTransform();
   });
+
+  function freezeGifFrame(img) {
+    if (!img || img.dataset.frozenSrc) return;
+    if (!img.complete || !img.naturalWidth) return;
+    try {
+      var c = document.createElement("canvas");
+      c.width = img.naturalWidth;
+      c.height = img.naturalHeight;
+      c.getContext("2d").drawImage(img, 0, 0);
+      img.dataset.liveSrc = img.getAttribute("src") || img.currentSrc || "";
+      img.dataset.frozenSrc = c.toDataURL("image/jpeg", 0.8);
+    } catch (err) {}
+  }
+
+  function suspendBoardMedia() {
+    if (!isMobileBoard() || mediaSuspended) return;
+    mediaSuspended = true;
+
+    var videos = canvas.querySelectorAll("video");
+    for (var i = 0; i < videos.length; i++) {
+      var video = videos[i];
+      video.dataset.wasPlaying = video.paused ? "0" : "1";
+      try {
+        video.pause();
+      } catch (err) {}
+    }
+
+    var gifs = canvas.querySelectorAll('img[src*=".gif"], img[src*=".GIF"]');
+    for (var g = 0; g < gifs.length; g++) {
+      var img = gifs[g];
+      freezeGifFrame(img);
+      if (img.dataset.frozenSrc) {
+        if (!img.dataset.liveSrc) {
+          img.dataset.liveSrc = img.getAttribute("src") || "";
+        }
+        img.src = img.dataset.frozenSrc;
+      }
+    }
+  }
+
+  function resumeBoardMedia() {
+    if (!mediaSuspended) return;
+    mediaSuspended = false;
+
+    var videos = canvas.querySelectorAll("video");
+    for (var i = 0; i < videos.length; i++) {
+      if (videos[i].dataset.wasPlaying === "1") {
+        try {
+          videos[i].play();
+        } catch (err) {}
+      }
+    }
+
+    var frozen = canvas.querySelectorAll("img[data-live-src]");
+    for (var g = 0; g < frozen.length; g++) {
+      var img = frozen[g];
+      if (img.dataset.liveSrc) img.src = img.dataset.liveSrc;
+    }
+  }
+
+  function prewarmGifFrames() {
+    if (!isMobileBoard()) return;
+    var gifs = canvas.querySelectorAll('img[src*=".gif"], img[src*=".GIF"]');
+    for (var g = 0; g < gifs.length; g++) {
+      freezeGifFrame(gifs[g]);
+    }
+  }
 
   function navigateHref(href) {
     if (!href) return;
@@ -209,6 +303,7 @@
     }
     draggingCanvas = false;
     viewport.classList.remove("is-dragging");
+    resumeBoardMedia();
   }
 
   window.addEventListener("mouseup", endDrag);
@@ -233,8 +328,11 @@
         return;
       }
 
+      e.preventDefault();
       setSelected(null);
       draggingCanvas = true;
+      panMoved = false;
+      suspendBoardMedia();
       canvasStart.x = t.clientX - position.x;
       canvasStart.y = t.clientY - position.y;
       viewport.classList.add("is-dragging");
@@ -266,6 +364,8 @@
       }
       if (!draggingCanvas) return;
       e.preventDefault();
+      panMoved = true;
+      userAdjustedView = true;
       position.x = t.clientX - canvasStart.x;
       position.y = t.clientY - canvasStart.y;
       applyTransform();
@@ -359,7 +459,15 @@
     // Only revert pieces we reposition on mobile — never clobber doodles/other widgets
     var sels = [
       ".board-media--kinvest-center",
-      ".board-media--sticky-bio"
+      ".board-media--sticky-bio",
+      ".board-doodle--kinvest",
+      ".board-media--cursor-top",
+      ".board-gallery",
+      ".board-comment-pin--angel",
+      ".board-doodle--cursor",
+      ".board-media--figjam2",
+      ".board-media--seatgeek-side",
+      ".board-comment-pin--harshesh"
     ];
     for (var i = 0; i < sels.length; i++) {
       var el = canvas.querySelector(sels[i]);
@@ -397,9 +505,12 @@
     draggingCanvas = false;
     draggingSticky = null;
     stickyDragMoved = false;
+    panMoved = false;
+    userAdjustedView = false;
     viewport.classList.remove("is-dragging");
+    resumeBoardMedia();
     restoreAllBoardPositions();
-    centerOnLoad();
+    centerOnLoad(true);
   }
 
   function applyMobilePieceLeft(sel, mobileLeft) {
@@ -411,6 +522,16 @@
     el.style.left = mobileLeft + "px";
   }
 
+  function applyMobilePiecePos(sel, mobileLeft, mobileTop) {
+    var el = canvas.querySelector(sel);
+    if (!el) return;
+    ensureBasePosition(el);
+    if (!isMobileBoard()) return;
+    if (el.dataset.userMoved === "1") return;
+    if (mobileLeft != null) el.style.left = mobileLeft + "px";
+    if (mobileTop != null) el.style.top = mobileTop + "px";
+  }
+
   function applyMobileAssetPositions() {
     snapshotBasePositionsOnce();
     if (!isMobileBoard()) {
@@ -419,6 +540,26 @@
     }
     applyMobilePieceLeft(".board-media--kinvest-center", MOBILE_KINVEST_LEFT);
     applyMobilePieceLeft(".board-media--sticky-bio", MOBILE_STICKY_BIO_LEFT);
+    applyMobilePiecePos(
+      ".board-doodle--kinvest",
+      MOBILE_KINVEST_DOODLE_LEFT,
+      MOBILE_KINVEST_DOODLE_TOP
+    );
+    applyMobilePieceLeft(".board-media--cursor-top", MOBILE_CURSOR_LEFT);
+    applyMobilePiecePos(".board-gallery", MOBILE_GALLERY_LEFT, MOBILE_GALLERY_TOP);
+    applyMobilePiecePos(
+      ".board-comment-pin--angel",
+      MOBILE_ANGEL_LEFT,
+      MOBILE_ANGEL_TOP
+    );
+    applyMobilePiecePos(
+      ".board-doodle--cursor",
+      MOBILE_CURSOR_DOODLE_LEFT,
+      MOBILE_CURSOR_DOODLE_TOP
+    );
+    applyMobilePieceLeft(".board-media--figjam2", MOBILE_FIGJAM2_LEFT);
+    applyMobilePieceLeft(".board-media--seatgeek-side", MOBILE_SEATGEEK_LEFT);
+    applyMobilePieceLeft(".board-comment-pin--harshesh", MOBILE_HARSHESH_LEFT);
   }
 
   function beginPieceDrag(dragPiece, clientX, clientY) {
@@ -426,6 +567,7 @@
     draggingSticky = dragPiece;
     stickyDragMoved = false;
     dragPiece.classList.add("sticky-note--dragging");
+    suspendBoardMedia();
 
     var left = parsePx(dragPiece, "left");
     var top = parsePx(dragPiece, "top");
@@ -456,10 +598,29 @@
     viewport.classList.add("is-dragging");
   }
 
-  function centerOnLoad() {
+  function preserveViewOnResize(size) {
+    var boardCx = (size.width / 2 - position.x) / BOARD_SCALE;
+    var boardCy = (size.height / 2 - position.y) / BOARD_SCALE;
+    BOARD_SCALE = computeBoardScale(size.width, size.height);
+    position.x = size.width / 2 - BOARD_SCALE * boardCx;
+    position.y = size.height / 2 - BOARD_SCALE * boardCy;
+    applyTransform();
+  }
+
+  function centerOnLoad(force) {
     var size = viewportSize();
     if (!size) {
-      requestAnimationFrame(centerOnLoad);
+      requestAnimationFrame(function () {
+        centerOnLoad(force);
+      });
+      return;
+    }
+
+    // After the user pans/zooms on mobile, don't snap back to intro on chrome resize
+    if (!force && userAdjustedView && isMobileBoard()) {
+      preserveViewOnResize(size);
+      applyMobileAssetPositions();
+      updateMobileWidgetNudge();
       return;
     }
 
@@ -474,12 +635,19 @@
     updateMobileWidgetNudge();
   }
 
-  function scheduleCenter() {
+  function scheduleCenter(force) {
     if (draggingCanvas || draggingSticky) return;
     requestAnimationFrame(function () {
-      centerOnLoad();
-      requestAnimationFrame(centerOnLoad);
+      centerOnLoad(force);
     });
+  }
+
+  function scheduleCenterDebounced() {
+    if (resizeTimer) window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(function () {
+      resizeTimer = null;
+      scheduleCenter(false);
+    }, 120);
   }
 
   function bindImageRecenter() {
@@ -487,38 +655,51 @@
     for (var i = 0; i < imgs.length; i++) {
       var img = imgs[i];
       if (!img.complete) {
-        img.addEventListener("load", scheduleCenter, { once: true });
+        img.addEventListener("load", function () {
+          scheduleCenter(false);
+        }, { once: true });
       }
     }
   }
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
-      scheduleCenter();
+      scheduleCenter(true);
       bindImageRecenter();
     });
   } else {
-    scheduleCenter();
+    scheduleCenter(true);
     bindImageRecenter();
   }
 
   window.addEventListener("load", function () {
-    scheduleCenter();
-    window.setTimeout(scheduleCenter, 120);
-    window.setTimeout(scheduleCenter, 400);
+    scheduleCenter(true);
+    window.setTimeout(function () {
+      scheduleCenter(true);
+    }, 120);
+    window.setTimeout(function () {
+      scheduleCenter(true);
+      prewarmGifFrames();
+    }, 400);
   });
 
-  window.addEventListener("resize", scheduleCenter);
+  window.addEventListener("resize", scheduleCenterDebounced);
 
   if (typeof ResizeObserver !== "undefined") {
     var ro = new ResizeObserver(function () {
-      scheduleCenter();
+      scheduleCenterDebounced();
     });
     ro.observe(viewport);
   }
 
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", scheduleCenterDebounced);
+  }
+
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(scheduleCenter);
+    document.fonts.ready.then(function () {
+      scheduleCenter(false);
+    });
   }
 
   var galleryImages = canvas.querySelectorAll(".board-gallery__image");
@@ -546,5 +727,8 @@
     });
   }
 
-  window.portfolioRecenterBoard = scheduleCenter;
+  window.portfolioRecenterBoard = function () {
+    userAdjustedView = false;
+    scheduleCenter(true);
+  };
 })();

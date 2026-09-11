@@ -6,24 +6,24 @@
 
   if (!section || !dotsNav || !items.length || !dots.length) return;
 
-  var activeId = items[0].id;
+  var activeId = null;
 
   function setActive(id) {
-    if (!id || id === activeId) {
-      activeId = id || activeId;
-    } else {
-      activeId = id;
-    }
+    activeId = id || null;
 
     for (var i = 0; i < dots.length; i++) {
       var dot = dots[i];
-      var isActive = dot.getAttribute("data-work-target") === activeId;
+      var isActive = !!activeId && dot.getAttribute("data-work-target") === activeId;
       dot.classList.toggle("is-active", isActive);
       if (isActive) {
         dot.setAttribute("aria-current", "true");
       } else {
         dot.removeAttribute("aria-current");
       }
+    }
+
+    for (var j = 0; j < items.length; j++) {
+      items[j].classList.toggle("is-active", !!activeId && items[j].id === activeId);
     }
   }
 
@@ -39,7 +39,7 @@
 
   function updateActiveFromScroll() {
     var marker = window.innerHeight * 0.4;
-    var current = items[0].id;
+    var current = null;
 
     for (var i = 0; i < items.length; i++) {
       var top = items[i].getBoundingClientRect().top;

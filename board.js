@@ -23,15 +23,20 @@
   var FIT_HEIGHT = 1500;
   var VIEWPORT_FILL = 1;
   var SCALE_MIN = 0.28;
-  var SCALE_MAX = 1;
-  var ZOOM_BOOST = 1.44;
+  var SCALE_MAX = 1.05;
+  var ZOOM_BOOST = 1.5;
   var MOBILE_MAX = 900;
   var MOBILE_FIT_WIDTH = 720;
   var MOBILE_FIT_HEIGHT = 780;
-  var MOBILE_ZOOM_BOOST = 2.35;
-  var MOBILE_SCALE_MAX = 1.55;
+  var MOBILE_ZOOM_BOOST = 1.86;
+  var MOBILE_SCALE_MAX = 1.23;
   var MOBILE_CX = 1320;
   var MOBILE_CY = 820;
+  var MOBILE_WIDGET_PULL = 0.28;
+  var MOBILE_KINVEST_LEFT = 907;
+  var MOBILE_STICKY_BIO_LEFT = 1304;
+  var MOBILE_WIDGET_SEL =
+    ".board-gallery, .board-media, .board-comment-pin, .board-hint, .board-card, .board-doodle";
 
   var position = { x: 0, y: 0 };
   var draggingCanvas = false;
@@ -119,7 +124,7 @@
     if (closestFrom(e.target, "[data-board-reset]")) {
       e.preventDefault();
       e.stopPropagation();
-      centerOnLoad();
+      resetBoard();
     }
   });
 
@@ -131,15 +136,7 @@
     var dragPiece = closestFrom(e.target, ".board-draggable");
     if (dragPiece) {
       e.preventDefault();
-      setSelected(dragPiece);
-      draggingSticky = dragPiece;
-      stickyDragMoved = false;
-      dragPiece.classList.add("sticky-note--dragging");
-      stickyState.mouseX = e.clientX;
-      stickyState.mouseY = e.clientY;
-      stickyState.left = parsePx(dragPiece, "left");
-      stickyState.top = parsePx(dragPiece, "top");
-      viewport.classList.add("is-dragging");
+      beginPieceDrag(dragPiece, e.clientX, e.clientY);
       return;
     }
 
@@ -203,7 +200,11 @@
         }
         if (!wasOpen) draggingSticky.classList.add("is-open");
       }
+      if (stickyDragMoved && isMobileBoard()) {
+        draggingSticky.dataset.userMoved = "1";
+      }
       draggingSticky.classList.remove("sticky-note--dragging");
+      delete draggingSticky.dataset.dragging;
       draggingSticky = null;
     }
     draggingCanvas = false;
@@ -228,15 +229,7 @@
 
       if (dragPiece) {
         e.preventDefault();
-        setSelected(dragPiece);
-        draggingSticky = dragPiece;
-        stickyDragMoved = false;
-        dragPiece.classList.add("sticky-note--dragging");
-        stickyState.mouseX = t.clientX;
-        stickyState.mouseY = t.clientY;
-        stickyState.left = parsePx(dragPiece, "left");
-        stickyState.top = parsePx(dragPiece, "top");
-        viewport.classList.add("is-dragging");
+        beginPieceDrag(dragPiece, t.clientX, t.clientY);
         return;
       }
 
@@ -300,6 +293,169 @@
     };
   }
 
+  function updateMobileWidgetNudge() {
+    var mobile = isMobileBoard();
+    var focus = mobile ? getMobileFocusPoint() : null;
+    var nodes = canvas.querySelectorAll(MOBILE_WIDGET_SEL);
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      if (!mobile || el.classList.contains("board-media--headline")) {
+        el.style.removeProperty("--board-nudge-x");
+        el.style.removeProperty("--board-nudge-y");
+        continue;
+      }
+      if (
+        el === draggingSticky ||
+        el.dataset.dragging === "1" ||
+        el.dataset.userMoved === "1"
+      ) {
+        el.style.setProperty("--board-nudge-x", "0px");
+        el.style.setProperty("--board-nudge-y", "0px");
+        continue;
+      }
+      var left = parsePx(el, "left");
+      var top = parsePx(el, "top");
+      var w = el.offsetWidth || 0;
+      var h = el.offsetHeight || 0;
+      var ecx = left + w / 2;
+      var ecy = top + h / 2;
+      var nx = (focus.x - ecx) * MOBILE_WIDGET_PULL;
+      var ny = (focus.y - ecy) * MOBILE_WIDGET_PULL;
+      el.style.setProperty("--board-nudge-x", nx + "px");
+      el.style.setProperty("--board-nudge-y", ny + "px");
+    }
+  }
+
+  function readInlinePx(el, prop) {
+    var attr = el.getAttribute("style") || "";
+    var re = new RegExp("(?:^|;)\\s*" + prop + ":\\s*([\\d.]+)px", "i");
+    var m = attr.match(re);
+    if (m) return m[1];
+    return String(parsePx(el, prop));
+  }
+
+  function ensureBasePosition(el) {
+    if (!el.dataset.baseLeft) {
+      el.dataset.baseLeft = readInlinePx(el, "left");
+    }
+    if (!el.dataset.baseTop) {
+      el.dataset.baseTop = readInlinePx(el, "top");
+    }
+  }
+
+  var didSnapshotBases = false;
+  function snapshotBasePositionsOnce() {
+    if (didSnapshotBases) return;
+    didSnapshotBases = true;
+    var nodes = canvas.querySelectorAll(
+      MOBILE_WIDGET_SEL + ", .board-media--headline"
+    );
+    for (var i = 0; i < nodes.length; i++) {
+      ensureBasePosition(nodes[i]);
+    }
+  }
+
+  function restoreDesktopBoardPositions() {
+    // Only revert pieces we reposition on mobile — never clobber doodles/other widgets
+    var sels = [
+      ".board-media--kinvest-center",
+      ".board-media--sticky-bio"
+    ];
+    for (var i = 0; i < sels.length; i++) {
+      var el = canvas.querySelector(sels[i]);
+      if (!el || !el.dataset.baseLeft) continue;
+      el.style.left = el.dataset.baseLeft + "px";
+      if (el.dataset.baseTop) el.style.top = el.dataset.baseTop + "px";
+      el.style.removeProperty("--board-nudge-x");
+      el.style.removeProperty("--board-nudge-y");
+      delete el.dataset.userMoved;
+      delete el.dataset.dragging;
+    }
+  }
+
+  function restoreAllBoardPositions() {
+    snapshotBasePositionsOnce();
+    var nodes = canvas.querySelectorAll(
+      MOBILE_WIDGET_SEL + ", .board-media--headline"
+    );
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      ensureBasePosition(el);
+      if (!el.dataset.baseLeft) continue;
+      el.style.left = el.dataset.baseLeft + "px";
+      if (el.dataset.baseTop) el.style.top = el.dataset.baseTop + "px";
+      el.style.removeProperty("--board-nudge-x");
+      el.style.removeProperty("--board-nudge-y");
+      delete el.dataset.userMoved;
+      delete el.dataset.dragging;
+      el.classList.remove("sticky-note--dragging", "is-selected", "is-open");
+    }
+    setSelected(null);
+  }
+
+  function resetBoard() {
+    draggingCanvas = false;
+    draggingSticky = null;
+    stickyDragMoved = false;
+    viewport.classList.remove("is-dragging");
+    restoreAllBoardPositions();
+    centerOnLoad();
+  }
+
+  function applyMobilePieceLeft(sel, mobileLeft) {
+    var el = canvas.querySelector(sel);
+    if (!el) return;
+    ensureBasePosition(el);
+    if (!isMobileBoard()) return;
+    if (el.dataset.userMoved === "1") return;
+    el.style.left = mobileLeft + "px";
+  }
+
+  function applyMobileAssetPositions() {
+    snapshotBasePositionsOnce();
+    if (!isMobileBoard()) {
+      restoreDesktopBoardPositions();
+      return;
+    }
+    applyMobilePieceLeft(".board-media--kinvest-center", MOBILE_KINVEST_LEFT);
+    applyMobilePieceLeft(".board-media--sticky-bio", MOBILE_STICKY_BIO_LEFT);
+  }
+
+  function beginPieceDrag(dragPiece, clientX, clientY) {
+    setSelected(dragPiece);
+    draggingSticky = dragPiece;
+    stickyDragMoved = false;
+    dragPiece.classList.add("sticky-note--dragging");
+
+    var left = parsePx(dragPiece, "left");
+    var top = parsePx(dragPiece, "top");
+
+    // Nudge bake-in is mobile-only so desktop drag stays 1:1 with layout left/top
+    if (isMobileBoard()) {
+      dragPiece.dataset.dragging = "1";
+      var nudgeX =
+        parseFloat(
+          String(dragPiece.style.getPropertyValue("--board-nudge-x") || "0")
+        ) || 0;
+      var nudgeY =
+        parseFloat(
+          String(dragPiece.style.getPropertyValue("--board-nudge-y") || "0")
+        ) || 0;
+      left += nudgeX;
+      top += nudgeY;
+      dragPiece.style.left = left + "px";
+      dragPiece.style.top = top + "px";
+      dragPiece.style.setProperty("--board-nudge-x", "0px");
+      dragPiece.style.setProperty("--board-nudge-y", "0px");
+    }
+
+    stickyState.mouseX = clientX;
+    stickyState.mouseY = clientY;
+    stickyState.left = left;
+    stickyState.top = top;
+    viewport.classList.add("is-dragging");
+  }
+
   function centerOnLoad() {
     var size = viewportSize();
     if (!size) {
@@ -308,16 +464,14 @@
     }
 
     BOARD_SCALE = computeBoardScale(size.width, size.height);
-    var cx = CX;
-    var cy = CY;
-    if (isMobileBoard()) {
-      var focus = getMobileFocusPoint();
-      cx = focus.x;
-      cy = focus.y;
-    }
+    var focus = getMobileFocusPoint();
+    var cx = focus.x;
+    var cy = focus.y;
     position.x = size.width / 2 - BOARD_SCALE * cx;
     position.y = size.height / 2 - BOARD_SCALE * cy;
     applyTransform();
+    applyMobileAssetPositions();
+    updateMobileWidgetNudge();
   }
 
   function scheduleCenter() {

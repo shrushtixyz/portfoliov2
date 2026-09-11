@@ -26,10 +26,12 @@
   var SCALE_MAX = 1;
   var ZOOM_BOOST = 1.44;
   var MOBILE_MAX = 900;
-  var MOBILE_FIT_WIDTH = 1280;
-  var MOBILE_FIT_HEIGHT = 1100;
-  var MOBILE_ZOOM_BOOST = 2.05;
-  var MOBILE_SCALE_MAX = 1.25;
+  var MOBILE_FIT_WIDTH = 720;
+  var MOBILE_FIT_HEIGHT = 780;
+  var MOBILE_ZOOM_BOOST = 2.35;
+  var MOBILE_SCALE_MAX = 1.55;
+  var MOBILE_CX = 1320;
+  var MOBILE_CY = 820;
 
   var position = { x: 0, y: 0 };
   var draggingCanvas = false;
@@ -89,9 +91,42 @@
     if (el) el.classList.add("is-selected");
   }
 
+  function zoomBoard(direction) {
+    var size = viewportSize();
+    if (!size) return;
+    var oldScale = BOARD_SCALE;
+    var factor = direction > 0 ? 1.12 : 1 / 1.12;
+    var scaleMax = isMobileBoard() ? MOBILE_SCALE_MAX : SCALE_MAX;
+    var next = Math.max(SCALE_MIN, Math.min(scaleMax, oldScale * factor));
+    if (next === oldScale) return;
+    var cx = size.width / 2;
+    var cy = size.height / 2;
+    var ratio = next / oldScale;
+    position.x = cx - (cx - position.x) * ratio;
+    position.y = cy - (cy - position.y) * ratio;
+    BOARD_SCALE = next;
+    applyTransform();
+  }
+
+  viewport.addEventListener("click", function (e) {
+    var zoomBtn = closestFrom(e.target, "[data-board-zoom]");
+    if (zoomBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      zoomBoard(parseInt(zoomBtn.getAttribute("data-board-zoom"), 10) || 0);
+      return;
+    }
+    if (closestFrom(e.target, "[data-board-reset]")) {
+      e.preventDefault();
+      e.stopPropagation();
+      centerOnLoad();
+    }
+  });
+
   viewport.addEventListener("mousedown", function (e) {
     if (e.button !== 0) return;
     if (closestFrom(e.target, "a")) return;
+    if (closestFrom(e.target, ".board-chrome")) return;
 
     var dragPiece = closestFrom(e.target, ".board-draggable");
     if (dragPiece) {
@@ -106,6 +141,11 @@
       stickyState.top = parsePx(dragPiece, "top");
       viewport.classList.add("is-dragging");
       return;
+    }
+
+    var openPins = canvas.querySelectorAll(".board-comment-pin.is-open");
+    for (var ci = 0; ci < openPins.length; ci++) {
+      openPins[ci].classList.remove("is-open");
     }
 
     setSelected(null);
@@ -152,6 +192,17 @@
       if (href && !stickyDragMoved) {
         navigateHref(href);
       }
+      if (
+        draggingSticky.classList.contains("board-comment-pin") &&
+        !stickyDragMoved
+      ) {
+        var wasOpen = draggingSticky.classList.contains("is-open");
+        var openPins = canvas.querySelectorAll(".board-comment-pin.is-open");
+        for (var oi = 0; oi < openPins.length; oi++) {
+          openPins[oi].classList.remove("is-open");
+        }
+        if (!wasOpen) draggingSticky.classList.add("is-open");
+      }
       draggingSticky.classList.remove("sticky-note--dragging");
       draggingSticky = null;
     }
@@ -171,6 +222,7 @@
     function (e) {
       if (e.touches.length !== 1) return;
       if (closestFrom(e.target, "a")) return;
+      if (closestFrom(e.target, ".board-chrome")) return;
       var t = e.touches[0];
       var dragPiece = closestFrom(e.target, ".board-draggable");
 
@@ -231,6 +283,23 @@
   window.addEventListener("touchend", endDrag);
   window.addEventListener("touchcancel", endDrag);
 
+  function getMobileFocusPoint() {
+    var headline = canvas.querySelector(".board-media--headline");
+    if (!headline) return { x: MOBILE_CX, y: MOBILE_CY };
+    var left = parsePx(headline, "left");
+    var top = parsePx(headline, "top");
+    var computedLeft = getComputedStyle(headline).left;
+    if (computedLeft && computedLeft !== "auto") {
+      left = parseFloat(computedLeft) || left;
+    }
+    var width = headline.offsetWidth || 440;
+    var height = headline.offsetHeight || 200;
+    return {
+      x: left + width / 2,
+      y: top + height / 2
+    };
+  }
+
   function centerOnLoad() {
     var size = viewportSize();
     if (!size) {
@@ -239,8 +308,15 @@
     }
 
     BOARD_SCALE = computeBoardScale(size.width, size.height);
-    position.x = size.width / 2 - BOARD_SCALE * CX;
-    position.y = size.height / 2 - BOARD_SCALE * CY;
+    var cx = CX;
+    var cy = CY;
+    if (isMobileBoard()) {
+      var focus = getMobileFocusPoint();
+      cx = focus.x;
+      cy = focus.y;
+    }
+    position.x = size.width / 2 - BOARD_SCALE * cx;
+    position.y = size.height / 2 - BOARD_SCALE * cy;
     applyTransform();
   }
 
@@ -291,43 +367,6 @@
     document.fonts.ready.then(scheduleCenter);
   }
 
-  var sfClockTime = document.getElementById("sf-clock-time");
-  var sfClockIcon = document.getElementById("sf-clock-icon");
-
-  function updateSanFranciscoClock() {
-    if (!sfClockTime) return;
-
-    var parts = new Intl.DateTimeFormat("en-US", {
-      timeZone: "America/Los_Angeles",
-      hour: "numeric",
-      minute: "2-digit",
-      hour12: true,
-    }).formatToParts(new Date());
-    var hour = "";
-    var minute = "";
-    var dayPeriod = "";
-
-    for (var i = 0; i < parts.length; i++) {
-      if (parts[i].type === "hour") hour = parts[i].value;
-      if (parts[i].type === "minute") minute = parts[i].value;
-      if (parts[i].type === "dayPeriod") dayPeriod = parts[i].value;
-    }
-
-    sfClockTime.textContent = hour + ":" + minute + dayPeriod;
-
-    if (sfClockIcon) {
-      var hour24 = Number(hour);
-      if (dayPeriod === "PM" && hour24 !== 12) hour24 += 12;
-      if (dayPeriod === "AM" && hour24 === 12) hour24 = 0;
-      var isDaytime = hour24 >= 7 && hour24 < 19;
-      sfClockIcon.classList.toggle("is-sun", isDaytime);
-      sfClockIcon.classList.toggle("is-moon", !isDaytime);
-    }
-  }
-
-  updateSanFranciscoClock();
-  window.setInterval(updateSanFranciscoClock, 15000);
-
   var galleryImages = canvas.querySelectorAll(".board-gallery__image");
   var galleryIndex = 0;
   var reduceMotion = window.matchMedia &&
@@ -351,43 +390,6 @@
       e.preventDefault();
       navigateHref(e.currentTarget.getAttribute("data-href"));
     });
-  }
-
-  var musicWidget = canvas.querySelector(".board-music");
-  var musicCover = canvas.querySelector(".board-music__cover");
-  var musicTitle = canvas.querySelector(".board-music__title");
-  var musicArtist = canvas.querySelector(".board-music__artist");
-  var musicTracks = [
-    { title: "Paradise", artist: "Sade", cover: "assets/main%20viewport%20fig/sade.png" },
-    { title: "RAIN", artist: "Fisher", cover: "assets/main%20viewport%20fig/fisher.png" },
-    {
-      title: "Delilah (pull me out of this)",
-      artist: "Fred again..",
-      cover: "assets/main%20viewport%20fig/fredgain.png",
-    },
-  ];
-  var musicIndex = 0;
-
-  function showNextTrack() {
-    if (!musicWidget || !musicCover || !musicTitle || !musicArtist) return;
-    musicWidget.classList.add("is-changing");
-
-    window.setTimeout(function () {
-      musicIndex = (musicIndex + 1) % musicTracks.length;
-      var track = musicTracks[musicIndex];
-      musicCover.src = track.cover;
-      musicTitle.textContent = track.title;
-      musicArtist.textContent = track.artist;
-      musicWidget.setAttribute(
-        "aria-label",
-        "Now playing " + track.title + " by " + track.artist
-      );
-      musicWidget.classList.remove("is-changing");
-    }, 550);
-  }
-
-  if (!reduceMotion && musicWidget) {
-    window.setInterval(showNextTrack, 7000);
   }
 
   window.portfolioRecenterBoard = scheduleCenter;

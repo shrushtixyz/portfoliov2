@@ -14,7 +14,7 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=259" />
+    <link rel="stylesheet" href="styles.css?v=353" />
   </head>
   <body>
     <div class="page">
@@ -41,12 +41,12 @@
               <span></span>
               <span></span>
             </button>
+
           </div>
 
-          <nav class="nav-group" aria-label="Favorites">
-            <p class="nav-group__label">Favorites</p>
+          <nav class="nav-group" aria-label="Primary">
             <ul>
-              <li><a href="#home">Home</a></li>
+              <li><a class="is-active" href="#home" aria-current="page">Home</a></li>
               <li><a href="work.html">All Work</a></li>
               <li><a href="about.html">About</a></li>
               <li><a href="https://drive.google.com/file/d/1JwE2XkeLxlE3JCx48LhzopkKhQ4pc3vu/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
@@ -77,50 +77,41 @@
       <main class="main" id="home">
         <section class="hero-board" aria-label="Interactive design board">
           <div id="figma-viewport" class="figma-viewport">
-            <div id="whiteboard-canvas" class="whiteboard-canvas">
-              <!-- Center: name -->
-              <div
-                class="board-media board-media--headline board-draggable"
-                style="left: 1010px; top: 660px"
-              >
-                <img
-                  src="assets/main%20viewport%20fig/shrushti.svg"
-                  alt="I’m Shrushti, a product designer that executes"
-                  draggable="false"
-                />
-              </div>
+            <div class="board-chrome" aria-hidden="false">
+              <img
+                class="board-chrome__playground"
+                src="assets/figjam-ui/playground.png?v=6"
+                alt="Shrushti’s Playground"
+                draggable="false"
+              />
 
-              <!-- Above -->
-              <div class="board-media board-media--video-wide board-media--sm board-draggable" style="left: 1090px; top: 340px">
-                <video
-                  src="assets/main%20viewport%20fig/recentsales.mp4?v=2"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  disablepictureinpicture
-                  preload="metadata"
-                  aria-label="Recent sales pricing animation"
-                ></video>
-              </div>
-
-              <div class="board-hint board-draggable" style="left: 1120px; top: calc(240px + 4.8vh)">
+              <div class="board-chrome__bottom">
                 <img
-                  class="board-hint__icon"
-                  src="assets/main%20viewport%20fig/clicktodrag.png"
+                  class="board-chrome__toolbar"
+                  src="assets/figjam-ui/toolbar.png?v=10"
                   alt=""
-                  width="19"
-                  height="19"
                   draggable="false"
                 />
-                <span>CLICK TO MOVE AROUND</span>
-              </div>
 
-              <!-- Left -->
+                <div class="board-chrome__controls">
+                  <div class="board-chrome__zoom" role="group" aria-label="Zoom">
+                    <img src="assets/figjam-ui/zoom.png?v=3" alt="" draggable="false" />
+                    <button type="button" class="board-chrome__hit board-chrome__hit--zoom-out" data-board-zoom="-1" aria-label="Zoom out"></button>
+                    <button type="button" class="board-chrome__hit board-chrome__hit--zoom-in" data-board-zoom="1" aria-label="Zoom in"></button>
+                  </div>
+                  <button type="button" class="board-chrome__refresh" data-board-reset aria-label="Reset board view">
+                    <img src="assets/figjam-ui/refresh.png?v=3" alt="" draggable="false" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div id="whiteboard-canvas" class="whiteboard-canvas">
+              <!-- Above middle: photos + cursor -->
               <div
-                class="board-gallery board-gallery--link board-draggable"
+                class="board-gallery board-gallery--link board-gallery--sm board-draggable"
                 data-href="photos.html"
-                style="left: 538px; top: 220px"
+                style="left: 936px; top: 306px"
                 role="link"
                 aria-label="View all photos"
                 tabindex="0"
@@ -139,48 +130,54 @@
               </div>
 
               <div
-                class="board-media board-media--figjam board-media--sm board-media--sweetcut board-draggable"
-                data-href="https://www.thesweetcut.com/"
-                style="left: 516px; top: -193px"
-                role="link"
-                aria-label="Open The Sweet Cut website"
-                tabindex="0"
+                class="board-media board-media--figjam board-media--cursor-top board-draggable"
+                style="left: 1360px; top: 380px"
               >
-                <img src="assets/figjamside/sweetcut.png" alt="The Sweet Cut" draggable="false" />
-              </div>
-
-              <div class="board-media board-media--figjam board-media--sm board-media--figjam2 board-draggable" style="left: 340px; top: 700px">
-                <img src="assets/main%20viewport%20fig/figjam2.gif" alt="Animated product prototype" draggable="false" />
-              </div>
-
-              <div class="board-media board-media--video-phone board-draggable" style="left: 579px; top: 960px">
-                <img src="assets/main%20viewport%20fig/pfinaljam1.gif" alt="Portfolio FigJam prototype" draggable="false" />
-              </div>
-
-              <!-- Right -->
-              <div
-                class="board-music board-draggable"
-                style="left: 1654px; top: 240px"
-                aria-label="Now playing Paradise by Sade"
-              >
-                <img
-                  class="board-music__cover"
-                  src="assets/main%20viewport%20fig/sade.png"
-                  alt=""
-                  draggable="false"
-                />
-                <div class="board-music__details">
-                  <span class="board-music__title">Paradise</span>
-                  <span class="board-music__artist">Sade</span>
-                </div>
-              </div>
-
-              <div class="board-media board-media--figjam board-draggable" style="left: 1720px; top: 826px">
                 <img src="assets/main%20viewport%20fig/cursorgif1.gif" alt="Cursor product prototype" draggable="false" />
               </div>
 
-              <!-- Below -->
-              <div class="board-media board-media--video-phone board-media--hero board-draggable" style="left: 1120px; top: 907px">
+              <div
+                class="board-comment-pin board-comment-pin--angel board-draggable"
+                style="left: 1715px; top: 355px"
+                tabindex="0"
+                aria-label="Comment from Angel"
+              >
+                <div class="board-comment-pin__card">
+                  <img
+                    class="board-comment-pin__face"
+                    src="assets/board-comments/angel-avatar.png?v=8"
+                    alt=""
+                    width="68"
+                    height="68"
+                    draggable="false"
+                  />
+                  <div class="board-comment-pin__body">
+                    <p class="board-comment-pin__meta">
+                      <span class="board-comment-pin__name">Angel</span>
+                      <span class="board-comment-pin__time">1 day ago</span>
+                    </p>
+                    <p class="board-comment-pin__text">We should revisit this lol</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="board-hint board-draggable" style="left: 1360px; top: 320px">
+                <img
+                  class="board-hint__icon"
+                  src="assets/main%20viewport%20fig/clicktodrag.png"
+                  alt=""
+                  width="19"
+                  height="19"
+                  draggable="false"
+                />
+                <span>CLICK TO MOVE AROUND</span>
+              </div>
+
+              <!-- Left of middle: Seatgeek mobile -->
+              <div
+                class="board-media board-media--video-phone board-media--seatgeek-side board-draggable"
+                style="left: 477px; top: 419px"
+              >
                 <video
                   src="assets/main%20viewport%20fig/mobile.mp4"
                   autoplay
@@ -194,25 +191,98 @@
               </div>
 
               <div
-                class="board-clock board-draggable"
-                style="left: 1780px; top: 1197px"
-                role="timer"
-                aria-live="off"
+                class="board-comment-pin board-comment-pin--harshesh board-draggable"
+                style="left: 755px; top: 445px"
+                tabindex="0"
+                aria-label="Comment from Harshesh"
               >
-                <span id="sf-clock-icon" class="board-clock__icon is-sun" aria-hidden="true">
-                  <svg class="board-clock__sun" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="4"></circle>
-                    <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
-                  </svg>
-                  <svg class="board-clock__moon" viewBox="0 0 24 24">
-                    <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"></path>
-                  </svg>
-                </span>
-                It’s <span id="sf-clock-time">--:--</span> in San Francisco
+                <div class="board-comment-pin__card">
+                  <img
+                    class="board-comment-pin__face"
+                    src="assets/board-comments/harshesh-avatar.png?v=8"
+                    alt=""
+                    width="68"
+                    height="68"
+                    draggable="false"
+                  />
+                  <div class="board-comment-pin__body">
+                    <p class="board-comment-pin__meta">
+                      <span class="board-comment-pin__name">Harshesh</span>
+                      <span class="board-comment-pin__time">20 min. ago</span>
+                    </p>
+                    <p class="board-comment-pin__text">This one’s the cleanest exploration</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Center: intro -->
+              <div
+                class="board-media board-media--headline board-draggable"
+                style="left: 1080px; top: 690px"
+              >
+                <p class="board-intro">
+                  Hi I’m a product designer with<br />
+                  2+ years of experience that<br />
+                  executes systems that scale.<br />
+                  I worked with <span class="board-intro__link">Seatgeek</span>,<br />
+                  <span class="board-intro__link">Userapproved</span>, + more shipping<br />
+                  products from 0→1.
+                </p>
+              </div>
+
+              <!-- Under middle: Kinvest -->
+              <div
+                class="board-media board-media--video-phone board-media--kinvest-center board-draggable"
+                style="left: 1120px; top: 968px"
+              >
+                <img src="assets/main%20viewport%20fig/pfinaljam1.gif" alt="Kinvest product prototype" draggable="false" />
+              </div>
+
+              <div
+                class="board-media board-media--sticky board-media--sticky-bio board-draggable"
+                style="left: 1738px; top: 902px"
+              >
+                <img
+                  src="assets/main%20viewport%20fig/sticky-bio.png?v=2"
+                  alt="based in san francisco, currently at CCA, Figma, and SeatGeek — Shrushti"
+                  draggable="false"
+                />
+              </div>
+
+              <!-- Bottom left: recent sales -->
+              <div
+                class="board-media board-media--video-wide board-media--sm board-media--recent-corner board-draggable"
+                style="left: 420px; top: 1080px"
+              >
+                <video
+                  src="assets/main%20viewport%20fig/recentsales.mp4?v=2"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  disablepictureinpicture
+                  preload="metadata"
+                  aria-label="Recent sales pricing animation"
+                ></video>
+              </div>
+
+              <div
+                class="board-media board-media--figjam board-media--sm board-media--sweetcut board-draggable"
+                data-href="https://www.thesweetcut.com/"
+                style="left: 516px; top: -193px"
+                role="link"
+                aria-label="Open The Sweet Cut website"
+                tabindex="0"
+              >
+                <img src="assets/figjamside/sweetcut.png" alt="The Sweet Cut" draggable="false" />
+              </div>
+
+              <div class="board-media board-media--figjam board-media--sm board-media--figjam2 board-draggable" style="left: 2047px; top: 1120px">
+                <img src="assets/main%20viewport%20fig/figjam2.gif" alt="Animated product prototype" draggable="false" />
               </div>
 
               <!-- East: User Approved final (main viewport) -->
-              <div class="board-media board-media--figjam board-draggable" style="left: 1760px; top: 367px">
+              <div class="board-media board-media--figjam board-draggable" style="left: 1795px; top: 360px">
                 <img src="assets/main%20viewport%20fig/Userapprovedfinal.gif" alt="User Approved product" draggable="false" />
               </div>
 
@@ -308,7 +378,6 @@
         </section>
 
         <section class="selected-work" id="work">
-          <h2 class="selected-work__heading">Selected Work</h2>
           <div class="selected-work__rule" aria-hidden="true"></div>
 
           <nav class="work-dots" aria-label="Case studies" hidden>
@@ -418,14 +487,22 @@
         </section>
 
         <footer class="site-footer">
-          <span>Updated August 2026</span>
-          <span>Shrushti Chavan</span>
+          <span class="site-footer__credit">
+            Made with Cursor and
+            <a
+              class="site-footer__link"
+              href="https://www.youtube.com/watch?v=6MAzUT1YhWE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >this Fred Again set</a>
+          </span>
+          <span class="site-footer__name">Shrushti Chavan</span>
         </footer>
       </main>
     </div>
 
-    <script src="board.js?v=36"></script>
-    <script src="work-nav.js"></script>
-    <script src="nav.js"></script>
+    <script src="board.js?v=45"></script>
+    <script src="work-nav.js?v=3"></script>
+    <script src="nav.js?v=3"></script>
   </body>
 </html>

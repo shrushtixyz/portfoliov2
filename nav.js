@@ -10,7 +10,8 @@
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   }
 
-  toggle.addEventListener("click", function () {
+  toggle.addEventListener("click", function (e) {
+    e.stopPropagation();
     setOpen(!sidebar.classList.contains("is-open"));
   });
 

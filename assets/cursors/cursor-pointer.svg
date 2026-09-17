@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-  <path
-    d="M4 2 L4 26 L10 20 L14.5 29 L18.5 27.2 L13.2 17.8 L24 17 Z"
-    fill="#000000"
-    stroke="#FFFFFF"
-    stroke-width="1.5"
-    stroke-linejoin="round"
-    paint-order="stroke fill"
-  />
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path d="M 4.53 10.07 L 3.91 8.64 L 3.09 6.63 L 1.71 3.35 L 1.91 1.71 L 3.35 1.71 L 6.63 3.09 L 8.64 3.91 L 10.07 4.53 L 11.20 4.99 L 13.21 5.81 L 14.18 6.22 L 15.36 6.74 L 16.75 7.30 L 18.75 8.12 L 21.94 9.51 L 22.40 10.18 L 20.96 11.67 L 17.62 12.80 L 15.83 13.41 L 14.49 13.87 L 13.41 15.83 L 12.80 17.62 L 11.67 20.96 L 10.18 22.40 L 9.51 21.99 L 8.12 18.75 L 7.30 16.75 L 6.74 15.36 L 6.22 14.18 L 5.40 12.23 L 4.99 11.20 L 4.79 10.74 Z" fill="#000" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" paint-order="stroke fill"/>
 </svg>

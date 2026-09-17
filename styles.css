@@ -10,7 +10,7 @@
   --select-soft: rgba(59, 130, 246, 0.18);
   --sticky-yellow: #f5e07a;
   --sticky-pink: #f5b8c8;
-  --sidebar-w: 300px;
+  --sidebar-w: 320px;
   --panel-radius: 30px;
   --panel-stroke: #c6c6c6;
   --main-pad: 30px;
@@ -18,8 +18,20 @@
   --font-serif: "Libre Baskerville", Georgia, serif;
   --font-sans: "Satoshi", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --tracking-tight: 0;
-  --cursor-default: url("assets/cursors/cursor-pointer-v5.png?v=1") 2 1, auto;
-  --cursor-pointer: url("assets/cursors/cursor-pointer-v5.png?v=1") 2 1, pointer;
+  --cursor-default: url("assets/cursors/cursor-pointer.svg?v=5") 2 2,
+    -webkit-image-set(
+      url("assets/cursors/cursor-exact.png?v=5") 1x,
+      url("assets/cursors/cursor-exact@2x.png?v=5") 2x
+    )
+      4 3,
+    url("assets/cursors/cursor-exact.png?v=5") 4 3, auto;
+  --cursor-pointer: url("assets/cursors/cursor-pointer.svg?v=5") 2 2,
+    -webkit-image-set(
+      url("assets/cursors/cursor-exact.png?v=5") 1x,
+      url("assets/cursors/cursor-exact@2x.png?v=5") 2x
+    )
+      4 3,
+    url("assets/cursors/cursor-exact.png?v=5") 4 3, pointer;
 }
 
 *,
@@ -92,7 +104,7 @@ img {
   width: var(--sidebar-w);
   min-width: var(--sidebar-w);
   height: 100vh;
-  padding: 40px 40px 40px 50px;
+  padding: 40px 24px 40px 50px;
   background: var(--sidebar-bg);
   border-right: 0;
 }
@@ -153,8 +165,10 @@ img {
 .brand__name {
   font-family: var(--font-sans);
   font-size: 18px;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: 0;
   line-height: 1.2;
+  color: #000000;
 }
 
 .nav-group + .nav-group {
@@ -173,43 +187,60 @@ img {
 .nav-group ul {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 4px;
 }
 
 .nav-group a {
   display: block;
   font-size: 16px;
   font-weight: 400;
-  color: #6d6d6d;
-  padding: 2px 0;
-  transition: color 0.15s ease;
+  color: #555555;
+  padding: 7px 12px;
+  margin-left: -12px;
+  margin-right: -4px;
+  border-radius: 10px;
+  background: transparent;
+  box-shadow: none;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .nav-group a:hover {
   opacity: 1;
-  color: #6ea8ff;
+  color: #000000;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .nav-group a.is-active {
-  color: var(--ink);
-  font-weight: 500;
+  color: #000000;
+  font-weight: 400;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .nav-group a.is-active:hover {
-  color: var(--ink);
+  color: #000000;
   opacity: 1;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .sidebar__bottom {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  padding-right: 0;
+  max-width: none;
+  width: 100%;
 }
 
 .sidebar__email {
   font-size: 16px;
   font-weight: 400;
-  color: #6d6d6d;
+  color: #555555;
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
@@ -225,14 +256,44 @@ img {
   margin: 0;
   font-size: 15px;
   line-height: 1.55;
-  color: #6d6d6d;
+  color: #555555;
   max-width: none;
+}
+
+.sidebar__star {
+  display: inline-block;
+  width: 1.65em;
+  height: 1.65em;
+  margin-left: 1px;
+  vertical-align: -0.35em;
+  object-fit: contain;
+}
+
+.sidebar__cta {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #555555;
+}
+
+.sidebar__cta a {
+  font-size: 15px;
+  color: #555555;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease;
+}
+
+.sidebar__cta a:hover {
+  opacity: 1;
+  color: #000000;
 }
 
 .sidebar__role {
   margin: 0;
   font-size: 15px;
-  color: #6d6d6d;
+  color: #555555;
 }
 
 /* —— Hero board —— */
@@ -240,7 +301,7 @@ img {
 .hero-board {
   height: auto;
   min-height: 0;
-  padding: var(--main-pad) var(--main-pad-right) 0 var(--main-pad);
+  padding: 48px var(--main-pad-right) 0 var(--main-pad);
   background: transparent;
   border-bottom: none;
 }
@@ -550,7 +611,7 @@ img {
   margin: 0;
   max-width: none;
   width: max-content;
-  color: #5a5a5a;
+  color: #000000;
   font-family: var(--font-sans);
   font-size: 34px;
   font-weight: 400;
@@ -1354,7 +1415,7 @@ img {
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.2;
-  color: #474747;
+  color: #000000;
 }
 
 .work-item__title a:hover {
@@ -1369,7 +1430,7 @@ img {
   font-weight: 400;
   letter-spacing: var(--tracking-tight);
   line-height: 1.25;
-  color: #6d6d6d;
+  color: #555555;
 }
 
 .work-item__role {
@@ -1387,7 +1448,7 @@ img {
   font-weight: 400;
   letter-spacing: var(--tracking-tight);
   line-height: 1.25;
-  color: #6d6d6d;
+  color: #555555;
 }
 
 .work-item__tags {
@@ -1413,7 +1474,7 @@ img {
   font-weight: 400;
   line-height: 1;
   letter-spacing: var(--tracking-tight);
-  color: #6d6d6d;
+  color: #555555;
   white-space: nowrap;
 }
 
@@ -1620,23 +1681,24 @@ img {
 
 .about-experience__company {
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: #474747;
 }
 
 .about-experience__title {
+  font-size: 16px;
   color: #6d6d6d;
 }
 
 .about-experience__date {
   flex-shrink: 0;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: none;
   color: #9a9a9a;
   white-space: nowrap;
 }
@@ -1799,11 +1861,11 @@ a.work-stack__card:hover {
   align-items: center;
   justify-content: space-between;
   margin: 0 var(--main-pad-right) 0 var(--main-pad);
-  padding: 28px 4px 34px;
-  border-top: 1px solid var(--panel-stroke);
+  padding: 32px 4px 40px;
+  border-top: 1px solid #e5e5e5;
   color: #7a7a7a;
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
@@ -2145,6 +2207,7 @@ a.work-stack__card:hover {
     gap: 10px;
     margin-right: 16px;
     margin-left: 16px;
+    padding: 24px 0 32px;
     text-align: center;
     line-height: 1.35;
   }

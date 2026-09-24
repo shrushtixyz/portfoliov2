@@ -510,6 +510,11 @@ ol.cs-section__list {
   list-style: decimal;
 }
 
+ol.cs-section__list--decisions {
+  list-style: decimal-leading-zero;
+  padding-left: 2em;
+}
+
 .cs-section__flow {
   margin: 0 0 18px;
   max-width: none;

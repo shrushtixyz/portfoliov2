@@ -611,10 +611,10 @@ img {
   width: max-content;
   color: #000000;
   font-family: var(--font-sans);
-  font-size: 34px;
+  font-size: 52px;
   font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.45;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
   text-align: left;
   user-select: none;
 }
@@ -2104,16 +2104,16 @@ a.work-stack__card:hover {
     width: max-content;
     max-width: max-content;
     left: 1100px !important;
-    text-align: center;
+    text-align: left;
   }
 
   .board-intro {
-    font-size: 18px;
-    line-height: 1.5;
+    font-size: clamp(18px, 5.6vw, 24px);
+    line-height: 1.4;
     width: max-content;
     max-width: none;
     margin: 0;
-    text-align: center;
+    text-align: left;
   }
 
   .board-intro__desktop {

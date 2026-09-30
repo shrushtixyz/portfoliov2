@@ -13,6 +13,8 @@
   --sidebar-w: 320px;
   --panel-radius: 30px;
   --panel-stroke: #c6c6c6;
+  --board-shadow: 0 10px 14px -10px rgba(0, 0, 0, 0.08),
+    0 30px 48px -26px rgba(0, 0, 0, 0.14);
   --main-pad: 30px;
   --main-pad-right: 50px;
   --font-serif: "Libre Baskerville", Georgia, serif;
@@ -53,6 +55,11 @@ body {
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   cursor: var(--cursor-default);
+}
+
+body.page-home {
+  --bg: #f1f3f6;
+  --sidebar-bg: #f1f3f6;
 }
 
 @media (pointer: fine) {
@@ -195,37 +202,16 @@ img {
   font-size: 16px;
   font-weight: 400;
   color: #555555;
-  padding: 7px 12px;
-  margin-left: -12px;
-  margin-right: -4px;
-  border-radius: 10px;
-  background: transparent;
-  box-shadow: none;
-  transition:
-    color 0.15s ease,
-    background-color 0.15s ease,
-    box-shadow 0.15s ease;
+  padding: 7px 0;
 }
 
 .nav-group a:hover {
   opacity: 1;
-  color: #000000;
-  background: #ffffff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .nav-group a.is-active {
   color: #000000;
-  font-weight: 400;
-  background: #ffffff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
-.nav-group a.is-active:hover {
-  color: #000000;
-  opacity: 1;
-  background: #ffffff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+  font-weight: 500;
 }
 
 .sidebar__bottom {
@@ -320,6 +306,18 @@ img {
   border-radius: var(--panel-radius);
   user-select: none;
   touch-action: none;
+}
+
+.figma-viewport::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 24px 40px -20px rgba(0, 0, 0, 0.12),
+    inset 0 2px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .figma-viewport.is-dragging {
@@ -649,7 +647,7 @@ img {
   border-radius: 15px;
   overflow: hidden;
   border: 1px solid #e2e2e2;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--board-shadow);
 }
 
 .board-media--figjam {
@@ -704,6 +702,15 @@ img {
   width: 460px;
 }
 
+.whiteboard-canvas > .board-media.board-media--figjam.board-media--sg-wrapped,
+.whiteboard-canvas > .board-media.board-media--figjam.board-media--sg-wrapped video {
+  border-radius: 28px;
+}
+
+.board-media--figjam.board-media--sg-wrapped {
+  width: 300px;
+}
+
 .board-media--cursor-top {
   width: 460px;
 }
@@ -728,6 +735,11 @@ img {
 
 .board-media--sticky {
   width: 190px;
+}
+
+.board-media--sticky img {
+  filter: drop-shadow(0 16px 12px rgba(0, 0, 0, 0.1))
+    drop-shadow(0 5px 4px rgba(0, 0, 0, 0.05));
 }
 
 .board-media--sticky-bio {
@@ -889,7 +901,7 @@ img {
   border: 1px solid #e2e2e2;
   border-radius: 15px;
   background: #f2f2f2;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--board-shadow);
   text-decoration: none;
   color: inherit;
 }

@@ -17,8 +17,11 @@
   }
 
   var BOARD_SCALE = 0.72;
-  var CX = 1320;
-  var CY = 760;
+  /* Locked home for "Drag to look around" — reset always returns here */
+  var HEADLINE_HOME_LEFT = 1457;
+  var HEADLINE_HOME_TOP = 730;
+  var CX = 1597;
+  var CY = 752;
   var FIT_WIDTH = 2000;
   var FIT_HEIGHT = 1500;
   var VIEWPORT_FILL = 1;
@@ -26,27 +29,29 @@
   var SCALE_MAX = 1.05;
   var ZOOM_BOOST = 1.5;
   var MOBILE_MAX = 900;
-  var MOBILE_FIT_WIDTH = 720;
-  var MOBILE_FIT_HEIGHT = 780;
-  var MOBILE_ZOOM_BOOST = 1.59;
-  var MOBILE_SCALE_MAX = 1.052;
-  var MOBILE_CX = 1320;
-  var MOBILE_CY = 820;
-  var MOBILE_WIDGET_PULL = 0.28;
-  var MOBILE_KINVEST_LEFT = 907;
-  var MOBILE_STICKY_BIO_LEFT = 1304;
-  var MOBILE_KINVEST_DOODLE_LEFT = 1189;
-  var MOBILE_KINVEST_DOODLE_TOP = 1004;
-  var MOBILE_CURSOR_LEFT = 1329;
-  var MOBILE_GALLERY_LEFT = 931;
-  var MOBILE_GALLERY_TOP = 196;
-  var MOBILE_ANGEL_LEFT = 1606;
-  var MOBILE_ANGEL_TOP = 300;
-  var MOBILE_CURSOR_DOODLE_LEFT = 1426;
-  var MOBILE_CURSOR_DOODLE_TOP = 546;
-  var MOBILE_FIGJAM2_LEFT = 2012;
-  var MOBILE_SEATGEEK_LEFT = 515;
-  var MOBILE_HARSHESH_LEFT = 815;
+  var MOBILE_FIT_WIDTH = 640;
+  var MOBILE_FIT_HEIGHT = 720;
+  var MOBILE_ZOOM_BOOST = 1.72;
+  var MOBILE_SCALE_MAX = 1.12;
+  var MOBILE_CX = 1597;
+  var MOBILE_CY = 752;
+  var MOBILE_WIDGET_PULL = 0.36;
+  var MOBILE_KINVEST_LEFT = 1180;
+  var MOBILE_KINVEST_TOP = 920;
+  var MOBILE_CURSOR_LEFT = 1480;
+  var MOBILE_CURSOR_TOP = 140;
+  var MOBILE_GALLERY_LEFT = 1120;
+  var MOBILE_GALLERY_TOP = 80;
+  var MOBILE_ANGEL_LEFT = 1780;
+  var MOBILE_ANGEL_TOP = 220;
+  var MOBILE_FIGJAM2_LEFT = 1880;
+  var MOBILE_SEATGEEK_LEFT = 980;
+  var MOBILE_HARSHESH_LEFT = 1280;
+  var MOBILE_SCREEN_REC_LEFT = 1680;
+  var MOBILE_SCREEN_REC_TOP = 780;
+  var MOBILE_UA_FINAL_LEFT = 1900;
+  var MOBILE_UA_FINAL_TOP = 700;
+  var MOBILE_RECENT_LEFT = 900;
   var MOBILE_WIDGET_SEL =
     ".board-gallery, .board-media, .board-comment-pin, .board-hint, .board-card, .board-doodle";
 
@@ -376,17 +381,25 @@
   window.addEventListener("touchend", endDrag);
   window.addEventListener("touchcancel", endDrag);
 
-  function getMobileFocusPoint() {
+  function pinHeadlineHome() {
     var headline = canvas.querySelector(".board-media--headline");
+    if (!headline) return null;
+    var left = parseFloat(headline.getAttribute("data-home-left")) || HEADLINE_HOME_LEFT;
+    var top = parseFloat(headline.getAttribute("data-home-top")) || HEADLINE_HOME_TOP;
+    headline.style.left = left + "px";
+    headline.style.top = top + "px";
+    headline.dataset.baseLeft = String(left);
+    headline.dataset.baseTop = String(top);
+    return headline;
+  }
+
+  function getMobileFocusPoint() {
+    var headline = pinHeadlineHome();
     if (!headline) return { x: MOBILE_CX, y: MOBILE_CY };
     var left = parsePx(headline, "left");
     var top = parsePx(headline, "top");
-    var computedLeft = getComputedStyle(headline).left;
-    if (computedLeft && computedLeft !== "auto") {
-      left = parseFloat(computedLeft) || left;
-    }
-    var width = headline.offsetWidth || 440;
-    var height = headline.offsetHeight || 200;
+    var width = headline.offsetWidth || 280;
+    var height = headline.offsetHeight || 45;
     return {
       x: left + width / 2,
       y: top + height / 2
@@ -459,15 +472,15 @@
     // Only revert pieces we reposition on mobile — never clobber doodles/other widgets
     var sels = [
       ".board-media--kinvest-center",
-      ".board-media--sticky-bio",
-      ".board-doodle--kinvest",
       ".board-media--cursor-top",
       ".board-gallery",
       ".board-comment-pin--angel",
-      ".board-doodle--cursor",
       ".board-media--figjam2",
       ".board-media--seatgeek-side",
-      ".board-comment-pin--harshesh"
+      ".board-comment-pin--harshesh",
+      ".board-media--screen-rec",
+      ".board-media--userapproved-final",
+      ".board-media--recent-corner"
     ];
     for (var i = 0; i < sels.length; i++) {
       var el = canvas.querySelector(sels[i]);
@@ -510,6 +523,7 @@
     viewport.classList.remove("is-dragging");
     resumeBoardMedia();
     restoreAllBoardPositions();
+    pinHeadlineHome();
     centerOnLoad(true);
   }
 
@@ -538,28 +552,36 @@
       restoreDesktopBoardPositions();
       return;
     }
-    applyMobilePieceLeft(".board-media--kinvest-center", MOBILE_KINVEST_LEFT);
-    applyMobilePieceLeft(".board-media--sticky-bio", MOBILE_STICKY_BIO_LEFT);
     applyMobilePiecePos(
-      ".board-doodle--kinvest",
-      MOBILE_KINVEST_DOODLE_LEFT,
-      MOBILE_KINVEST_DOODLE_TOP
+      ".board-media--kinvest-center",
+      MOBILE_KINVEST_LEFT,
+      MOBILE_KINVEST_TOP
     );
-    applyMobilePieceLeft(".board-media--cursor-top", MOBILE_CURSOR_LEFT);
+    applyMobilePiecePos(
+      ".board-media--cursor-top",
+      MOBILE_CURSOR_LEFT,
+      MOBILE_CURSOR_TOP
+    );
     applyMobilePiecePos(".board-gallery", MOBILE_GALLERY_LEFT, MOBILE_GALLERY_TOP);
     applyMobilePiecePos(
       ".board-comment-pin--angel",
       MOBILE_ANGEL_LEFT,
       MOBILE_ANGEL_TOP
     );
-    applyMobilePiecePos(
-      ".board-doodle--cursor",
-      MOBILE_CURSOR_DOODLE_LEFT,
-      MOBILE_CURSOR_DOODLE_TOP
-    );
     applyMobilePieceLeft(".board-media--figjam2", MOBILE_FIGJAM2_LEFT);
     applyMobilePieceLeft(".board-media--seatgeek-side", MOBILE_SEATGEEK_LEFT);
     applyMobilePieceLeft(".board-comment-pin--harshesh", MOBILE_HARSHESH_LEFT);
+    applyMobilePiecePos(
+      ".board-media--screen-rec",
+      MOBILE_SCREEN_REC_LEFT,
+      MOBILE_SCREEN_REC_TOP
+    );
+    applyMobilePiecePos(
+      ".board-media--userapproved-final",
+      MOBILE_UA_FINAL_LEFT,
+      MOBILE_UA_FINAL_TOP
+    );
+    applyMobilePieceLeft(".board-media--recent-corner", MOBILE_RECENT_LEFT);
   }
 
   function beginPieceDrag(dragPiece, clientX, clientY) {

@@ -29,7 +29,7 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=488" />
+    <link rel="stylesheet" href="styles.css?v=531" />
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -37,19 +37,45 @@
   </head>
   <body class="page-home">
     <div class="page">
+      <div class="site-meta" aria-label="Local time and contact">
+        <span class="site-meta__clock" data-sf-clock>SF —:—</span>
+        <a
+          class="site-meta__btn"
+          href="https://www.linkedin.com/in/shrushtichavan"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+            <path d="M6.4 9.2h2.3v7.6H6.4V9.2zm1.15-3.7a1.35 1.35 0 1 1 0 2.7 1.35 1.35 0 0 1 0-2.7zM10.3 9.2h2.2v1.05h.03c.3-.58 1.05-1.2 2.16-1.2 2.3 0 2.73 1.52 2.73 3.5v4.25h-2.3v-3.77c0-.9-.02-2.05-1.25-2.05-1.25 0-1.44.98-1.44 1.98v3.84h-2.3V9.2z"/>
+          </svg>
+        </a>
+        <a
+          class="site-meta__btn"
+          href="mailto:shrushtichavan@cca.edu"
+          aria-label="Email"
+        >
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect>
+            <path d="M4.5 7.5 12 13l7.5-5.5"></path>
+          </svg>
+        </a>
+      </div>
+
       <aside class="sidebar">
         <div class="sidebar__top">
           <div class="sidebar__bar">
-            <a class="brand" href="#home">
-              <img
-                class="brand__avatar"
-                src="assets/shrushtiheadshot.png"
-                alt="Shrushti Chavan"
-                width="32"
-                height="32"
-              />
-              <span class="brand__name">Shrushti Chavan</span>
-            </a>
+            <div class="brand">
+              <span
+                class="brand__mark"
+                data-eye-tracker
+                data-size="36"
+                data-shape="Cube"
+                data-eyes="Slant"
+                data-within="body"
+              ></span>
+              <a class="brand__name" href="#home">Shrushti Chavan</a>
+            </div>
             <button
               class="nav-toggle"
               type="button"
@@ -60,44 +86,32 @@
               <span></span>
               <span></span>
             </button>
-
           </div>
 
-          <nav class="nav-group" aria-label="Primary">
+          <p class="sidebar__role">Product Designer in San Francisco</p>
+          <p class="sidebar__intro">Obsessed with getting deep into complex systems and designing 0→1 products that scale with intention. Previously at SeatGeek.</p>
+
+          <nav class="nav-group nav-group--sections" aria-label="Sections">
+            <p class="nav-group__label">Sections</p>
             <ul>
-              <li><a class="is-active" href="#home" aria-current="page">Home</a></li>
-              <li><a href="work.html">All Work</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="https://drive.google.com/file/d/17UMur1jOhmUhOlcN-o2nVH1eWO75_Dvr/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
+              <li><a href="#home" class="is-active" aria-current="page"><span class="nav-num">01</span> Home</a></li>
+              <li><a href="work.html"><span class="nav-num">02</span> Work</a></li>
+              <li><a href="about.html"><span class="nav-num">03</span> About</a></li>
+              <li><a href="https://drive.google.com/file/d/17UMur1jOhmUhOlcN-o2nVH1eWO75_Dvr/view?usp=sharing" target="_blank" rel="noopener noreferrer"><span class="nav-num">04</span> Resume</a></li>
+              <li><a href="photos.html"><span class="nav-num">05</span> Galleries</a></li>
             </ul>
           </nav>
 
-          <nav class="nav-group" aria-label="Find me">
-            <ul>
-              <li><a href="https://www.instagram.com/designedtodev" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-              <li><a href="https://www.linkedin.com/in/shrushtichavan" target="_blank" rel="noopener noreferrer">Linkedin</a></li>
-              <li><a href="https://dribbble.com/designedtodev" target="_blank" rel="noopener noreferrer">Dribbble</a></li>
-              <li><a href="https://x.com/designedtodev" target="_blank" rel="noopener noreferrer">X</a></li>
-              <li><a href="https://shrushtichavan.substack.com/" target="_blank" rel="noopener noreferrer">Substack</a></li>
+          <nav class="nav-group nav-group--cases" aria-label="Case Studies">
+            <p class="nav-group__label">Case Studies</p>
+            <ul class="sidebar-cases">
+              <li><a href="work/seatgeek.html">Seatgeek</a></li>
+              <li><a href="work.html">Persona</a></li>
+              <li><a href="work/userapproved.html">Userapproved</a></li>
+              <li><a href="https://www.figma.com/deck/pCgrwYNZWrv3mvmel3zD2Z" target="_blank" rel="noopener noreferrer">Nextup</a></li>
+              <li><a href="work/cursor.html">Cursor</a></li>
             </ul>
           </nav>
-        </div>
-
-        <div class="sidebar__bottom">
-          <p class="sidebar__bio">
-            I spend a lot of time sweating the details of the problem and iterating
-            fast. Hope to keep building out cool ideas with passionate teams<img class="sidebar__star" src="assets/star.png" alt="" width="26" height="26" />
-          </p>
-          <p class="sidebar__cta">
-            <a href="mailto:shrushtichavan@cca.edu">Email</a>
-            or
-            <a
-              href="https://www.linkedin.com/in/shrushtichavan"
-              target="_blank"
-              rel="noopener noreferrer"
-              >message me</a
-            >.
-          </p>
         </div>
       </aside>
 
@@ -138,7 +152,7 @@
               <div
                 class="board-gallery board-gallery--link board-gallery--sm board-draggable"
                 data-href="photos.html"
-                style="left: 1123px; top: 262px; width: 322px"
+                style="left: 1256px; top: 157px; width: 322px"
                 role="link"
                 aria-label="View all photos"
                 tabindex="0"
@@ -158,7 +172,7 @@
 
               <div
                 class="board-media board-media--figjam board-media--cursor-top board-draggable"
-                style="left: 1632px; top: 275px"
+                style="left: 1664px; top: 168px"
               >
                 <img src="assets/main%20viewport%20fig/cursorgif1.gif" alt="Cursor product prototype" draggable="false" />
               </div>
@@ -208,7 +222,7 @@
               <!-- Left of middle: Seatgeek mobile -->
               <div
                 class="board-media board-media--video-phone board-media--seatgeek-side board-draggable"
-                style="left: 477px; top: 419px"
+                style="left: 792px; top: 377px"
               >
                 <video
                   src="assets/main%20viewport%20fig/mobile.mp4"
@@ -224,7 +238,7 @@
 
               <div
                 class="board-comment-pin board-comment-pin--harshesh board-draggable"
-                style="left: 755px; top: 445px"
+                style="left: 1082px; top: 445px"
                 tabindex="0"
                 aria-label="Comment from Harshesh"
               >
@@ -249,84 +263,46 @@
 
               <!-- Center: intro -->
               <div
-                class="board-media board-media--headline board-draggable"
-                style="left: 1135px; top: 690px"
+                class="board-media board-media--headline"
+                style="left: 1457px; top: 730px"
+                data-home-left="1457"
+                data-home-top="730"
               >
                 <p class="board-intro">
-                  <span class="board-intro__desktop">
-                    <span class="board-intro__line">Hi, I design digital products to</span>
-                    <span class="board-intro__line">make complex things feel simple.</span>
-                  </span>
-                  <span class="board-intro__mobile">
-                    Hi, I design digital<br />
-                    products to make<br />
-                    complex things feel<br />
-                    simple.
-                  </span>
+                  <span class="board-intro__desktop">Drag to look around</span>
+                  <span class="board-intro__mobile">Drag to look around</span>
                 </p>
               </div>
 
-              <!-- Doodles / stickers -->
+              <!-- Under-right of intro: screen recording -->
               <div
-                class="board-doodle board-doodle--seatgeek board-draggable"
-                style="left: 876px; top: 897px; width: 114px"
+                class="board-media board-media--video-phone board-media--screen-rec board-draggable"
+                style="left: 1780px; top: 820px"
               >
-                <img src="assets/board-doodles/seatgeek-doodle.png?v=7" alt="" draggable="false" />
-              </div>
-              <div
-                class="board-doodle board-doodle--userapproved board-draggable"
-                style="left: 2294px; top: 693px; width: 230px"
-              >
-                <img src="assets/board-doodles/userapproved-doodle.png?v=7" alt="" draggable="false" />
-              </div>
-              <div
-                class="board-doodle board-doodle--kinvest board-draggable"
-                style="left: 1545px; top: 1057px; width: 100px"
-              >
-                <img src="assets/board-doodles/kinvest-doodle.png?v=7" alt="" draggable="false" />
-              </div>
-              <div
-                class="board-doodle board-doodle--cursor board-draggable"
-                style="left: 1951px; top: 585px; width: 190px"
-              >
-                <img src="assets/board-doodles/cursor-doodle.png?v=7" alt="" draggable="false" />
-              </div>
-              <div
-                class="board-doodle board-doodle--star board-draggable"
-                style="left: 1052px; top: 1063px"
-              >
-                <img src="assets/board-doodles/star.png?v=8" alt="" draggable="false" />
-              </div>
-              <div
-                class="board-doodle board-doodle--heart board-draggable"
-                style="left: 2236px; top: 920px"
-              >
-                <img src="assets/board-doodles/heart.png?v=8" alt="" draggable="false" />
+                <video
+                  src="assets/main%20viewport%20fig/screen-rec-113.mp4"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  disablepictureinpicture
+                  preload="metadata"
+                  aria-label="Product screen recording"
+                ></video>
               </div>
 
               <!-- Under middle: Kinvest -->
               <div
                 class="board-media board-media--video-phone board-media--kinvest-center board-draggable"
-                style="left: 1120px; top: 1004px"
+                style="left: 1269px; top: 994px"
               >
                 <img src="assets/main%20viewport%20fig/pfinaljam1.gif" alt="Kinvest product prototype" draggable="false" />
-              </div>
-
-              <div
-                class="board-media board-media--sticky board-media--sticky-bio board-draggable"
-                style="left: 1825px; top: 902px"
-              >
-                <img
-                  src="assets/main%20viewport%20fig/sticky-bio.png?v=2"
-                  alt="based in san francisco, currently at CCA, Figma, and SeatGeek — Shrushti"
-                  draggable="false"
-                />
               </div>
 
               <!-- Bottom left: recent sales -->
               <div
                 class="board-media board-media--video-wide board-media--sm board-media--recent-corner board-draggable"
-                style="left: 420px; top: 1080px"
+                style="left: 724px; top: 1080px"
               >
                 <video
                   src="assets/main%20viewport%20fig/recentsales.mp4?v=2"
@@ -341,7 +317,7 @@
               </div>
 
               <div
-                class="board-media board-media--figjam board-media--sm board-media--sweetcut board-draggable"
+                class="board-media board-media--figjam board-media--sm board-media--sweetcut board-media--labeled board-draggable"
                 data-href="https://www.thesweetcut.com/"
                 style="left: 516px; top: -174px"
                 role="link"
@@ -349,6 +325,7 @@
                 tabindex="0"
               >
                 <img src="assets/figjamside/sweetcut.png" alt="The Sweet Cut" draggable="false" />
+                <p class="board-label">The Sweet Cut · Brand &amp; site</p>
               </div>
 
               <div class="board-media board-media--figjam board-media--sm board-media--figjam2 board-draggable" style="left: 2236px; top: 1120px">
@@ -356,43 +333,31 @@
               </div>
 
               <!-- East: User Approved final (main viewport) -->
-              <div class="board-media board-media--figjam board-media--userapproved-final board-draggable" style="left: 2214px; top: 360px">
+              <div class="board-media board-media--figjam board-media--userapproved-final board-draggable" style="left: 2246px; top: 761px">
                 <img src="assets/main%20viewport%20fig/Userapprovedfinal.gif" alt="User Approved product" draggable="false" />
               </div>
 
               <!-- Scattered: pan to explore, kept outside the first view -->
               <!-- North -->
-              <div class="board-media board-media--sticky board-draggable" style="left: 1120px; top: -280px">
-                <img src="assets/figjamside/sticky1.png" alt="" draggable="false" />
-              </div>
-
-              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 2480px; top: -260px">
+              <div class="board-media board-media--figjam board-media--sm board-media--labeled board-draggable" style="left: 2480px; top: -260px">
                 <img src="assets/figjamside/userapproved2.gif" alt="User Approved prototype" draggable="false" />
-              </div>
-
-              <div
-                class="board-media board-media--sticky board-media--nextup board-draggable"
-                data-href="https://www.figma.com/deck/pCgrwYNZWrv3mvmel3zD2Z"
-                style="left: 1806px; top: -200px"
-                role="link"
-                aria-label="Open Nextup Figma deck"
-                tabindex="0"
-              >
-                <img src="assets/figjamside/nextup.png" alt="Nextup" draggable="false" />
+                <p class="board-label">User Approved · Early explorations</p>
               </div>
 
               <!-- East -->
-              <div class="board-media board-media--figjam board-media--sm board-draggable" style="left: 2814px; top: 944px">
+              <div class="board-media board-media--figjam board-media--sm board-media--labeled board-draggable" style="left: 2814px; top: 944px">
                 <img src="assets/figjamside/fdly.png" alt="Fdly project" draggable="false" />
+                <p class="board-label">Fdly · Product concept</p>
               </div>
 
-              <div class="board-media board-media--compose board-media--figma-edu board-draggable" style="left: 2700px; top: 1680px">
+              <div class="board-media board-media--compose board-media--figma-edu board-media--labeled board-draggable" style="left: 2700px; top: 1680px">
                 <img src="assets/figma.png" alt="Figma for Edu" draggable="false" />
+                <p class="board-label">Figma for Edu · Campus program</p>
               </div>
 
               <!-- West -->
               <div
-                class="board-media board-media--mouse board-draggable"
+                class="board-media board-media--mouse board-media--labeled board-draggable"
                 data-href="https://www.notion.so/The-Mouse-Project-12a28bb3f7b1805e836cc46ff18bb4b2?source=copy_link"
                 style="left: -220px; top: 880px"
                 role="link"
@@ -400,15 +365,17 @@
                 tabindex="0"
               >
                 <img src="assets/figjamside/mouse.png" alt="" draggable="false" />
+                <p class="board-label">The Mouse Project · Research concept</p>
               </div>
 
-              <div class="board-media board-media--figjam board-media--sm board-media--side-scale board-media--ua1 board-draggable" style="left: -280px; top: 1260px">
+              <div class="board-media board-media--figjam board-media--sm board-media--side-scale board-media--ua1 board-media--labeled board-draggable" style="left: -280px; top: 1260px">
                 <img src="assets/figjamside/userapproved1.gif" alt="User Approved exploration" draggable="false" />
+                <p class="board-label">User Approved · Flow explorations</p>
               </div>
 
               <!-- South -->
               <div
-                class="board-media board-media--figjam board-media--sm board-media--side-scale board-draggable"
+                class="board-media board-media--figjam board-media--sm board-media--side-scale board-media--labeled board-draggable"
                 data-href="https://www.runriviera.com/"
                 style="left: 780px; top: 1980px"
                 role="link"
@@ -416,6 +383,7 @@
                 tabindex="0"
               >
                 <img src="assets/figjamside/riv1.gif" alt="Riviera exploration" draggable="false" />
+                <p class="board-label">Riviera · Contract design</p>
               </div>
 
               <div
@@ -429,16 +397,13 @@
                 <img src="assets/figjamside/riviera.svg" alt="Riviera project" draggable="false" />
               </div>
 
-              <div class="board-media board-media--sticky board-media--side-scale board-draggable" style="left: 980px; top: 2280px">
-                <img src="assets/figjamside/rolesticky.png" alt="" draggable="false" />
-              </div>
-
-              <div class="board-media board-media--figjam board-media--sm board-media--totalis board-draggable" style="left: 1725px; top: 1428px">
-                <img src="assets/figjamside/totalisgif.gif" alt="Design work in progress" draggable="false" />
+              <div class="board-media board-media--figjam board-media--sm board-media--totalis board-media--labeled board-draggable" style="left: 1725px; top: 1571px">
+                <img src="assets/figjamside/totalisgif.gif" alt="Totalis contract design work" draggable="false" />
+                <p class="board-label">Totalis · Contract design</p>
               </div>
 
               <div
-                class="board-media board-media--figjam board-media--sm board-media--side-scale board-media--vero board-draggable"
+                class="board-media board-media--figjam board-media--sm board-media--side-scale board-media--vero board-media--labeled board-draggable"
                 data-href="https://tryvero.ai/"
                 style="left: 80px; top: 2275px"
                 role="link"
@@ -446,6 +411,7 @@
                 tabindex="0"
               >
                 <img src="assets/figjamside/vero.png" alt="Vero project" draggable="false" />
+                <p class="board-label">Vero · Contract design</p>
               </div>
             </div>
           </div>
@@ -456,9 +422,10 @@
 
           <nav class="work-dots" aria-label="Case studies" hidden>
             <a class="work-dots__dot" href="#work-seatgeek" data-work-target="work-seatgeek" aria-label="Seatgeek"></a>
+            <a class="work-dots__dot" href="#work-persona" data-work-target="work-persona" aria-label="Persona"></a>
             <a class="work-dots__dot" href="#work-userapproved" data-work-target="work-userapproved" aria-label="User Approved"></a>
+            <a class="work-dots__dot" href="#work-nextup" data-work-target="work-nextup" aria-label="Nextup"></a>
             <a class="work-dots__dot" href="#work-cursor" data-work-target="work-cursor" aria-label="Cursor"></a>
-            <a class="work-dots__dot" href="#work-kinvest" data-work-target="work-kinvest" aria-label="Kinvest"></a>
           </nav>
 
           <div class="work-list">
@@ -484,6 +451,32 @@
                   <li>Experimentation</li>
                   <li>Seller experience</li>
                   <li>User research</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="work-item" id="work-persona">
+              <a
+                class="work-item__hit"
+                href="work.html"
+                aria-label="Open Persona project"
+              ></a>
+              <div class="work-item__media">
+                <img src="assets/case%20studies/persona-cover.png" alt="" />
+              </div>
+              <div class="work-item__copy">
+                <h3 class="work-item__title">Persona</h3>
+                <p class="work-item__role">Product Design</p>
+                <p class="work-item__date">2025</p>
+                <p class="work-item__body">
+                  Designed a wearable personal assistant that surfaces critical tasks,
+                  acts on its own, and keeps interaction minimal so you get work done
+                  without constant prompting.
+                </p>
+                <ul class="work-item__tags">
+                  <li>Wearables</li>
+                  <li>AI product</li>
+                  <li>Mobile</li>
                 </ul>
               </div>
             </article>
@@ -520,6 +513,33 @@
               </div>
             </article>
 
+            <article class="work-item" id="work-nextup">
+              <a
+                class="work-item__hit"
+                href="https://www.figma.com/deck/pCgrwYNZWrv3mvmel3zD2Z"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Nextup Figma deck"
+              ></a>
+              <div class="work-item__media">
+                <img src="assets/work/nextup.png" alt="" />
+              </div>
+              <div class="work-item__copy">
+                <h3 class="work-item__title">Nextup</h3>
+                <p class="work-item__role">Product Design</p>
+                <p class="work-item__date">2025</p>
+                <p class="work-item__body">
+                  Designed a product concept and pitch deck exploring how people
+                  discover what’s next — from early flows to polished presentation.
+                </p>
+                <ul class="work-item__tags">
+                  <li>Concept</li>
+                  <li>Pitch</li>
+                  <li>Product design</li>
+                </ul>
+              </div>
+            </article>
+
             <article class="work-item" id="work-cursor">
               <a
                 class="work-item__hit"
@@ -545,32 +565,6 @@
                 </ul>
               </div>
             </article>
-
-            <article class="work-item" id="work-kinvest">
-              <a
-                class="work-item__hit"
-                href="work/kinvest.html"
-                aria-label="Open Kinvest case study"
-              ></a>
-              <div class="work-item__media">
-                <img src="assets/kinvestcaseimg1.png" alt="" />
-              </div>
-              <div class="work-item__copy">
-                <h3 class="work-item__title">Kinvest</h3>
-                <p class="work-item__role">Design and Product</p>
-                <p class="work-item__date">June 2024 – August 2024</p>
-                <p class="work-item__body">
-                  Designed a financial literacy app for kids that combines debit,
-                  credit, stocks, and banking education with interactive learning
-                  and parental oversight.
-                </p>
-                <ul class="work-item__tags">
-                  <li>UX research</li>
-                  <li>Wireframing</li>
-                  <li>Financial literacy</li>
-                </ul>
-              </div>
-            </article>
           </div>
         </section>
 
@@ -585,13 +579,34 @@
               >this Fred Again set</a
             >
           </span>
-          <span class="site-footer__name">Shrushti Chavan</span>
+          <div class="site-footer__end">
+            <nav class="site-footer__socials" aria-label="Social">
+              <a class="site-footer__social" href="https://x.com/designedtodev" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="currentColor"><path d="M13.92 10.66 20.4 3h-1.65l-5.6 6.63L8.7 3H3.5l6.78 9.79L3.5 21h1.65l5.93-7.02L15.3 21h5.2l-6.58-10.34Zm-2.1 2.48-.69-.98L5.5 4.17h2.35l4.42 6.3.69.98 5.9 8.4h-2.35l-4.69-6.71Z"/></svg>
+              </a>
+              <a class="site-footer__social" href="https://shrushtichavan.substack.com/" target="_blank" rel="noopener noreferrer" aria-label="Substack">
+                <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="currentColor"><path d="M3.5 4.5h17v2.1H3.5V4.5Zm0 4.4h17v2.1H3.5V8.9Zm0 4.3 8.5 5.1 8.5-5.1V19.5H3.5v-6.3Z"/></svg>
+              </a>
+              <a class="site-footer__social" href="https://www.linkedin.com/in/shrushtichavan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="currentColor"><path d="M6.4 9.2h2.3v7.6H6.4V9.2zm1.15-3.7a1.35 1.35 0 1 1 0 2.7 1.35 1.35 0 0 1 0-2.7zM10.3 9.2h2.2v1.05h.03c.3-.58 1.05-1.2 2.16-1.2 2.3 0 2.73 1.52 2.73 3.5v4.25h-2.3v-3.77c0-.9-.02-2.05-1.25-2.05-1.25 0-1.44.98-1.44 1.98v3.84h-2.3V9.2z"/></svg>
+              </a>
+              <a class="site-footer__social" href="mailto:shrushtichavan@cca.edu" aria-label="Email">
+                <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4.5 7.5 12 13l7.5-5.5"/></svg>
+              </a>
+              <a class="site-footer__social" href="https://www.instagram.com/designedtodev" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.8" cy="7.2" r="0.9" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </nav>
+            <span class="site-footer__name">Shrushti Chavan</span>
+          </div>
         </footer>
       </main>
     </div>
 
-    <script src="board.js?v=79"></script>
-    <script src="work-nav.js?v=7"></script>
-    <script src="nav.js?v=3"></script>
+    <script src="board.js?v=92"></script>
+    <script src="work-nav.js?v=8"></script>
+    <script src="eye-tracker.js?v=3"></script>
+    <script src="site-meta.js?v=1"></script>
+    <script src="nav.js?v=4"></script>
   </body>
 </html>

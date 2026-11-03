@@ -1,6 +1,7 @@
 (function () {
   var sidebar = document.querySelector(".sidebar");
   var toggle = document.querySelector(".nav-toggle");
+  var main = document.querySelector(".main");
   if (!sidebar || !toggle) return;
 
   function setOpen(open) {
@@ -21,6 +22,12 @@
       setOpen(false);
     }
   });
+
+  if (main) {
+    main.addEventListener("click", function () {
+      if (sidebar.classList.contains("is-open")) setOpen(false);
+    });
+  }
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") setOpen(false);

@@ -29,13 +29,13 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../case-study.css?v=58" />
+    <link rel="stylesheet" href="../case-study.css?v=64" />
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
   </head>
-  <body class="cs-theme-dark cs-font-satoshi cs-case-seatgeek">
+  <body class="cs-theme-light cs-font-satoshi cs-case-seatgeek">
     <div class="cs-page">
       <aside class="cs-sidebar" aria-label="Case study navigation">
         <a class="cs-sidebar__back" href="../index.html">← Back</a>
@@ -43,7 +43,7 @@
           <a class="is-active" href="#impact" aria-current="true">Impact</a>
           <a href="#overview">Overview</a>
           <a href="#problem">Problem</a>
-          <a href="#exploration">Exploring</a>
+          <a href="#exploration">Defining</a>
           <a href="#roadmap">Roadmap</a>
           <a href="#solution">Solution</a>
         </nav>
@@ -67,13 +67,23 @@
               </dd>
             </div>
           </dl>
+          <div class="cs-sidebar__skills-block">
+            <p class="cs-sidebar__skills-label">Skills</p>
+            <ul class="cs-sidebar__skills">
+              <li>Mobile web</li>
+              <li>UX</li>
+              <li>Desktop web</li>
+              <li>Product thinking</li>
+              <li>Defining logic</li>
+            </ul>
+          </div>
         </div>
       </aside>
 
       <main class="cs-main">
         <div class="cs-content">
           <div class="cs-hero">
-            <img src="../assets/case%20studies/sgcasestudy.gif" alt="SeatGeek project cover" />
+            <img src="../assets/case%20studies/seatgeek-cover.png" alt="SeatGeek project cover" />
           </div>
 
           <div class="cs-body">
@@ -96,10 +106,20 @@
               </dd>
             </div>
           </dl>
+          <div class="cs-meta__skills-block cs-meta--mobile">
+            <p class="cs-meta__skills-label">Skills</p>
+            <ul class="cs-meta__skills">
+              <li>Mobile web</li>
+              <li>UX</li>
+              <li>Desktop web</li>
+              <li>Product thinking</li>
+              <li>Defining logic</li>
+            </ul>
+          </div>
 
           <header class="cs-intro">
             <h1 class="cs-intro__title">
-              Redesigning How SeatGeek Sellers Price and Sell Tickets
+              Increasing Sell-Through Rate for Manual Sales at Seatgeek
             </h1>
           </header>
 
@@ -107,18 +127,32 @@
             <p class="cs-section__label">Impact</p>
             <ul class="cs-section__list">
               <li>
-                Designed and shipped a pricing growth experiment targeting the 62% of manual sellers pricing outside SeatGeek’s recommended range.
+                Shipped 2 pricing growth experiments across desktop and mobile web, driving $980K incremental annual revenue with an 8.37% lift in selling rate and 4.38% lift in adoption.
               </li>
               <li>
-                Redesigned 3 seller-side experiences across Manual Pricing, Smart Pricing, and Pricing Insights, translating complex marketplace data into simpler, more actionable pricing decisions.
+                Defined interaction models, edge cases, and fallbacks across mobile and web, partnering with Product, Engineering, Research, Design, and Legal through deployment.
               </li>
               <li>
-                Conducted and moderated research with 5 SeatGeek sellers.
+                Ran 5 Jobs-to-be-Done interviews and paired findings with quantitative data to shape seller strategy and simplify pricing decisions.
               </li>
               <li>
-                Defined the end-to-end experiment logic and handoff across pricing states, edge cases, and fallbacks, partnering with Product, Engineering, UX Research, Data Analytics, and Legal to prepare the experience for deployment.
+                Prototyped end-to-end concepts in Claude Code, Figma Make, Cursor, and Figma so leadership could pressure-test ideas before engineering investment.
               </li>
             </ul>
+            <figure class="cs-impact-proof" data-animate="drop" aria-label="Impact proof">
+              <img
+                class="cs-impact-proof__metric"
+                src="../assets/case%20studies/seatgeek-impact-980k-num.png"
+                alt="$980K"
+                loading="lazy"
+              />
+              <img
+                class="cs-impact-proof__context"
+                src="../assets/case%20studies/seatgeek-impact-context.png"
+                alt="Estimated annualized revenue impact shipping mobile and desktop for the seller team, with a Slack note calling out a larger win"
+                loading="lazy"
+              />
+            </figure>
           </section>
 
           <section class="cs-section" id="overview">
@@ -129,6 +163,13 @@
             <p class="cs-section__body">
               Selling tickets is hard. Figuring out what to price it at, when to change the price, when to sell, there are so many factors to consider.
             </p>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/seatgeek-overview.png"
+                alt="SeatGeek project overview process"
+                loading="lazy"
+              />
+            </figure>
           </section>
 
           <section class="cs-section" id="problem">
@@ -145,42 +186,22 @@
               <li>Sellers weren't consistently adopting Smart Pricing.</li>
             </ul>
 
-            <figure class="cs-stat-panel">
-              <div class="cs-stat-panel__copy">
-                <img
-                  class="cs-stat-panel__value"
-                  src="../assets/case%20studies/62%25.png"
-                  alt="62%"
-                  width="280"
-                  height="120"
-                />
-                <img
-                  class="cs-stat-panel__caption"
-                  src="../assets/case%20studies/sellers%20price%20outside%20of%20our%20recommended%20range.png"
-                  alt="sellers price outside of our recommended range"
-                  width="320"
-                  height="80"
-                />
-              </div>
-              <div class="cs-stat-panel__visual" aria-hidden="true">
-                <img
-                  src="../assets/case%20studies/Frame%202134283731.png"
-                  alt=""
-                  width="640"
-                  height="420"
-                />
-              </div>
+            <figure class="cs-media cs-media--stat">
+              <img
+                src="../assets/case%20studies/seatgeek-stat-62.png"
+                alt="62% of sellers price outside of our recommended range"
+                loading="lazy"
+              />
             </figure>
           </section>
 
           <section class="cs-section" id="exploration">
-            <p class="cs-section__label">Exploring Pricing Insights</p>
+            <p class="cs-section__label">Defining</p>
             <h2 class="cs-section__heading">
               What if we gave sellers more context?
             </h2>
-            <p class="cs-section__subheading">My initial hypothesis was:</p>
-            <p class="cs-section__callout">
-              Users will price better if we give them more data they can trust.
+            <p class="cs-section__subheading">
+              My initial hypothesis was: Users will price better if we give them more data they can trust.
             </p>
             <figure class="cs-media">
               <img
@@ -289,6 +310,6 @@
       </main>
     </div>
 
-    <script src="../case-study.js"></script>
+    <script src="../case-study.js?v=2"></script>
   </body>
 </html>

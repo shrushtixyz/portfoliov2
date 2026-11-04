@@ -764,6 +764,126 @@ ol.cs-section__list--decisions {
   color: var(--cs-ink-muted);
 }
 
+/* —— Scroll reveal —— */
+
+.cs-reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.cs-hero.cs-reveal {
+  transform: translate3d(0, 18px, 0) scale(0.992);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cs-reveal.is-inview {
+  opacity: 1;
+  transform: none;
+}
+
+.cs-section.cs-reveal .cs-media,
+.cs-section.cs-reveal .cs-stat-panel {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0) scale(0.985);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 120ms,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1) 120ms;
+}
+
+.cs-section.cs-reveal.is-inview .cs-media,
+.cs-section.cs-reveal.is-inview .cs-stat-panel {
+  opacity: 1;
+  transform: none;
+}
+
+.cs-section.cs-reveal .cs-feature-row__copy {
+  opacity: 0;
+  transform: translate3d(-20px, 12px, 0);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1) 140ms,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 140ms;
+}
+
+.cs-section.cs-reveal .cs-feature-row__media {
+  opacity: 0;
+  transform: translate3d(20px, 18px, 0);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 220ms,
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) 220ms;
+}
+
+.cs-section.cs-reveal.is-inview .cs-feature-row__copy,
+.cs-section.cs-reveal.is-inview .cs-feature-row__media {
+  opacity: 1;
+  transform: none;
+}
+
+.cs-section.cs-reveal .cs-section__list > li,
+.cs-section.cs-reveal ol.cs-section__list > li {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cs-section.cs-reveal.is-inview .cs-section__list > li,
+.cs-section.cs-reveal.is-inview ol.cs-section__list > li {
+  opacity: 1;
+  transform: none;
+}
+
+.cs-section.cs-reveal.is-inview .cs-section__list > li:nth-child(1),
+.cs-section.cs-reveal.is-inview ol.cs-section__list > li:nth-child(1) {
+  transition-delay: 70ms;
+}
+
+.cs-section.cs-reveal.is-inview .cs-section__list > li:nth-child(2),
+.cs-section.cs-reveal.is-inview ol.cs-section__list > li:nth-child(2) {
+  transition-delay: 130ms;
+}
+
+.cs-section.cs-reveal.is-inview .cs-section__list > li:nth-child(3),
+.cs-section.cs-reveal.is-inview ol.cs-section__list > li:nth-child(3) {
+  transition-delay: 190ms;
+}
+
+.cs-section.cs-reveal.is-inview .cs-section__list > li:nth-child(4),
+.cs-section.cs-reveal.is-inview ol.cs-section__list > li:nth-child(4) {
+  transition-delay: 250ms;
+}
+
+.cs-section.cs-reveal.is-inview .cs-section__list > li:nth-child(5),
+.cs-section.cs-reveal.is-inview ol.cs-section__list > li:nth-child(5) {
+  transition-delay: 310ms;
+}
+
+.cs-section.cs-reveal.is-inview .cs-section__list > li:nth-child(n + 6),
+.cs-section.cs-reveal.is-inview ol.cs-section__list > li:nth-child(n + 6) {
+  transition-delay: 350ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-reveal,
+  .cs-hero.cs-reveal,
+  .cs-section.cs-reveal .cs-media,
+  .cs-section.cs-reveal .cs-stat-panel,
+  .cs-section.cs-reveal .cs-feature-row__copy,
+  .cs-section.cs-reveal .cs-feature-row__media,
+  .cs-section.cs-reveal .cs-section__list > li,
+  .cs-section.cs-reveal ol.cs-section__list > li {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* —— Mobile —— */
 
 @media (max-width: 900px) {

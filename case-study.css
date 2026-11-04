@@ -311,7 +311,7 @@ img {
 .cs-sidebar__details {
   margin-top: auto;
   color: var(--cs-ink-muted);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.45;
   letter-spacing: var(--tracking-tight);
 }
@@ -435,7 +435,7 @@ body.cs-theme-dark .cs-meta__skills li {
   min-width: 0;
   color: var(--cs-meta);
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;

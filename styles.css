@@ -1968,7 +1968,8 @@ a.work-stack__card:hover {
   filter: brightness(0.98);
 }
 
-.work-stack__card:not(.work-stack__card--preview) img {
+.work-stack__card:not(.work-stack__card--preview) img,
+.work-stack__card--preview .work-stack__visual {
   width: 100%;
   height: 100%;
   aspect-ratio: 16 / 10;
@@ -1987,13 +1988,10 @@ a.work-stack__card:hover {
 
 .work-stack__visual-shell {
   position: absolute;
-  top: 12%;
-  left: 10%;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   overflow: hidden;
   border: 0;
-  border-radius: 20px 0 0 0;
+  border-radius: inherit;
   line-height: 0;
   pointer-events: none;
 }
@@ -2003,7 +2001,7 @@ a.work-stack__card:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top left;
+  object-position: center;
 }
 
 .work-stack__meta {
@@ -2531,7 +2529,8 @@ a.work-stack__card:hover {
     border-radius: 18px;
   }
 
-  .work-stack__card:not(.work-stack__card--preview) img {
+  .work-stack__card:not(.work-stack__card--preview) img,
+  .work-stack__card--preview .work-stack__visual {
     width: 100%;
     height: 100%;
     aspect-ratio: 16 / 10;
@@ -2545,10 +2544,9 @@ a.work-stack__card:hover {
   }
 
   .work-stack__visual-shell {
-    top: 10%;
-    left: 8%;
+    inset: 0;
     border: 0;
-    border-radius: 18px 0 0 0;
+    border-radius: inherit;
   }
 
   .work-stack__title {

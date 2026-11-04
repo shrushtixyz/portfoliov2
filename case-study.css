@@ -266,7 +266,7 @@ img {
   width: var(--cs-sidebar-w);
   min-width: var(--cs-sidebar-w);
   height: 100vh;
-  padding: 36px 32px;
+  padding: 36px 32px 36px 50px;
   background: var(--cs-bg);
 }
 
@@ -369,13 +369,13 @@ img {
   height: 28px;
   padding: 0 12px;
   border-radius: 999px;
-  background: #efefef;
+  background: #f4f4f4;
   color: #555555;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0;
+  letter-spacing: var(--tracking-tight);
   white-space: nowrap;
 }
 
@@ -826,7 +826,6 @@ ol.cs-section__list--decisions {
   }
 
   .cs-meta__skills li {
-    height: 30px;
     font-size: 14px;
   }
 

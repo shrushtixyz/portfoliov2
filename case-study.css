@@ -8,7 +8,7 @@
   --cs-meta: #6d6d6d;
   --cs-intro: #bdbdbd;
   --cs-rule: #2a2a2a;
-  --cs-sidebar-w: 240px;
+  --cs-sidebar-w: 260px;
   --cs-content-max: 920px;
   --font-serif: "Libre Baskerville", Georgia, serif;
   --font-sans: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont,
@@ -697,6 +697,52 @@ ol.cs-section__list--decisions {
   margin-inline: auto;
 }
 
+.cs-feature-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: clamp(28px, 5vw, 56px);
+  align-items: center;
+  margin: 48px 0 0;
+}
+
+.cs-feature-row__copy {
+  min-width: 0;
+}
+
+.cs-feature-row__title {
+  margin: 0 0 12px;
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 3.8vw, 44px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--cs-ink);
+}
+
+.cs-feature-row__body {
+  margin: 0;
+  max-width: 34em;
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: var(--tracking-tight);
+  color: var(--cs-ink-muted);
+}
+
+.cs-feature-row__media {
+  margin: 0;
+  justify-self: end;
+  width: min(100%, 280px);
+  overflow: hidden;
+  border-radius: 16px;
+  background: #000;
+}
+
+.cs-feature-row__media video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .cs-media--stat {
   margin: 36px 0 40px;
   overflow: visible;
@@ -716,63 +762,6 @@ ol.cs-section__list--decisions {
   font-weight: 500;
   line-height: 1.4;
   color: var(--cs-ink-muted);
-}
-
-.cs-impact-proof {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 8px;
-  width: 100%;
-  max-width: 720px;
-  margin: 36px auto 8px;
-}
-
-.cs-impact-proof__metric,
-.cs-impact-proof__context {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.cs-impact-proof__metric {
-  width: min(100%, 420px);
-  margin-left: auto;
-  margin-right: 0;
-  transform: translate3d(0, -56px, 0);
-  opacity: 0;
-  will-change: transform, opacity;
-  transition:
-    transform 0.85s cubic-bezier(0.22, 1.2, 0.36, 1),
-    opacity 0.55s ease;
-}
-
-.cs-impact-proof__context {
-  transform: translate3d(0, 18px, 0);
-  opacity: 0;
-  will-change: transform, opacity;
-  transition:
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.18s,
-    opacity 0.55s ease 0.18s;
-}
-
-.cs-impact-proof.is-inview .cs-impact-proof__metric {
-  transform: translate3d(0, 0, 0);
-  opacity: 1;
-}
-
-.cs-impact-proof.is-inview .cs-impact-proof__context {
-  transform: translate3d(0, 0, 0);
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cs-impact-proof__metric,
-  .cs-impact-proof__context {
-    transform: none;
-    opacity: 1;
-    transition: none;
-  }
 }
 
 /* —— Mobile —— */
@@ -852,6 +841,17 @@ ol.cs-section__list--decisions {
 
   .cs-slot--tall {
     min-height: 280px;
+  }
+
+  .cs-feature-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .cs-feature-row__media {
+    justify-self: center;
+    width: min(100%, 240px);
   }
 
   .cs-stat-panel {

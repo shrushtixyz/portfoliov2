@@ -168,7 +168,8 @@ img {
 }
 
 .cs-case-userapproved .cs-content,
-.cs-case-kinvest .cs-content {
+.cs-case-kinvest .cs-content,
+.cs-case-persona .cs-content {
   --cs-body-side-inset: 10%;
   --cs-body-side-padding: calc(var(--cs-body-side-inset) * 1.17);
 }
@@ -176,7 +177,9 @@ img {
 .cs-case-userapproved .cs-hero,
 .cs-case-userapproved .cs-body,
 .cs-case-kinvest .cs-hero,
-.cs-case-kinvest .cs-body {
+.cs-case-kinvest .cs-body,
+.cs-case-persona .cs-hero,
+.cs-case-persona .cs-body {
   padding-inline: var(--cs-body-side-padding);
   margin-inline: auto;
   width: 100%;
@@ -184,7 +187,8 @@ img {
 }
 
 .cs-case-userapproved .cs-intro__title,
-.cs-case-kinvest .cs-intro__title {
+.cs-case-kinvest .cs-intro__title,
+.cs-case-persona .cs-intro__title {
   color: var(--cs-ink);
   font-size: clamp(26px, 2.8vw, 34px);
   font-weight: 500;
@@ -193,19 +197,33 @@ img {
 }
 
 .cs-case-userapproved .cs-hero,
-.cs-case-kinvest .cs-hero {
+.cs-case-kinvest .cs-hero,
+.cs-case-persona .cs-hero {
   margin-bottom: 28px;
 }
 
 .cs-case-userapproved .cs-intro,
-.cs-case-kinvest .cs-intro {
+.cs-case-kinvest .cs-intro,
+.cs-case-persona .cs-intro {
   margin-bottom: 48px;
 }
 
 .cs-case-userapproved .cs-section__heading,
-.cs-case-kinvest .cs-section__heading {
+.cs-case-kinvest .cs-section__heading,
+.cs-case-persona .cs-section__heading {
   color: var(--cs-ink);
   font-weight: 500;
+}
+
+.cs-construction {
+  margin: 36px 0 0;
+  color: var(--cs-ink-muted);
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
 }
 
 .cs-case-kinvest .cs-media--inspiration {
@@ -902,7 +920,8 @@ ol.cs-section__list--decisions {
   .cs-case-seatgeek .cs-content,
   .cs-case-cursor .cs-content,
   .cs-case-userapproved .cs-content,
-  .cs-case-kinvest .cs-content {
+  .cs-case-kinvest .cs-content,
+  .cs-case-persona .cs-content {
     --cs-body-side-inset: 0;
     --cs-body-side-padding: 0;
   }
@@ -916,7 +935,9 @@ ol.cs-section__list--decisions {
   .cs-case-userapproved .cs-hero,
   .cs-case-userapproved .cs-body,
   .cs-case-kinvest .cs-hero,
-  .cs-case-kinvest .cs-body {
+  .cs-case-kinvest .cs-body,
+  .cs-case-persona .cs-hero,
+  .cs-case-persona .cs-body {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }

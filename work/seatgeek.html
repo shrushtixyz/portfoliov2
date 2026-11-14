@@ -14,7 +14,7 @@
     <meta property="og:image" content="https://shrushti.xyz/assets/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Shrushti's Playground — product design board" />
+    <meta property="og:image:alt" content="Shrushti's Playground: product design board" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SeatGeek | Shrushti Chavan" />
     <meta name="twitter:description" content="SeatGeek product design case study by Shrushti Chavan." />
@@ -43,6 +43,7 @@
           <a class="is-active" href="#impact" aria-current="true">What I did</a>
           <a href="#overview">Overview</a>
           <a href="#problem">Problem</a>
+          <a href="#goals">Goals</a>
           <a href="#exploration">Defining</a>
           <a href="#iterating">Iterating</a>
           <a href="#solution">Solution</a>
@@ -55,7 +56,7 @@
             </div>
             <div>
               <dt>Timeline:</dt>
-              <dd>June–August 2026</dd>
+              <dd>June-August 2026</dd>
             </div>
             <div>
               <dt>Team:</dt>
@@ -94,7 +95,7 @@
             </div>
             <div class="cs-meta__item">
               <dt class="cs-meta__label">Timeline:</dt>
-              <dd class="cs-meta__value"> June–August 2026</dd>
+              <dd class="cs-meta__value"> June-August 2026</dd>
             </div>
             <div class="cs-meta__item">
               <dt class="cs-meta__label">Team:</dt>
@@ -119,7 +120,7 @@
 
           <header class="cs-intro">
             <h1 class="cs-intro__title">
-              Increasing Sell-Through Rate for Manual Sales at Seatgeek
+              Driving more sales for Manual Pricing at Seatgeek
             </h1>
           </header>
 
@@ -158,10 +159,13 @@
           <section class="cs-section" id="overview">
             <p class="cs-section__label">Overview</p>
             <h2 class="cs-section__heading">
-              Pricing is hard. The product made it harder.
+              Pricing tickets to resell is hard.
             </h2>
             <p class="cs-section__body">
-              Selling tickets means guessing price, timing, and demand all at once. SeatGeek already had recommendations — sellers just weren’t using them the way we hoped.
+              Imagine you bought Knicks Game 5 tickets and couldn’t end up going. Imagine all the emotions and confusion you’d be facing while figuring out how to get rid of those tickets.
+            </p>
+            <p class="cs-section__body">
+              Selling tickets means guessing price, timing, and demand all at once. SeatGeek was recommending a price, but it wasn’t really working.
             </p>
             <figure class="cs-media">
               <img
@@ -175,10 +179,13 @@
           <section class="cs-section" id="problem">
             <p class="cs-section__label">Problem</p>
             <h2 class="cs-section__heading">
-              More information wasn’t helping
+              Users were not pricing competitively.
             </h2>
             <p class="cs-section__body">
-              After auditing the flow and talking to PMs, designers, engineers, and sellers, three things kept showing up:
+              30% of listings above recommendation are less likely to sell. Confusion while pricing doesn’t just frustrate users.
+            </p>
+            <p class="cs-section__body">
+              It directly impacts selling and business success at SeatGeek.
             </p>
             <ul class="cs-section__list">
               <li>Sellers priced too high.</li>
@@ -195,14 +202,25 @@
             </figure>
           </section>
 
+          <section class="cs-section" id="goals">
+            <p class="cs-section__label">Goals</p>
+            <h2 class="cs-section__heading">
+              What users needed vs what the business needed
+            </h2>
+            <figure class="cs-media">
+              <img
+                src="../assets/case%20studies/seatgeek-goals.png"
+                alt="User goals and business goals for SeatGeek manual pricing"
+                loading="lazy"
+              />
+            </figure>
+          </section>
+
           <section class="cs-section" id="exploration">
             <p class="cs-section__label">Defining</p>
             <h2 class="cs-section__heading">
               First idea: give them more context
             </h2>
-            <p class="cs-section__subheading">
-              Hypothesis: sellers price better if we give them data they can trust.
-            </p>
             <figure class="cs-media">
               <img
                 src="../assets/case%20studies/Similar%20listings%2010.svg"
@@ -227,21 +245,13 @@
           <section class="cs-section" id="iterating">
             <p class="cs-section__label">Iterating</p>
             <h2 class="cs-section__heading">
-              The plan changed — and that was the point
+              Keep users in the recommended range
             </h2>
             <p class="cs-section__body">
-              Recent Sales piled on complexity. Worse: recent sale prices were above our recommendation about 60–66% of the time. More comps weren’t going to fix trust.
+              After interviews and user testing, users felt some parts of the new designs were confusing and unnecessary. So my new conviction was that we needed to keep users in our recommended range.
             </p>
             <p class="cs-section__body">
-              With product and engineering, we agreed on a tighter plan: influence the pricing decision first. Smaller surface. Clearer bet.
-            </p>
-            <p class="cs-section__subheading">Instead of:</p>
-            <p class="cs-section__callout">
-              "How can we give sellers more data?"
-            </p>
-            <p class="cs-section__subheading">I asked:</p>
-            <p class="cs-section__callout">
-              "How do we change what sellers actually do at the moment of pricing?"
+              Visually grounding the user in our recommendation felt stronger than displaying data points and overwhelming the user.
             </p>
             <figure class="cs-media">
               <img
@@ -276,7 +286,7 @@
             <p class="cs-section__subheading">Decisions I called:</p>
             <ol class="cs-section__list cs-section__list--decisions">
               <li>Recommendation is the headline, not a footnote</li>
-              <li>Show just enough reasoning — not a data dump</li>
+              <li>Show just enough reasoning, not a data dump</li>
               <li>Use the bar to ground them, without taking away their choice</li>
             </ol>
             <p class="cs-section__body">

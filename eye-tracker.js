@@ -1,6 +1,6 @@
 /* ══ Eye tracker (vanilla port of Bencho Watcher) ═══════════
    A ball with two eyes that watches your cursor, wherever it is
-   on the page. Comments preserved from the React source — they
+   on the page. Comments preserved from the React source, they
    say why the numbers are what they are.
 
    This site is static HTML, so the React component lives at
@@ -30,7 +30,7 @@
   /* half the gap between the eyes, as a fraction of the radius */
   var GAP = 0.19;
   /* how far a look to a corner tilts the pair, in degrees at the
-     rim — a glance up and right leans them back, like the logo */
+     rim, a glance up and right leans them back, like the logo */
   var TILT = 64;
 
   var clamp = function (v, a, b) {
@@ -185,7 +185,7 @@
     }
 
     /* where the face is on the ball (fractions of the radius),
-       its speed, and where it is heading — one spring on a point,
+       its speed, and where it is heading, one spring on a point,
        read as a turn when the eyes are drawn */
     var t = { x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0 };
     var raf = 0;

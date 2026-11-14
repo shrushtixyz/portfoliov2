@@ -17,7 +17,7 @@
   }
 
   var BOARD_SCALE = 0.72;
-  /* Locked home for "Drag to look around" — reset always returns here */
+  /* Locked home for "Drag to look around", reset always returns here */
   var HEADLINE_HOME_LEFT = 1457;
   var HEADLINE_HOME_TOP = 730;
   var CX = 1597;
@@ -469,7 +469,7 @@
   }
 
   function restoreDesktopBoardPositions() {
-    // Only revert pieces we reposition on mobile — never clobber doodles/other widgets
+    // Only revert pieces we reposition on mobile, never clobber doodles/other widgets
     var sels = [
       ".board-media--kinvest-center",
       ".board-media--cursor-top",

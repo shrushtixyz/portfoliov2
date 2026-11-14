@@ -660,6 +660,70 @@ ol.cs-section__list--decisions {
   text-underline-offset: 2px;
 }
 
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 64px 0 0;
+  padding: 32px 0 8px;
+  border-top: 1px solid var(--cs-rule);
+  color: var(--cs-ink-muted);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.site-footer__end {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.site-footer__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #f4f4f4;
+  color: var(--cs-ink);
+  flex-shrink: 0;
+}
+
+.site-footer__social:hover {
+  opacity: 1;
+  background: #efefef;
+}
+
+.site-footer__social svg {
+  display: block;
+}
+
+.site-footer__name {
+  flex-shrink: 0;
+}
+
+.site-footer__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.site-footer__link:hover {
+  opacity: 1;
+  color: #6ea8ff;
+}
+
 .cs-stat-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1069,5 +1133,30 @@ ol.cs-section__list--decisions {
     max-width: 260px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 48px;
+    padding: 24px 0 8px;
+    text-align: center;
+    line-height: 1.35;
+  }
+
+  .site-footer__credit {
+    order: 1;
+    font-size: 13px;
+  }
+
+  .site-footer__end {
+    order: 2;
+  }
+
+  .site-footer__social {
+    width: 40px;
+    height: 40px;
   }
 }

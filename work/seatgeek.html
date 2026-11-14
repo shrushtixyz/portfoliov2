@@ -29,7 +29,7 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../case-study.css?v=74" />
+    <link rel="stylesheet" href="../case-study.css?v=76" />
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -40,7 +40,7 @@
       <aside class="cs-sidebar" aria-label="Case study navigation">
         <a class="cs-sidebar__back" href="../index.html">← Back</a>
         <nav class="cs-sidebar__nav" aria-label="Sections">
-          <a class="is-active" href="#impact" aria-current="true">Impact</a>
+          <a class="is-active" href="#impact" aria-current="true">What I did</a>
           <a href="#overview">Overview</a>
           <a href="#problem">Problem</a>
           <a href="#exploration">Defining</a>
@@ -123,31 +123,45 @@
             </h1>
           </header>
 
+          <p class="cs-brief__title">TLDR;</p>
+          <dl class="cs-brief" aria-label="TLDR">
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Problem:</dt>
+              <dd>
+                Sellers had data, but still couldn’t decide what to price. Tickets sat too high, recommendations didn’t feel trustworthy, and Smart Pricing wasn’t sticking.
+              </dd>
+            </div>
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Target audience:</dt>
+              <dd>Manual sellers on SeatGeek, desktop and mobile.</dd>
+            </div>
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Goal:</dt>
+              <dd>Make the recommendation the thing sellers actually understand and act on.</dd>
+            </div>
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Impact:</dt>
+              <dd>$980K incremental annual revenue. Selling rate +8.37%. Adoption +4.38%.</dd>
+            </div>
+          </dl>
+
           <section class="cs-section" id="impact">
-            <p class="cs-section__label">Impact</p>
+            <p class="cs-section__label">What I did</p>
             <ul class="cs-section__list">
-              <li>
-                Shipped 2 pricing growth experiments across desktop and mobile web, driving $980K incremental annual revenue with an 8.37% lift in selling rate and 4.38% lift in adoption.
-              </li>
-              <li>
-                Defined interaction models, edge cases, and fallbacks across mobile and web, partnering with Product, Engineering, Research, Design, and Legal through deployment.
-              </li>
-              <li>
-                Ran 5 Jobs-to-be-Done interviews and paired findings with quantitative data to shape seller strategy and simplify pricing decisions.
-              </li>
-              <li>
-                Prototyped end-to-end concepts in Claude Code, Figma Make, Cursor, and Figma so leadership could pressure-test ideas before engineering investment.
-              </li>
+              <li>Shipped 2 pricing experiments across desktop and mobile.</li>
+              <li>Ran 5 JTBD interviews and paired them with the numbers we already had.</li>
+              <li>Defined states, edge cases, and fallbacks with Product, Eng, Research, Design, and Legal.</li>
+              <li>Prototyped end-to-end concepts before asking engineering to build.</li>
             </ul>
           </section>
 
           <section class="cs-section" id="overview">
             <p class="cs-section__label">Overview</p>
             <h2 class="cs-section__heading">
-              Turning confusing data into an actionable pricing decision
+              Pricing is hard. The product made it harder.
             </h2>
             <p class="cs-section__body">
-              Selling tickets is hard. Figuring out what to price it at, when to change the price, when to sell, there are so many factors to consider.
+              Selling tickets means guessing price, timing, and demand all at once. SeatGeek already had recommendations — sellers just weren’t using them the way we hoped.
             </p>
             <figure class="cs-media">
               <img
@@ -161,15 +175,15 @@
           <section class="cs-section" id="problem">
             <p class="cs-section__label">Problem</p>
             <h2 class="cs-section__heading">
-              Sellers had information, but weren't making confident pricing decisions
+              More information wasn’t helping
             </h2>
             <p class="cs-section__body">
-              Through an initial audit and conversations with PMs, designers, engineers, and the broader seller team, I identified three core problems:
+              After auditing the flow and talking to PMs, designers, engineers, and sellers, three things kept showing up:
             </p>
             <ul class="cs-section__list">
-              <li>Sellers were pricing tickets too high.</li>
-              <li>Sellers weren't understanding why they should trust our recommendations.</li>
-              <li>Sellers weren't consistently adopting Smart Pricing.</li>
+              <li>Sellers priced too high.</li>
+              <li>They didn’t trust why we recommended a number.</li>
+              <li>Smart Pricing adoption stayed inconsistent.</li>
             </ul>
 
             <figure class="cs-media cs-media--stat">
@@ -184,10 +198,10 @@
           <section class="cs-section" id="exploration">
             <p class="cs-section__label">Defining</p>
             <h2 class="cs-section__heading">
-              What if we gave sellers more context?
+              First idea: give them more context
             </h2>
             <p class="cs-section__subheading">
-              My initial hypothesis was: Users will price better if we give them more data they can trust.
+              Hypothesis: sellers price better if we give them data they can trust.
             </p>
             <figure class="cs-media">
               <img
@@ -213,24 +227,21 @@
           <section class="cs-section" id="iterating">
             <p class="cs-section__label">Iterating</p>
             <h2 class="cs-section__heading">
-              Design and product direction changed several times
+              The plan changed — and that was the point
             </h2>
             <p class="cs-section__body">
-              Recent Sales added significant complexity to the experience and increased the amount of information sellers had to interpret.
+              Recent Sales piled on complexity. Worse: recent sale prices were above our recommendation about 60–66% of the time. More comps weren’t going to fix trust.
             </p>
             <p class="cs-section__body">
-              More importantly, historical analysis showed that recent sale prices were above SeatGeek's recommendation roughly 60–66% of the time.
-            </p>
-            <p class="cs-section__body">
-              There were several problems with shipping this growth experiment and after aligning with product and engineering we decided the first issue to tackle would be influencing the pricing decision. A lower lift experiment with higher impact needed to be shipped.
+              With product and engineering, we agreed on a tighter plan: influence the pricing decision first. Smaller surface. Clearer bet.
             </p>
             <p class="cs-section__subheading">Instead of:</p>
             <p class="cs-section__callout">
-              "How can we give sellers more data to help them price better?"
+              "How can we give sellers more data?"
             </p>
             <p class="cs-section__subheading">I asked:</p>
             <p class="cs-section__callout">
-              "How might we design an experiment that moves the needle and enforces behavior change in sellers?"
+              "How do we change what sellers actually do at the moment of pricing?"
             </p>
             <figure class="cs-media">
               <img
@@ -244,16 +255,16 @@
           <section class="cs-section" id="solution">
             <p class="cs-section__label">Solution</p>
             <h2 class="cs-section__heading">
-              Making the recommendation easier to understand and act on
+              Make the recommendation impossible to miss
             </h2>
             <p class="cs-section__body">
-              I explored how pricing insights could help sellers understand:
+              Sellers needed one clear read:
             </p>
             <p class="cs-section__flow">
-              Where the market is → Where they're priced → Where they should be
+              Where the market is → Where they are → Where they should be
             </p>
             <p class="cs-section__body">
-              Rather than overwhelming sellers with more information, the final direction focused on making the recommendation itself more actionable.
+              So I stopped adding insights and made the recommendation the product.
             </p>
             <figure class="cs-media cs-media--compact">
               <img
@@ -264,23 +275,18 @@
             </figure>
             <p class="cs-section__subheading">Decisions I called:</p>
             <ol class="cs-section__list cs-section__list--decisions">
-              <li>Make the recommendation the biggest takeaway</li>
-              <li>Keep data accessible and reasoning simple to understand</li>
-              <li>
-                Make sure the visualization bar grounds the user in our recommendation
-                but still gives them agency to make a decision
-              </li>
+              <li>Recommendation is the headline, not a footnote</li>
+              <li>Show just enough reasoning — not a data dump</li>
+              <li>Use the bar to ground them, without taking away their choice</li>
             </ol>
             <p class="cs-section__body">
-              I defined the experience across pricing states, thresholds, missing data, and
-              fallbacks so the experiment could actually ship. It’s currently live and
-              collecting data!
+              I defined the states, missing-data cases, and fallbacks so it could ship. It’s live and collecting data.
             </p>
             <div class="cs-feature-row">
               <div class="cs-feature-row__copy">
                 <h3 class="cs-feature-row__title">$980K</h3>
                 <p class="cs-feature-row__body">
-                  Estimated annualized revenue impact shipping Mobile and Desktop for Seller Team! With sell through rate up by 8.37% and adoption up by 3.87% in a month.
+                  Estimated annualized revenue impact after shipping mobile and desktop. Sell-through +8.37%. Adoption +3.87% in a month.
                 </p>
               </div>
               <figure class="cs-feature-row__media">

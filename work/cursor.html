@@ -29,7 +29,7 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../case-study.css?v=74" />
+    <link rel="stylesheet" href="../case-study.css?v=76" />
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -40,7 +40,7 @@
       <aside class="cs-sidebar" aria-label="Case study navigation">
         <a class="cs-sidebar__back" href="../index.html">← Back</a>
         <nav class="cs-sidebar__nav" aria-label="Sections">
-          <a class="is-active" href="#impact" aria-current="true">Impact</a>
+          <a class="is-active" href="#impact" aria-current="true">What I did</a>
           <a href="#overview">Overview</a>
           <a href="#problem">Problem</a>
           <a href="#research">Research</a>
@@ -121,52 +121,65 @@
             </h1>
           </header>
 
+          <p class="cs-brief__title">TLDR;</p>
+          <dl class="cs-brief" aria-label="TLDR">
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Problem:</dt>
+              <dd>
+                Getting started in Cursor was confusing — unclear nav, weird terms, slow first project.
+              </dd>
+            </div>
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Target audience:</dt>
+              <dd>Developers at every level.</dd>
+            </div>
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Goal:</dt>
+              <dd>Make first-run obvious, fast, and usable for beginners without blocking power users.</dd>
+            </div>
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Impact:</dt>
+              <dd>Research + early redesign that clarified onboarding and got the team aligned on a first-run direction.</dd>
+            </div>
+          </dl>
+
           <section class="cs-section" id="impact">
-            <p class="cs-section__label">Impact</p>
+            <p class="cs-section__label">What I did</p>
             <ul class="cs-section__list">
-              <li>
-                Led research interviews, identifying key user pain points and improving onboarding and accessibility, resulting in a more intuitive user experience for both beginners and experienced developers.
-              </li>
-              <li>
-                Led wireframing and early design iterations, addressing navigation issues and confusing terminology, resulting in a streamlined onboarding experience for users at all skill levels.
-              </li>
-              <li>
-                Created and presented design decks, clearly communicating user insights and design decisions, which helped align the team and stakeholders on key product directions.
-              </li>
+              <li>Ran research interviews and pulled out the real blockers.</li>
+              <li>Wireframed early onboarding directions.</li>
+              <li>Presented decks so the team could agree on a plan.</li>
             </ul>
           </section>
 
           <section class="cs-section" id="overview">
             <p class="cs-section__label">Overview</p>
             <h2 class="cs-section__heading">
-              Testing whether Cursor works for novice and experienced developers
+              Does Cursor actually work for everyone?
             </h2>
             <p class="cs-section__body">
-              Cursor is an AI-powered code editor designed to help developers in writing, debugging, and optimizing code.
-            </p>
-            <p class="cs-section__body">
-              Declaring that it was made for both novice and experienced developers, we wanted to test how well it actually works for different types of users. In our analysis, we tested getting started with Cursor, how helpful AI suggestions are, and whether it is an intuitive experience.
+              Cursor says it’s for novice and experienced developers. We tested that claim: setup, first project, AI help, and whether the product felt understandable.
             </p>
           </section>
 
           <section class="cs-section" id="problem">
             <p class="cs-section__label">Problem</p>
             <h2 class="cs-section__heading">
-              The problem space
+              First-run was the failure mode
             </h2>
             <p class="cs-section__body">
-              While using Cursor, we found that many users struggled with onboarding, understanding the interface and starting a new project.
+              Using Cursor ourselves, the same issues kept repeating:
             </p>
             <ul class="cs-section__list">
-              <li>Onboarding is hard to understand</li>
-              <li>Interface includes hidden features and unfamiliar terminology</li>
-              <li>Starting a new project takes too long</li>
+              <li>Onboarding was hard to follow</li>
+              <li>Features and terms were buried</li>
+              <li>Starting a new project took too long</li>
             </ul>
-            <p class="cs-section__subheading">Our goals</p>
+            <p class="cs-section__subheading">Goals</p>
             <ol class="cs-section__list">
-              <li>Make it easier for new users to understand the onboarding</li>
-              <li>Fewer usability errors and hesitations</li>
-              <li>Make it faster and much simpler to create a new project</li>
+              <li>Clearer onboarding for new users</li>
+              <li>Fewer hesitations mid-flow</li>
+              <li>Faster path to a new project</li>
             </ol>
             <figure class="cs-media">
               <img
@@ -184,7 +197,7 @@
             </h2>
             <p class="cs-section__subheading">Competitive audit</p>
             <p class="cs-section__body">
-              We began with a competitive audit to understand how other AI-powered editors and developer tools approach onboarding, first-run experiences, and surfacing AI features.
+              We looked at how other AI editors handle onboarding and first-run — what they show, what they hide, and how they get you coding.
             </p>
             <figure class="cs-media">
               <img
@@ -199,18 +212,18 @@
             </p>
             <p class="cs-section__subheading">Design version 1</p>
             <p class="cs-section__body">
-              Based on our audit and early synthesis, we explored a first design direction focused on clearer entry points, simplified navigation, and a more guided first-run experience.
+              First pass: clearer entry points, simpler nav, more guidance on day one. Expand the option space, then pick.
             </p>
           </section>
 
           <section class="cs-section" id="unmoderated">
             <p class="cs-section__label">Unmoderated testing</p>
             <h2 class="cs-section__heading">
-              Testing download, setup, and first use
+              Download, setup, first use
             </h2>
-            <p class="cs-section__subheading">Using usertesting.com and Dovetail</p>
+            <p class="cs-section__subheading">usertesting.com + Dovetail</p>
             <p class="cs-section__body">
-              We conducted 3 unmoderated interviews. Using usertesting.com, we screened and recruited experienced developers to conduct a task flow downloading and using Cursor, then using our prototype.
+              3 unmoderated sessions with experienced developers: download Cursor, start a project, then try our prototype.
             </p>
             <p class="cs-section__subheading">Our tasks for unmoderated testers</p>
             <ol class="cs-section__list">
@@ -228,7 +241,7 @@
             </figure>
             <p class="cs-section__subheading">Insights</p>
             <p class="cs-section__body">
-              Based on the interviews, we identified what worked well across onboarding, AI interaction, and the beginner experience:
+              What worked:
             </p>
             <figure class="cs-media">
               <img
@@ -244,12 +257,9 @@
             <h2 class="cs-section__heading">
               Prototype walkthroughs and live feedback
             </h2>
-            <p class="cs-section__subheading">Using Figma and Dovetail</p>
+            <p class="cs-section__subheading">Figma + Dovetail</p>
             <p class="cs-section__body">
-              Similarly, recruiting participants, we conducted 3 moderated interviews on Zoom.
-            </p>
-            <p class="cs-section__body">
-              Our participants were experienced developers, two familiar with Cursor, and one new to Cursor.
+              3 moderated Zoom sessions. Experienced developers — two already on Cursor, one new.
             </p>
             <p class="cs-section__subheading">Our tasks for moderated testers</p>
             <ol class="cs-section__list">
@@ -267,42 +277,30 @@
               “Yeah, I definitely think adding these three buttons will benefit like beginners or people who are not very familiar with VS code who just want to start live coding.”
             </p>
             <p class="cs-section__subheading">Insights</p>
-            <p class="cs-section__body">
-              Based on the interviews, our identified user pain points:
-            </p>
             <ul class="cs-section__list">
-              <li>Search and discovery patterns are unclear: users need stronger visual affordances when one action opens another layer of the interface.</li>
-              <li>Pre-signup education is too thin: new users want a clearer explanation of what Cursor is before committing to download or create an account.</li>
-              <li>Beginners need explicit starting paths: guided entry points help users who are less familiar with VS Code get into live coding faster.</li>
+              <li>Search needs clearer cues when one action opens another layer.</li>
+              <li>Before signup, people want a plain explanation of what Cursor is.</li>
+              <li>Beginners need obvious start paths — not VS Code fluency on day one.</li>
             </ul>
           </section>
 
           <section class="cs-section" id="solution">
             <p class="cs-section__label">Solution</p>
             <h2 class="cs-section__heading">
-              A more guided first-run experience for every skill level
+              Guide the first run. Don’t dumb down the rest.
             </h2>
             <p class="cs-section__body">
-              Our proposed redesign focused on making Cursor’s value clearer before signup, simplifying how users start a new project, and giving beginners obvious entry points without hiding power-user workflows.
-            </p>
-            <p class="cs-section__body">
-              Design version 1 introduced clearer onboarding language, more visible navigation for core actions, and beginner-friendly starting options informed by both unmoderated and moderated testing.
+              Make value clear before signup. Make “new project” obvious. Give beginners start buttons without hiding power-user flows.
             </p>
           </section>
 
           <section class="cs-section" id="conclusion">
             <p class="cs-section__label">Outcomes and reflections</p>
             <h2 class="cs-section__heading">
-              What we learned and where we’d go next
+              What stuck
             </h2>
             <p class="cs-section__body">
-              We learned how important it is to design onboarding especially more intuitively, with clarity, and with different experience levels and accessibility in mind.
-            </p>
-            <p class="cs-section__body">
-              We realized that even small changes like instruction or clearer buttons can ease hesitation for users.
-            </p>
-            <p class="cs-section__body">
-              If we had more time, we would’ve tested with an even wider range of users, including complete beginners, and incorporated accessibility needs earlier in the design. Moving forward, we plan to explore more personalized onboarding options, stronger support features like FAQs, and long-term testing to see how the experience holds up over time.
+              Onboarding has to work for different levels — and tiny copy/button changes can remove a lot of hesitation. Next: test with true beginners, bake accessibility in earlier, and keep measuring whether the first-run still holds as the product grows.
             </p>
           </section>
           </div>

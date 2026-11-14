@@ -29,7 +29,7 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../case-study.css?v=74" />
+    <link rel="stylesheet" href="../case-study.css?v=76" />
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -40,7 +40,7 @@
       <aside class="cs-sidebar" aria-label="Case study navigation">
         <a class="cs-sidebar__back" href="../index.html">← Back</a>
         <nav class="cs-sidebar__nav" aria-label="Sections">
-          <a class="is-active" href="#impact" aria-current="true">Impact</a>
+          <a class="is-active" href="#impact" aria-current="true">What I did</a>
           <a href="#overview">Overview</a>
           <a href="#problem">Problem</a>
           <a href="#exploration">Exploring</a>
@@ -123,21 +123,35 @@
             </h1>
           </header>
 
+          <p class="cs-brief__title">TLDR;</p>
+          <dl class="cs-brief" aria-label="TLDR">
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Problem:</dt>
+              <dd>
+                Onboarding was broken and the product felt cluttered — new teams couldn’t see value fast enough.
+              </dd>
+            </div>
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Target audience:</dt>
+              <dd>Ecommerce product teams using UserApproved.</dd>
+            </div>
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Goal:</dt>
+              <dd>Fix first-run, clean up the system, and make the tool usable day one.</dd>
+            </div>
+            <div class="cs-brief__row">
+              <dt class="cs-brief__label">Impact:</dt>
+              <dd>Shipped 5+ features. First-time activation +40%.</dd>
+            </div>
+          </dl>
+
           <section class="cs-section" id="impact">
-            <p class="cs-section__label">Impact</p>
+            <p class="cs-section__label">What I did</p>
             <ul class="cs-section__list">
-              <li>
-                Shipped over 5 core product features including redesigning onboarding and activation flows, increasing completion rates and improving first-time user activation by 40%.
-              </li>
-              <li>
-                Built and scaled a design system adopted across the entire product, cutting design-to-development handoff.
-              </li>
-              <li>
-                Collaborated directly with over 15 early users and senior product managers for feedback, interviews, usability tests, and UX audits that informed redesigns and simplified key workflows, implemented solutions in Figma.
-              </li>
-              <li>
-                Worked with a team of 4 to accelerate changes and ship quickly, directly coding frontend changes (React, TypeScript) to accelerate release cycles and reduce QA bottlenecks.
-              </li>
+              <li>Redesigned onboarding and activation.</li>
+              <li>Built a design system the whole product adopted.</li>
+              <li>Talked to 15+ early users and PMs, then turned that into Figma and code.</li>
+              <li>Shipped frontend changes in React/TypeScript with a team of 4.</li>
             </ul>
           </section>
 
@@ -152,47 +166,35 @@
           <section class="cs-section" id="overview">
             <p class="cs-section__label">Overview</p>
             <h2 class="cs-section__heading">
-              An AI tool for simulating users and testing product iterations
+              An AI tool for simulating users
             </h2>
             <p class="cs-section__body">
-              Over three months at a fast-moving AI startup, I wore multiple hats as a product design intern, designing, prototyping, coding, and testing across the product. I worked directly with engineers and early users to iterate quickly, shipping 5+ core features, building a design system, and leading key UX redesigns.
-            </p>
-            <p class="cs-section__body">
-              Userapproved is a UX research and product iteration tool simulating users to gain insights and test product iteration.
-            </p>
-            <p class="cs-section__body">
-              The goal was building an easy, customizable tool that teams could quickly adapt their workflows and use to improve products efficiently.
+              UserApproved helps teams pressure-test products with synthetic users. I joined as a design intern for three months — designing, prototyping, and shipping with engineers and early customers.
             </p>
           </section>
 
           <section class="cs-section" id="problem">
             <p class="cs-section__label">Problem</p>
             <h2 class="cs-section__heading">
-              Broken onboarding and cluttered UX made it hard to see value
+              People couldn’t get in, and once they did, it was noisy
             </h2>
             <p class="cs-section__body">
-              When I joined, three core problems were holding the product back:
+              Three things were blocking the product:
             </p>
             <ul class="cs-section__list">
-              <li>
-                Onboarding and activation flows were fragmented and confusing, with limited activation for new users and an unclear first experience.
-              </li>
-              <li>
-                The core product experience was cluttered: dashboards, reports, and navigation structures were overwhelming and workflows weren’t optimized for efficiency.
-              </li>
-              <li>
-                The product had no consistent design system, which slowed collaboration between design and engineering and introduced inconsistencies into the UI.
-              </li>
+              <li>Onboarding was confusing — new users didn’t know what to do first.</li>
+              <li>Dashboards and reports were overloaded.</li>
+              <li>No shared design system, so every screen felt different.</li>
             </ul>
           </section>
 
           <section class="cs-section" id="exploration">
             <p class="cs-section__label">Exploring</p>
             <h2 class="cs-section__heading">
-              Mapping the product experience
+              Audit first, then talk to people
             </h2>
             <p class="cs-section__body">
-              Initially, I had to create audits to analyze the existing product. Through audits I got an idea of where there might be friction points in the user experience, and what to start to build on when interviewing users. Then I conducted market research, understanding the product space and competitor products.
+              I mapped the product, marked friction, checked competitors, then used that as the interview script.
             </p>
             <figure class="cs-media">
               <img
@@ -213,17 +215,15 @@
           <section class="cs-section" id="defining">
             <p class="cs-section__label">Defining</p>
             <h2 class="cs-section__heading">
-              Understanding what users needed through interviews
+              10 interviews. Same three themes.
             </h2>
-            <p class="cs-section__subheading">Research: Interviews</p>
             <p class="cs-section__body">
-              I conducted a total of 10 interviews across QA Testers, Product Managers, and Product Designers. This was the most exciting and rewarding part of conducting research because I really understood what users wanted! Especially being on such a small team, being able to hear pain points directly from experienced users and relevant customers was really helpful.
+              I talked to QA, PMs, and designers. On a tiny team, hearing users directly was the scorecard — not our internal opinions.
             </p>
-            <p class="cs-section__body">Some key insights learned were:</p>
             <ul class="cs-section__list">
-              <li>Insight 1: Onboarding is confusing, users need clearer guidance and personalization</li>
-              <li>Insight 2: The report is overwhelming, users need summaries, fast synthesis, clear communication.</li>
-              <li>Insight 3: The interface is confusing, users need a unified design system and structure.</li>
+              <li>Onboarding needs clearer steps and personalization.</li>
+              <li>Reports need a snapshot, not a wall of text.</li>
+              <li>The UI needs one system, not a pile of one-offs.</li>
             </ul>
             <p class="cs-section__callout">
               "I'd rather have that step by step. This is me. This is what I'm looking for, and then you give me what I want."
@@ -252,10 +252,10 @@
           <section class="cs-section" id="design">
             <p class="cs-section__label">Design</p>
             <h2 class="cs-section__heading">
-              Designing activation flows for new users
+              Activation, then structure
             </h2>
             <p class="cs-section__body">
-              After getting the green light on the proposals, I was able to start designing! I started with creating iterations of activations for new users, first mapping it out in a user flow and then creating suggested changes to show the team.
+              Once we agreed on the plan, I mapped activation flows and brought options to the team before locking a direction.
             </p>
             <figure class="cs-media">
               <img
@@ -269,26 +269,22 @@
           <section class="cs-section" id="iterating">
             <p class="cs-section__label">Iterating</p>
             <h2 class="cs-section__heading">
-              Prioritizing onboarding, navigation, and clearer reporting
+              We cut scope to what users actually asked for
             </h2>
-            <p class="cs-section__body">I prioritized working on:</p>
             <ol class="cs-section__list">
-              <li>Simplified onboarding and dashboard flow for clearer user value</li>
-              <li>Better information architecture especially for navigation and project creation</li>
-              <li>Decluttering report/Communicating impact more effectively</li>
+              <li>Simpler onboarding and dashboard</li>
+              <li>Clearer nav and project creation</li>
+              <li>Reports that communicate impact fast</li>
             </ol>
           </section>
 
           <section class="cs-section" id="solution">
             <p class="cs-section__label">Solution</p>
             <h2 class="cs-section__heading">
-              Foundational design structuring the product experience and design system
+              A system the product could grow on
             </h2>
             <p class="cs-section__body">
-              I learned so much and shipped over 5 core product features including redesigning onboarding and activation flows, increasing completion rates and improving first-time user activation by 40%. I worked through several ideas implementing what was important to the user especially with improving the sitemap, organizing different features, and shaping the report pages. I built and scaled a design system adopted across the entire product, cutting design-to-development handoff.
-            </p>
-            <p class="cs-section__body">
-              I learned how to move fast, make confident design calls, and back up my reasoning even when things were uncertain. Beyond design skills, I picked up skills that school could never teach me: shipping real features, collaborating deeply with engineers, and building systems that scale.
+              I shipped the onboarding redesign, cleaned up IA and reports, and built a design system engineering could reuse. Activation went up 40%. More importantly, we had a shared structure — so the next features didn’t invent a new UI every time.
             </p>
           </section>
 

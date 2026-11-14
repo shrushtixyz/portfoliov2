@@ -29,7 +29,7 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../case-study.css?v=74" />
+    <link rel="stylesheet" href="../case-study.css?v=76" />
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -40,7 +40,7 @@
       <aside class="cs-sidebar" aria-label="Case study navigation">
         <a class="cs-sidebar__back" href="../index.html">← Back</a>
         <nav class="cs-sidebar__nav" aria-label="Sections">
-          <a class="is-active" href="#impact" aria-current="true">Impact</a>
+          <a class="is-active" href="#impact" aria-current="true">What I did</a>
           <a href="#overview">Overview</a>
           <a href="#problem">Problem</a>
           <a href="#research">Research</a>
@@ -116,42 +116,50 @@
               </h1>
             </header>
 
+            <p class="cs-brief__title">TLDR;</p>
+            <dl class="cs-brief" aria-label="TLDR">
+              <div class="cs-brief__row">
+                <dt class="cs-brief__label">Problem:</dt>
+                <dd>
+                  Kids are curious about money. Most tools are built for adults, and school barely covers the hard parts.
+                </dd>
+              </div>
+              <div class="cs-brief__row">
+                <dt class="cs-brief__label">Target audience:</dt>
+                <dd>Kids learning money skills, with parents in the loop.</dd>
+              </div>
+              <div class="cs-brief__row">
+                <dt class="cs-brief__label">Goal:</dt>
+                <dd>A family product where kids can practice budgeting and investing safely — and parents can see what’s happening.</dd>
+              </div>
+              <div class="cs-brief__row">
+                <dt class="cs-brief__label">Impact:</dt>
+                <dd>Defined strategy, IA, and onboarding for a kids finance app with simulated money practice.</dd>
+              </div>
+            </dl>
+
             <section class="cs-section" id="impact">
-              <p class="cs-section__label">Impact</p>
+              <p class="cs-section__label">What I did</p>
               <ul class="cs-section__list">
-                <li>
-                  Defined the product strategy for a kids-focused financial platform.
-                </li>
-                <li>
-                  Simplified complex financial concepts into learning experiences through structured lessons, tutorials, and interactive practice.
-                </li>
-                <li>
-                  Designed the core IA and onboarding flow.
-                </li>
-                <li>
-                  Created simulated budgeting and investing experiences in a safe environment to build real-world financial skills.
-                </li>
-                <li>
-                  Shaped a family-oriented product model that balanced child autonomy with parental visibility and guidance.
-                </li>
+                <li>Set the product direction for a kids finance platform.</li>
+                <li>Turned abstract money concepts into lessons kids can actually try.</li>
+                <li>Designed IA and onboarding.</li>
+                <li>Balanced kid autonomy with parent visibility.</li>
               </ul>
             </section>
 
             <section class="cs-section" id="overview">
               <p class="cs-section__label">Overview</p>
               <h2 class="cs-section__heading">
-                Financial literacy app for kids
+                Money skills, before bad habits stick
               </h2>
               <p class="cs-section__body">
-                Kinvest is an educational app which manages a debit card, credit card, stocks, and basic bank information for kids teaching them in a safe environment.
+                Kinvest teaches kids banking, cards, and stocks in a safe practice environment. I started it after watching my little brother try to make sense of money — curious, but stuck with adult tools and thin school coverage.
               </p>
               <p class="cs-section__body">
-                This project was inspired by my little brother, watching him try to make sense of financial concepts made the gap in the market feel personal. Kids especially now are curious about money, but most tools are built for adults and school isn't really helping.
-              </p>
-              <p class="cs-section__body">
-                While 75% of U.S. students reported learning about budgets in school, only 22% reported learning about compound interest, 19% about credit card interest, and 13% about diversification (
+                75% of U.S. students learn budgets in school. Only 22% learn compound interest, 19% credit card interest, 13% diversification (
                 <a href="https://www.oecd.org/en/publications/pisa-2022-results-volume-iv-factsheets_34d60137-en/united-states_baf87dc7-en.html" target="_blank" rel="noopener noreferrer">OECD PISA 2022</a>
-                ). There is a clear gap in this market.
+                ).
               </p>
               <figure class="cs-media cs-media--spaced cs-media--inspiration">
                 <img
@@ -165,33 +173,24 @@
             <section class="cs-section" id="problem">
               <p class="cs-section__label">Problem</p>
               <h2 class="cs-section__heading">
-                Parents struggle to find tools that teach and apply financial literacy
+                Parents want to teach money. The tools don’t help.
               </h2>
               <p class="cs-section__body">
-                Parents struggle to find accessible tools that combine educational value with practical application to teach financial literacy to their children from an early age.
+                There’s almost nothing that teaches and lets kids practice — in language they understand.
               </p>
             </section>
 
             <section class="cs-section" id="research">
               <p class="cs-section__label">Research</p>
               <h2 class="cs-section__heading">
-                Understanding Alex and the competitive landscape
+                Start with the user, not the product
               </h2>
               <p class="cs-section__callout">
-                “Many young people lack the basic financial knowledge and skills to manage money, and without early intervention, these deficiencies can lead to costly mistakes in adulthood.”
-                Lusardi, A., &amp; Mitchell, O. S. (2014).
-                <em>The Economic Importance of Financial Literacy: Theory and Evidence.</em>
-                Journal of Economic Literature
+                “Honestly, I’m not sure how to even explain building credit to my kid. No one ever taught me… I don’t know where to start, but I do believe in starting early.”
+                — Parent of a middle schooler
               </p>
               <p class="cs-section__body">
-                There’s a gap between what schools teach and what kids actually need to manage real-life spending, saving, and investing. Kinvest is here to close that gap, making money skills fun, visual, and trackable before bad habits form.
-              </p>
-              <p class="cs-section__callout">
-                “Honestly, I’m not sure how to even explain building credit to my kid. No one ever taught me and I had to learn on my own when I moved to America, I don’t know where to start, but I do believe in starting early.”
-                Parent of a middle schooler
-              </p>
-              <p class="cs-section__body">
-                I started by defining a primary user persona, mapping empathy, analyzing competitors, and identifying the core pain points that made financial education feel out of reach for kids.
+                I defined a primary persona (Alex), mapped empathy, checked competitors, and wrote down the blockers that kept money learning out of reach.
               </p>
 
               <p class="cs-section__subheading">User Persona</p>
@@ -221,73 +220,52 @@
                 />
               </figure>
 
-              <p class="cs-section__subheading">Pain Points</p>
+              <p class="cs-section__subheading">Pain points</p>
               <ul class="cs-section__list">
-                <li>
-                  <strong>Complexity of Financial Concepts</strong>: Alex may find financial concepts like stocks, investments, and compounding interest difficult to grasp due to their abstract nature and lack of simplified explanations for his age. There is a lot of information to retain.
-                </li>
-                <li>
-                  <strong>Limited Access to Age Appropriate Resources</strong>: Due to independent financials like investing, taxes, and credit cards only opening up after 18, school curriculums often do not cover it. This leaves limited resources and only the internet to try to understand everything involved.
-                </li>
-                <li>
-                  <strong>Lack of Guidance and Mentorship</strong>: Alex lacks a knowledgeable mentor who can explain financial concepts in a way that is understandable. Parents and teachers may not be specially trained to educate children about these topics.
-                </li>
-                <li>
-                  <strong>Hard time navigating various features</strong>: Financial platforms typically cater to adults with experience managing money. They may have intricate navigation menus, terminology, and jargon that Alex is unfamiliar with, making it difficult to understand.
-                </li>
+                <li>Money concepts feel abstract and dense for his age.</li>
+                <li>School barely covers credit, investing, or taxes.</li>
+                <li>Parents often don’t feel equipped to teach it.</li>
+                <li>Adult finance apps are full of jargon and dead ends.</li>
               </ul>
             </section>
 
             <section class="cs-section" id="analysis">
               <p class="cs-section__label">Analysis</p>
               <h2 class="cs-section__heading">
-                Turning research into product direction
+                Agree on the scorecard, then build
               </h2>
 
-              <p class="cs-section__subheading">Problem Statement</p>
+              <p class="cs-section__subheading">Problem</p>
               <p class="cs-section__body">
-                Alex is a middle school student who needs an accessible and effective method to learn financial literacy because he must prepare for his future and develop a comprehensive understanding of money management.
+                Alex needs a way to learn money that matches his age — before adulthood forces the lesson.
               </p>
 
-              <p class="cs-section__subheading">Product Goal Statement</p>
+              <p class="cs-section__subheading">Goal</p>
               <p class="cs-section__body">
-                Our app will let users learn essential financial literacy skills, including budgeting, saving, investing, and understanding credit and loans.
+                Teach budgeting, saving, investing, credit, and loans by letting kids:
               </p>
-              <p class="cs-section__body">By allowing the ability to:</p>
               <ul class="cs-section__list">
-                <li>Track financial goals</li>
-                <li>Simulate investment scenarios</li>
-                <li>Practice budgeting in a safe environment</li>
+                <li>Track goals</li>
+                <li>Simulate investing</li>
+                <li>Practice budgeting safely</li>
               </ul>
 
-              <p class="cs-section__subheading">Research Analysis</p>
+              <p class="cs-section__subheading">Principles for the product</p>
               <ul class="cs-section__list">
-                <li>
-                  <strong>Age appropriate, detailed, and concise financial education</strong>: Our app will emphasize structured learning modules that teach financial concepts (e.g., stocks, loans) in an age-appropriate and engaging manner, using interactive simulations and quizzes.
-                </li>
-                <li>
-                  <strong>Accessibility and navigation</strong>: Prioritize a user-friendly interface with clear navigation and simplified explanations of financial concepts, making it easier for families, including children like Alex, to navigate and use effectively.
-                </li>
-                <li>
-                  <strong>Parental Monitoring</strong>: Detailed progress reports, suggested activities for financial discussions, and customizable learning paths based on each child’s developmental stage and interests.
-                </li>
-                <li>
-                  <strong>Learning Impact and Measurement</strong>: To ensure concepts are completely clear, short assessments, interactive elements, and practice tutorials will be engaged.
-                </li>
+                <li>Age-right lessons — short, visual, try-it-now</li>
+                <li>Nav a kid can use without adult vocabulary</li>
+                <li>Parents can see progress without taking over</li>
+                <li>Check understanding with practice, not lectures</li>
               </ul>
-
-              <p class="cs-section__callout">
-                How might we leverage AI-driven personalization and interactive learning tools to make financial literacy engaging and accessible for families, empowering children like Alex to build lifelong skills for managing money responsibly and preparing for their future?
-              </p>
             </section>
 
             <section class="cs-section" id="information-architecture">
               <p class="cs-section__label">Information Architecture</p>
               <h2 class="cs-section__heading">
-                Structuring the product around learning, banking, and practice
+                Learn, bank, practice
               </h2>
               <p class="cs-section__body">
-                I mapped the app’s core areas (account, home, learn, pay, and trade) to balance education with practical money management and parental oversight.
+                Core areas: account, home, learn, pay, trade — education next to real money practice, with parent oversight built in.
               </p>
               <figure class="cs-media">
                 <img
@@ -301,10 +279,10 @@
             <section class="cs-section" id="wireframing">
               <p class="cs-section__label">Wireframing</p>
               <h2 class="cs-section__heading">
-                Exploring flows and early mobile layouts
+                Lots of options, then a flow
               </h2>
               <p class="cs-section__body">
-                I wireframed key screens across onboarding, home, learn, pay, and trade, then mapped the onboarding user flow from sign-up through first lesson tutorials.
+                I sketched onboarding, home, learn, pay, and trade — then mapped signup through the first lesson.
               </p>
               <figure class="cs-media">
                 <img
@@ -325,17 +303,11 @@
             <section class="cs-section" id="solution">
               <p class="cs-section__label">Solution</p>
               <h2 class="cs-section__heading">
-                An easier way for families to navigate finances together
+                Practice money together
               </h2>
               <p class="cs-section__body">
-                Providing an easier way for families to navigate finances by introducing stocks, money, credit and debit, and loans to kids to prepare them for the future. Kinvest will let users learn essential financial literacy skills, including budgeting, saving, investing, and understanding credit and loans.
+                Kinvest lets kids learn stocks, cards, and loans by doing — track goals, simulate investing, practice budgeting — while parents stay in the loop.
               </p>
-              <p class="cs-section__body">By allowing the ability to:</p>
-              <ol class="cs-section__list">
-                <li>Track financial goals</li>
-                <li>Simulate investment scenarios</li>
-                <li>Practice budgeting in a safe environment</li>
-              </ol>
               <figure class="cs-media">
                 <img
                   src="../assets/kinvestcaseimg1.png"
@@ -348,23 +320,13 @@
             <section class="cs-section" id="moving-forward">
               <p class="cs-section__label">Moving Forward</p>
               <h2 class="cs-section__heading">
-                What comes next for Kinvest
+                Next
               </h2>
-              <p class="cs-section__body">Moving forward, my focus will be on:</p>
               <ol class="cs-section__list">
-                <li>
-                  <strong>Expanding the Curriculum</strong>: Breaking down more advanced financial concepts (like interest, credit, and investing) into bite-sized breakdowns.
-                </li>
-                <li>
-                  <strong>Usability Testing</strong>: Conducting regular user testing with both kids and parents to understand what works, what confuses users, and how learning actually happens through the app.
-                </li>
-                <li>
-                  <strong>Iterating the Design</strong>: Refining the interface and interactions based on what makes learning more intuitive, fun, and self-directed.
-                </li>
+                <li>More advanced topics, still bite-sized</li>
+                <li>Test with kids and parents on what actually teaches</li>
+                <li>Keep iterating the UI around what makes learning stick</li>
               </ol>
-              <p class="cs-section__body">
-                Ultimately, Kinvest isn’t just about making money “fun.” It’s about giving kids real tools for life. By continuing to test, refine, and build, we can help close the financial literacy gap early.
-              </p>
             </section>
 
             <p class="cs-section__note">
